@@ -1,0 +1,3128 @@
+1592894806986:dat_dfs <- read_json("data/survey-0-dfs.json")
+1592894810243:library(readr)
+1592894810433:library(jsonlite)
+1592894812537:dat_dfs <- read_json("data/survey-0-dfs.json")
+1592894832892:dat_dfs
+1592894855093:dat_dfs <- as.data.frame(read_json("data/survey-0-dfs.json"))
+1592894858165:View(dat_dfs)
+1592894910256:dat_dfs <- read_csv("data/survey-0-dfs.csv")
+1592895009762:dat_dfs <- as.data.frame(read_json("data/survey-0-dfs.json"))
+1592895032091:dat_dfs <- read_csv("data/survey-0-dfs.csv")
+1592895041722:colnames(dat_dfs)
+1592898768691:dat_dfs <- read_csv("data/survey-0-dfs.csv")
+1592898769609:dat_dfs <- as.data.frame(read_json("data/survey-0-dfs.json"))
+1592898774682:dat_dfs <- read_csv("data/survey-0-dfs.csv")
+1592898780698:dat_dfs
+1592898786027:View(dat_dfs)
+1592898866058:dat_dfs <- as.data.frame(read_json("data/survey-0-dfs.json"))
+1592898869094:View(dat_dfs)
+1592898888439:dat_dfs <- as.data.frame(read_json("data/survey-0-dfs.json"))
+1592898893076:View(dat_dfs)
+1592898923702:dat_dfs <- read_json("data/survey-0-dfs.json")
+1592898928793:dat_dfs
+1592898932562:dat_dfs[[1]]
+1592898934961:dat_dfs[[2]]
+1592899137588:dat_dfs <- read_csv("data/survey-0-dfs.csv")
+1592899139722:View(dat_dfs)
+1592901604892:library(jsonlite)
+1592901605238:dfs_dat <- do.call(rbind, lapply(
+1592901607712:dfs_dat <- do.call(rbind, lapply(
+1592901608420:, FUN = function(item) {
+1592901608500:cbind("nome" = item$name
+1592901608522:, "nascimento" = item$birth_date
+1592901608545:, "email" = item$email
+1592901608565:, "genero" = item$gender
+1592901608624:, "estado_civil" = item$martial_status
+1592901608659:, "etinia" = item$ethnicity
+1592901608683:, "familia" = item$family
+1592901608705:, "orientacao_sexual" = item$sexual_orientation
+1592901608732:, "atividade" = item$activity
+1592901608754:, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901608787:cbind(paste0("dimensao", i) = item$summary[[i]])
+1592901608869:}))
+1592901608890:}))
+1592901611890:, FUN = function(item) {
+1592901611915:cbind("nome" = item$name
+1592901611944:, "nascimento" = item$birth_date
+1592901611973:, "email" = item$email
+1592901612002:, "genero" = item$gender
+1592901612034:, "estado_civil" = item$martial_status
+1592901612090:, "etinia" = item$ethnicity
+1592901612129:, "familia" = item$family
+1592901612150:, "orientacao_sexual" = item$sexual_orientation
+1592901612177:, "atividade" = item$activity
+1592901612197:, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901612218:cbind(paste0("dimensao", i) = item$summary[[i]])
+1592901612242:}))
+1592901612265:}))
+1592901682849:dfs_dat <- do.call(rbind, lapply(read_json("data/survey-0-dfs.json")
+1592901691902:dfs_dat <- do.call(rbind, lapply(read_json("data/survey-0-dfs.json"), FUN = function(item) {
+1592901695197:dfs_dat <- do.call(rbind, lapply(read_json("data/survey-0-dfs.json"), FUN = function(item) {
+1592901698830:}))
+1592901710955:dfs_dat <- do.call(
+1592901715318:dat_dfs[[2]])
+1592901720355:rbind
+1592901759469:, lapply(read_json("data/survey-0-dfs.json"), FUN = function(item) {
+1592901759493:cbind("nome" = item$name
+1592901759519:, "nascimento" = item$birth_date
+1592901759543:, "email" = item$email
+1592901759566:, "genero" = item$gender
+1592901759588:, "estado_civil" = item$martial_status
+1592901759609:, "etinia" = item$ethnicity
+1592901759629:, "familia" = item$family
+1592901759649:, "orientacao_sexual" = item$sexual_orientation
+1592901759669:, "atividade" = item$activity
+1592901759689:, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901759711:df <- dataframe(item$summary[[i]])
+1592901759733:colnames(df) <- paste0("dimensao", i)
+1592901759759:}))
+1592901759781:}))
+1592901810663:dfs_dat <- do.call(
+1592901810687:rbind
+1592901810711:, lapply(
+1592901810734:read_json("data/survey-0-dfs.json")
+1592901810757:, FUN = function(item) {
+1592901810817:cbind("nome" = item$name
+1592901810845:, "nascimento" = item$birth_date
+1592901810868:, "email" = item$email
+1592901810898:, "genero" = item$gender
+1592901810923:, "estado_civil" = item$martial_status
+1592901810946:, "etinia" = item$ethnicity
+1592901810965:, "familia" = item$family
+1592901810986:, "orientacao_sexual" = item$sexual_orientation
+1592901811008:, "atividade" = item$activity
+1592901811029:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901811047:# df <- dataframe(item$summary[[i]])
+1592901811083:# colnames(df) <- paste0("dimensao", i)
+1592901811107:#}
+1592901811130:))
+1592901811151:}))
+1592901825950:dfs_dat <- do.call(
+1592901825978:rbind
+1592901826002:, lapply(
+1592901826041:read_json("data/survey-0-dfs.json")
+1592901826063:, FUN = function(item) {
+1592901826086:cbind("nome" = item$name
+1592901826110:, "nascimento" = item$birth_date
+1592901826130:, "email" = item$email
+1592901826151:, "genero" = item$gender
+1592901826172:, "estado_civil" = item$martial_status
+1592901826193:, "etinia" = item$ethnicity
+1592901826213:, "familia" = item$family
+1592901826236:, "orientacao_sexual" = item$sexual_orientation
+1592901826257:, "atividade" = item$activity
+1592901826284:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901826306:# df <- dataframe(item$summary[[i]])
+1592901826331:# colnames(df) <- paste0("dimensao", i)
+1592901826351:#}
+1592901826396:))
+1592901826418:})
+1592901852923:, FUN = function(item) {
+1592901852953:cbind("nome" = item$name
+1592901852982:, "nascimento" = item$birth_date
+1592901853009:, "email" = item$email
+1592901853035:, "genero" = item$gender
+1592901853058:, "estado_civil" = item$martial_status
+1592901853078:, "etinia" = item$ethnicity
+1592901853104:, "familia" = item$family
+1592901853130:, "orientacao_sexual" = item$sexual_orientation
+1592901853157:, "atividade" = item$activity
+1592901853179:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901853204:# df <- dataframe(item$summary[[i]])
+1592901853227:# colnames(df) <- paste0("dimensao", i)
+1592901853258:#}
+1592901853281:)
+1592901853307:})
+1592901860946:dfs_dat <- do.call(
+1592901866664:)
+1592901871442:, FUN = function(item) {
+1592901871462:cbind("nome" = item$name
+1592901871486:, "nascimento" = item$birth_date
+1592901871505:, "email" = item$email
+1592901871524:, "genero" = item$gender
+1592901871543:, "estado_civil" = item$martial_status
+1592901871586:, "etinia" = item$ethnicity
+1592901871606:, "familia" = item$family
+1592901871632:, "orientacao_sexual" = item$sexual_orientation
+1592901871653:, "atividade" = item$activity
+1592901871673:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901871696:# df <- dataframe(item$summary[[i]])
+1592901871734:# colnames(df) <- paste0("dimensao", i)
+1592901871759:#}
+1592901871786:)
+1592901871811:})
+1592901904413:dfs_dat <- do.call(
+1592901904439:rbind, lapply(
+1592901904464:read_json("data/survey-0-dfs.json")
+1592901904493:, FUN = function(item) {
+1592901904517:data.frame("nome" = item$name
+1592901904540:, "nascimento" = item$birth_date
+1592901904564:, "email" = item$email
+1592901904587:, "genero" = item$gender
+1592901904624:, "estado_civil" = item$martial_status
+1592901904645:, "etinia" = item$ethnicity
+1592901904670:, "familia" = item$family
+1592901904692:, "orientacao_sexual" = item$sexual_orientation
+1592901904715:, "atividade" = item$activity
+1592901904737:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901904762:# df <- dataframe(item$summary[[i]])
+1592901904785:# colnames(df) <- paste0("dimensao", i)
+1592901904803:#}
+1592901904822:)
+1592901904846:}))
+1592901926159:dfs_dat <- do.call(
+1592901926185:rbind, lapply(
+1592901926207:read_json("data/survey-0-dfs.json")
+1592901926233:, FUN = function(item) {
+1592901926255:data.frame("nome" = item$name
+1592901926276:, "nascimento" = item$birth_date
+1592901926298:, "email" = item$email
+1592901926319:, "genero" = item$gender
+1592901926340:, "estado_civil" = item$martial_status
+1592901926362:, "etinia" = item$ethnicity
+1592901926381:, "familia" = item$family
+1592901926403:, "orientacao_sexual" = item$sexual_orientation
+1592901926423:, "atividade" = item$activity
+1592901926442:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901926464:# df <- dataframe(item$summary[[i]])
+1592901926485:# colnames(df) <- paste0("dimensao", i)
+1592901926511:#}
+1592901926533:)
+1592901926559:}))
+1592901965331:library(jsonlite)
+1592901965612:dfs_dat <- do.call(
+1592901965635:rbind, lapply(
+1592901965659:read_json("data/survey-0-dfs.json")
+1592901965683:, FUN = function(item) {
+1592901965705:data.frame("nome" = item$name
+1592901965730:, "nascimento" = item$birth_date
+1592901965754:, "email" = item$email
+1592901965782:#, "genero" = item$gender
+1592901965806:#, "estado_civil" = item$martial_status
+1592901965828:#, "etinia" = item$ethnicity
+1592901965849:#, "familia" = item$family
+1592901965869:#, "orientacao_sexual" = item$sexual_orientation
+1592901965891:#, "atividade" = item$activity
+1592901965912:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901965936:# df <- dataframe(item$summary[[i]])
+1592901965958:# colnames(df) <- paste0("dimensao", i)
+1592901965978:#}
+1592901966000:)
+1592901966022:}))
+1592901972319:View(dat_dfs)
+1592901979505:View(dfs_dat)
+1592901994599:dfs_dat <- do.call(
+1592901994622:rbind, lapply(
+1592901994643:read_json("data/survey-0-dfs.json")
+1592901994662:, FUN = function(item) {
+1592901994687:data.frame("nome" = item$name
+1592901994707:, "nascimento" = item$birth_date
+1592901994726:, "email" = item$email
+1592901994746:, "genero" = item$gender
+1592901994767:, "estado_civil" = item$martial_status
+1592901994789:, "etinia" = item$ethnicity
+1592901994809:#, "familia" = item$family
+1592901994828:#, "orientacao_sexual" = item$sexual_orientation
+1592901994849:#, "atividade" = item$activity
+1592901994868:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592901994894:# df <- dataframe(item$summary[[i]])
+1592901994917:# colnames(df) <- paste0("dimensao", i)
+1592901994942:#}
+1592901994967:)
+1592901994994:}))
+1592902011643:dfs_dat <- do.call(
+1592902011670:rbind, lapply(
+1592902011692:read_json("data/survey-0-dfs.json")
+1592902011717:, FUN = function(item) {
+1592902011737:data.frame("nome" = item$name
+1592902011757:, "nascimento" = item$birth_date
+1592902011784:, "email" = item$email
+1592902011807:, "genero" = item$gender
+1592902011833:, "estado_civil" = item$martial_status
+1592902011860:, "etinia" = item$ethnicity
+1592902011888:#, "familia" = item$family
+1592902011912:#, "orientacao_sexual" = item$sexual_orientation
+1592902011934:#, "atividade" = item$activity
+1592902011958:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902011978:# df <- dataframe(item$summary[[i]])
+1592902012001:# colnames(df) <- paste0("dimensao", i)
+1592902012020:#}
+1592902012038:)
+1592902012057:}))
+1592902029727:item <- read_json("data/survey-0-dfs.json")[[1]]
+1592902042156:item$email
+1592902057025:dfs_dat <- do.call(
+1592902057053:rbind, lapply(
+1592902057079:read_json("data/survey-0-dfs.json")
+1592902057104:, FUN = function(item) {
+1592902057131:data.frame("nome" = item$name
+1592902057152:, "nascimento" = item$birth_date
+1592902057175:, "email" = item$email
+1592902057196:, "genero" = item$gender
+1592902057216:, "estado_civil" = item$martial_status
+1592902057244:, "etinia" = item$ethnicity
+1592902057266:#, "familia" = item$family
+1592902057295:#, "orientacao_sexual" = item$sexual_orientation
+1592902057319:#, "atividade" = item$activity
+1592902057340:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902057359:# df <- dataframe(item$summary[[i]])
+1592902057380:# colnames(df) <- paste0("dimensao", i)
+1592902057398:#}
+1592902057418:)
+1592902057437:}))
+1592902088748:dfs_dat <- do.call(
+1592902088771:rbind, lapply(
+1592902088797:read_json("data/survey-0-dfs.json")
+1592902088822:, FUN = function(item) {
+1592902088860:data.frame("nome" = item$name
+1592902088898:, "nascimento" = item$birth_date
+1592902088920:, "email" = item$email
+1592902088942:, "genero" = item$email
+1592902088968:, "estado_civil" = item$marital_status
+1592902088993:, "etinia" = item$ethnicity
+1592902089014:#, "familia" = item$family
+1592902089036:#, "orientacao_sexual" = item$sexual_orientation
+1592902089054:#, "atividade" = item$activity
+1592902089072:#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902089098:# df <- dataframe(item$summary[[i]])
+1592902089121:# colnames(df) <- paste0("dimensao", i)
+1592902089145:#}
+1592902089166:)
+1592902089189:}))
+1592902103274:, FUN = function(item) {
+1592902103302:data.frame("nome" = item$name
+1592902103376:, "nascimento" = item$birth_date
+1592902103403:, "email" = item$email
+1592902103427:, "genero" = item$email
+1592902103454:, "estado_civil" = item$marital_status
+1592902103477:, "etinia" = item$ethnicity
+1592902103504:, "familia" = item$family
+1592902103531:, "orientacao_sexual" = item$sexual_orientation
+1592902103553:, "atividade" = item$activity
+1592902103585:, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902103608:df <- dataframe(item$summary[[i]])
+1592902103632:colnames(df) <- paste0("dimensao", i)
+1592902103654:}
+1592902103721:)
+1592902103741:}))
+1592902112775:, FUN = function(item) {
+1592902112802:data.frame("nome" = item$name
+1592902112830:, "nascimento" = item$birth_date
+1592902112856:, "email" = item$email
+1592902112881:, "genero" = item$email
+1592902112904:, "estado_civil" = item$marital_status
+1592902112927:, "etinia" = item$ethnicity
+1592902112947:, "familia" = item$family
+1592902112966:, "orientacao_sexual" = item$sexual_orientation
+1592902112987:, "atividade" = item$activity
+1592902113007:, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902113027:df <- dataframe(item$summary[[i]])
+1592902113047:colnames(df) <- paste0("dimensao", i)
+1592902113067:}
+1592902113095:))
+1592902113134:}))
+1592902125058:, FUN = function(item) {
+1592902125081:data.frame("nome" = item$name
+1592902125104:, "nascimento" = item$birth_date
+1592902125126:, "email" = item$email
+1592902125151:, "genero" = item$email
+1592902125176:, "estado_civil" = item$marital_status
+1592902125203:, "etinia" = item$ethnicity
+1592902125227:, "familia" = item$family
+1592902125255:, "orientacao_sexual" = item$sexual_orientation
+1592902125276:, "atividade" = item$activity
+1592902125301:}))
+1592902142962:dfs_dat <- do.call(
+1592902142986:rbind, lapply(
+1592902143017:read_json("data/survey-0-dfs.json")
+1592902143047:, FUN = function(item) {
+1592902143075:data.frame("nome" = item$name
+1592902143101:, "nascimento" = item$birth_date
+1592902143123:, "email" = item$email
+1592902143152:, "genero" = item$email
+1592902143178:, "estado_civil" = item$marital_status
+1592902143202:, "etinia" = item$ethnicity
+1592902143222:, "familia" = item$family
+1592902143246:, "orientacao_sexual" = item$sexual_orientation
+1592902143267:, "atividade" = item$activity
+1592902143290:)
+1592902143312:}))
+1592902147371:View(dfs_dat)
+1592902185979:do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902186006:df <- dataframe(item$summary[[i]])
+1592902186029:colnames(df) <- paste0("dimensao", i)
+1592902186052:}
+1592902186076:))
+1592902204372:do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902204394:df <- data.frame(item$summary[[i]])
+1592902204414:colnames(df) <- paste0("dimensao", i)
+1592902204437:}
+1592902210465:)
+1592902212278:)
+1592902240322:do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902240363:df <- data.frame(item$summary[[i]])
+1592902240389:colnames(df) <- paste0("dimensao", i)
+1592902240411:return(df)
+1592902240430:}))
+1592902242712:do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+1592902242734:df <- data.frame(item$summary[[i]])
+1592902242755:colnames(df) <- paste0("dimensao", i)
+1592902242777:return(df)
+1592902242796:}))
+1592902256044:seq(1,length(item$summary))
+1592902281223:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902281254:df <- data.frame(item$summary[[i]])
+1592902281284:colnames(df) <- paste0("dimensao", i)
+1592902281310:return(df)
+1592902281339:}))
+1592902291793:seq(1,length(item$results$summary))
+1592902311621:seq(1,length(item$results$answers
+1592902315735:))
+1592902324034:seq(1,length(item$results$answers[[1]]))
+1592902333006:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902333026:df <- data.frame(item$summary[[i]])
+1592902333049:colnames(df) <- paste0("dimensao", i)
+1592902333074:return(df)
+1592902333097:}))
+1592902347780:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902347803:df <- data.frame(item$results$summary[[i]])
+1592902347826:colnames(df) <- paste0("dimensao", i)
+1592902347850:return(df)
+1592902347873:}))
+1592902402924:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902402949:#df <- data.frame(item$results$summary[[i]])
+1592902402972:#colnames(df) <- paste0("dimensao", i)
+1592902402994:#return(df)
+1592902403018:cbind(paste0("dimensao", i) = item$results$summary[[i]])
+1592902403044:}))
+1592902413345:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902413372:#df <- data.frame(item$results$summary[[i]])
+1592902413399:#colnames(df) <- paste0("dimensao", i)
+1592902413428:#return(df)
+1592902413455:cbind(paste0("dimensao", i) = item$results$summary[[i]])
+1592902413480:}))
+1592902452357:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902452432:df <- data.frame(item$results$summary[[i]])
+1592902452464:colnames(df) <- paste0("dimensao", i)
+1592902452494:return(df)
+1592902452530:#cbind(paste0("dimensao", i) = item$results$summary[[i]])
+1592902452560:}))
+1592902475448:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902475470:df <- data.frame(paste0("dimensao", i) = item$results$summary[[i]])
+1592902475489:#colnames(df) <- paste0("dimensao", i)
+1592902475508:return(df)
+1592902475527:#cbind(paste0("dimensao", i) = item$results$summary[[i]])
+1592902475546:}))
+1592902505447:do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+1592902505477:df <- data.frame(item$results$summary[[i]])
+1592902505502:colnames(df) <- paste0("dimensao", i)
+1592902505528:return(df)
+1592902505556:#cbind(paste0("dimensao", i) = item$results$summary[[i]])
+1592902505579:}))
+1592902603140:seq(1,length(item$results$answers[[1]]))
+1592902613996:library(readr)
+1592902614222:dat_dfs <- read_csv("data/survey-0-dfs.csv")
+1592902622976:colnames(dfs_dat)
+1592902626723:library(readr)
+1592902633673:dfs_dat <- read_csv("data/survey-0-dfs.csv")
+1592902637045:colnames(dfs_dat)
+1592902686334:library(jsonlite)
+1592902686999:dfs_dat <- do.call(
+1592902687025:rbind, lapply(
+1592902687051:read_json("data/survey-0-dfs.json")
+1592902687078:, FUN = function(item) {
+1592902687102:data.frame("nome" = item$name
+1592902687128:, "nascimento" = item$birth_date
+1592902687151:, "email" = item$email
+1592902687172:, "genero" = item$email
+1592902687191:, "estado_civil" = item$marital_status
+1592902687209:, "etinia" = item$ethnicity
+1592902687232:, "familia" = item$family
+1592902687253:, "orientacao_sexual" = item$sexual_orientation
+1592902687271:, "atividade" = item$activity
+1592902687290:, do.call(cbind, lapply(seq(1,length(item$results$summary))
+1592902687309:, FUN = function(i) {
+1592902687327:df <- data.frame(item$results$summary[[i]])
+1592902687347:colnames(df) <- paste0("dimensao", i)
+1592902687371:return(df)
+1592902687393:}))
+1592902687412:, do.call(cbind, lapply(seq(1,length(item$results$answers[[1]]))
+1592902687439:, FUN = function(i) {
+1592902687459:df <- data.frame(item$results$answers[[1]][[i]])
+1592902687478:colnames(df) <- paste0("Q", i)
+1592902687498:return(df)
+1592902687518:}))
+1592902687538:)
+1592902687563:}))
+1592902691698:View(dfs_dat)
+1592902878405:library(jsonlite)
+1592902878791:dfs_dat <- do.call(
+1592902878814:rbind, lapply(
+1592902878844:read_json("data/survey-0-dfs.json")
+1592902878867:, FUN = function(item) {
+1592902878896:data.frame("nome" = item$name
+1592902878920:, "nascimento" = item$birth_date
+1592902878945:, "email" = item$email
+1592902878968:, "genero" = item$email
+1592902878996:, "estado_civil" = item$marital_status
+1592902879021:, "etinia" = item$ethnicity
+1592902879043:, "familia" = item$family
+1592902879064:, "orientacao_sexual" = item$sexual_orientation
+1592902879085:, "atividade" = item$activity
+1592902879120:, do.call(cbind, lapply(
+1592902879145:seq(1,length(item$results$summary))
+1592902879173:, FUN = function(i) {
+1592902879196:df <- data.frame(item$results$summary[[i]])
+1592902879219:colnames(df) <- paste0("dimensao", i)
+1592902879246:return(df)
+1592902879265:}))
+1592902879443:, do.call(cbind, lapply(
+1592902879470:seq(1,length(item$results$answers[[1]]))
+1592902879494:, FUN = function(i) {
+1592902879518:df <- data.frame(item$results$answers[[1]][[i]])
+1592902879538:colnames(df) <- paste0("Q", i)
+1592902879559:return(df)
+1592902879579:}))
+1592902879598:)
+1592902879619:}))
+1592902880975:library(readr)
+1592902881259:dfs_dat <- read_csv("data/survey-0-dfs.csv")
+1592902989588:library(readr)
+1592902989994:(dfs_dat <- read_csv("data/survey-0-dfs.csv"))
+1592927135203:library(jsonlite)
+1592927135574:dfs_dat <- do.call(
+1592927135596:rbind, lapply(
+1592927135618:read_json("data/survey-0-dfs.json")
+1592927135638:, FUN = function(item) {
+1592927135656:data.frame("nome" = item$name
+1592927135700:, "nascimento" = item$birth_date
+1592927135723:, "email" = item$email
+1592927135744:, "genero" = item$email
+1592927135883:, "estado_civil" = item$marital_status
+1592927135909:, "etinia" = item$ethnicity
+1592927135931:, "familia" = item$family
+1592927135954:, "orientacao_sexual" = item$sexual_orientation
+1592927136058:, "atividade" = item$activity
+1592927136083:, do.call(cbind, lapply(
+1592927136129:seq(1,length(item$results$summary))
+1592927136149:, FUN = function(i) {
+1592927136168:df <- data.frame(item$results$summary[[i]])
+1592927136190:colnames(df) <- paste0("dimensao", i)
+1592927136213:return(df)
+1592927136234:}))
+1592927136257:, do.call(cbind, lapply(
+1592927136283:seq(1,length(item$results$answers[[1]]))
+1592927136302:, FUN = function(i) {
+1592927136324:df <- data.frame(item$results$answers[[1]][[i]])
+1592927136346:colnames(df) <- paste0("Q", i)
+1592927136368:return(df)
+1592927136389:}))
+1592927136437:)
+1592927136465:}))
+1592927136891:library(readr)
+1592927138040:(dfs_dat <- read_csv("data/survey-0-dfs.csv"))
+1592927812690:## tratamento de respostas descuidadas (careless response)
+1592927812777:library(careless)
+1592927821840:longstring(dfs_dat)
+1592928254770:careless_dfs_long <- longstring (dfs_dat)
+1592928258747:boxplot (careless_dfs_long, main = "Boxplot do Longstring no DFS")
+1592928295873:?boxplot
+1592928323700:careless_dfs_long
+1592928547370:car::Boxplot(careless_dfs_long)
+1592928584148:dfs_dat[c(11,27),]
+1592928596641:View(dfs_dat[c(11,27),])
+1592928626905:car::Boxplot(careless_dfs_long, main = "Boxplot do Longstring no questionario DFS")
+1592928627383:View(dfs_dat[c(11,27),])
+1592928914213:(careless_dfs_long <- longstring (dfs_dat))
+1592929007205:?car::Boxplot
+1592929575498:library(jsonlite)   # biblioteca para o processamento de json
+1592929575660:library(readr)      # biblioteca para leitura de arquivos CVS
+1592929575806:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592929575963:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592929580461:dfs_dat <- do.call(
+1592929580493:rbind, lapply(
+1592929580533:read_json("data/survey-0-dfs.json")
+1592929580558:, FUN = function(item) {
+1592929580587:data.frame("nome" = item$name
+1592929580615:, "nascimento" = item$birth_date
+1592929580637:, "email" = item$email
+1592929580657:, "genero" = item$email
+1592929580678:, "estado_civil" = item$marital_status
+1592929580701:, "etinia" = item$ethnicity
+1592929580724:, "familia" = item$family
+1592929580750:, "orientacao_sexual" = item$sexual_orientation
+1592929580773:, "atividade" = item$activity
+1592929580796:, do.call(cbind, lapply(
+1592929580822:seq(1,length(item$results$summary))
+1592929580847:, FUN = function(i) {
+1592929580868:df <- data.frame(item$results$summary[[i]])
+1592929580891:colnames(df) <- paste0("dimensao", i)
+1592929580923:return(df)
+1592929580951:}))
+1592929580974:, do.call(cbind, lapply(
+1592929581002:seq(1,length(item$results$answers[[1]]))
+1592929581035:, FUN = function(i) {
+1592929581056:df <- data.frame(item$results$answers[[1]][[i]])
+1592929581080:colnames(df) <- paste0("Q", i)
+1592929581104:return(df)
+1592929581128:}))
+1592929581153:)
+1592929581174:}))
+1592929581485:## Leitura do arquivo CSV
+1592929581506:(dfs_dat <- read_csv("data/survey-0-dfs.csv"))
+1592929581617:(careless_dfs_long <- longstring (dfs_dat))
+1592929616192:(careless_dfs_long <- longstring (dfs_dat))
+1592929617683:Boxplot(careless_dfs_long, main = "Boxplot do Longstring no questionario DFS")
+1592929851659:(careless_dfs_long <- longstring (dfs_dat))
+1592929852051:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1592931107426:(careless_dfs_long <- longstring(dfs_dat, avg = T))
+1592931111953:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1592938280521:(careless_dfs_irv <- irv(dfs_dat, split = T, num.split = 4))
+1592938316169:?select
+1592939933252:library(jsonlite)   # biblioteca para o processamento de json
+1592939933413:library(readr)      # biblioteca para leitura de arquivos CVS
+1592939933600:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592939933759:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592939934139:library(dplyr)      # biblioteca para manipular data.frames
+1592939956307:select(dfs_dat, starts_with("Q"))
+1592939979605:(careless_dfs_long <- longstring(select(dfs_dat, starts_with("Q"))))
+1592939980265:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1592939984111:(careless_dfs_irv <- irv(select(dfs_dat, starts_with("Q")), split = T, num.split = 4))
+1592940027827:head(careless_dfs_irv)
+1592940672866:?irv
+1592940698840:careless_dfs_irv <- irv(select(dfs_dat, starts_with("Q")), split = T, num.split = 3)
+1592940703303:careless_dfs_irv
+1592940752916:order(careless_dfs_irv)
+1592940761431:order(careless_dfs_irv$irvTotal)
+1592940801162:careless_dfs_irv[which(order(careless_dfs_irv$irvTotal)),]
+1592940810847:which(order(careless_dfs_irv$irvTotal))
+1592940819630:careless_dfs_irv[order(careless_dfs_irv$irvTotal),]
+1592940848650:View(dfs_dat)
+1592940902273:careless_dfs_irv <- irv(select(dfs_dat, starts_with("Q")))#, split = T, num.split = 3)
+1592940904590:careless_dfs_irv[order(careless_dfs_irv$irvTotal),]
+1592940911455:careless_dfs_irv <- irv(select(dfs_dat, starts_with("Q")))#, split = T, num.split = 3)
+1592940913595:careless_dfs_irv[order(careless_dfs_irv$irvTotal),]
+1592940924232:order(careless_dfs_irv$irvTotal)
+1592940929185:careless_dfs_irv <- irv(select(dfs_dat, starts_with("Q")))#, split = T, num.split = 3)
+1592940934336:careless_dfs_irv
+1592940964317:order(careless_dfs_irv)
+1592940974551:careless_dfs_irv[order(careless_dfs_irv),]
+1592940980102:order(careless_dfs_irv)
+1592940982463:careless_dfs_irv <- irv(select(dfs_dat, starts_with("Q")))#, split = T, num.split = 3)
+1592940983341:careless_dfs_irv[order(careless_dfs_irv),]
+1592941016170:dfs_dat[order(careless_dfs_irv),]
+1592941028459:View(dfs_dat[order(careless_dfs_irv),])
+1592941774137:(careless_dfs_long <- longstring(resp_dfs_dat))
+1592941776633:## Leitura do arquivo CSV
+1592941776652:(dfs_dat <- read_csv("data/survey-0-dfs.csv"))
+1592941776883:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1592941778827:(careless_dfs_long <- longstring(resp_dfs_dat))
+1592941779089:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1592941788582:careless_dfs_irv <- irv(resp_dfs_dat)
+1592941791220:careless_dfs_irv
+1592941796769:(careless_dfs_irv <- irv(resp_dfs_dat))
+1592941891136:(careless_dfs_irv <- irv(resp_dfs_dat))
+1592941900596:(careless_dfs_irv)
+1592941928940:(which(careless_dfs_irv))
+1592941934202:(which(careless_dfs_irv))
+1592941939255:(careless_dfs_irv <- irv(resp_dfs_dat))
+1592941939901:(which(careless_dfs_irv))
+1592941947913:careless_dfs_irv
+1592941980268:(order(resp_dfs_dat))
+1592941988057:(order(careless_dfs_irv))
+1592942040619:head(resp_dfs_dat[order(careless_dfs_irv),] )
+1592942058481:order(careless_dfs_irv)
+1592942075117:(order(careless_dfs_irv)
+1592942080434:)
+1592942093938:(order(careless_dfs_irv))
+1592942147789:(careless_dfs_irv <- irv(resp_dfs_dat))
+1592942151104:order(careless_dfs_irv)
+1592942237411:resp_dfs_dat[(order(careless_dfs_irv)),]
+1592942269024:cbind(resp = order(careless_dfs_irv), resp_dfs_dat[(order(careless_dfs_irv)),])
+1592942287145:careless_dfs_irv
+1592942346747:(careless_dfs_irv <- irv(resp_dfs_dat))
+1592942347895:cbind(resp = order(careless_dfs_irv), IRV=careless_dfs_irv[order(careless_dfs_irv)], resp_dfs_dat[(order(careless_dfs_irv)),])
+1592942423335:## Leitura do arquivo CSV
+1592942423354:dfs_dat <- read_csv("data/survey-0-dfs.csv")
+1592942424277:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1592942429765:(careless_dfs_long <- longstring(resp_dfs_dat))
+1592942854703:careless_dfs_irv <- irv(resp_dfs_dat, split = T, num.split = 1)
+1592942857247:careless_dfs_irv
+1592942867718:careless_dfs_irv <- irv(resp_dfs_dat, split = T, num.split = 2)
+1592942871009:careless_dfs_irv
+1592942896509:careless_dfs_irv <- irv(resp_dfs_dat)
+1592942917335:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1592942935929:cbind(resp = careless_dfs_irv_idx
+1592942935945:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1592942935966:, resp_dfs_dat[careless_dfs_irv_idx,])
+1592942985001:(careless_dfs_long <- longstring(resp_dfs_dat))
+1592942985208:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1592942985421:careless_dfs_irv <- irv(resp_dfs_dat)
+1592942985786:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1592942986823:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1592942986842:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1592942986857:, resp_dfs_dat[careless_dfs_irv_idx,])
+1592943005824:head(careless_irv_df)
+1592943155881:dfs_dat[-c(11,27,14)]
+1592943268142:?write_csv
+1592943415204:dfs_dat[c(11,27,14),]
+1592943487778:dfs_dat[-c(11,27,14),]
+1592943807051:wants <- c('jsonlite', 'readr', 'careless', 'car','dplyr')
+1592943807258:has <- wants %in% rownames(installed.packages())
+1592943807424:if (any(!has)) install.packages(wants[!has])
+1592943807562:library(readr)      # biblioteca para leitura de arquivos CVS
+1592943807777:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592943807958:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592943808115:library(dplyr)      # biblioteca para manipular data.frames
+1592943808299:## Leitura do questionario DFS usando arquivo CSV
+1592943808315:dfs_dat <- read_csv("data/survey-0-dfs.csv")
+1592943808493:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1592943808687:(careless_dfs_long <- longstring(resp_dfs_dat))
+1592943809171:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1592943809716:careless_dfs_irv <- irv(resp_dfs_dat)
+1592943810152:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1592943810495:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1592943810510:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1592943810528:, resp_dfs_dat[careless_dfs_irv_idx,])
+1592943810821:head(careless_irv_df)
+1592943811246:write_csv(dfs_dat[c(11,27,14),], 'data/dfs-careless.csv')
+1592943811694:write_csv(dfs_dat[-c(11,27,14),], 'data/dfs.csv')
+1592943939244:wants <- c('jsonlite', 'readr', 'careless', 'car','dplyr')
+1592943939504:has <- wants %in% rownames(installed.packages())
+1592943939719:if (any(!has)) install.packages(wants[!has])
+1592943939920:library(readr)      # biblioteca para leitura de arquivos CVS
+1592943940199:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592943940409:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592943940647:library(dplyr)      # biblioteca para manipular data.frames
+1592945331393:wants <- c('jsonlite', 'readr', 'careless', 'car','dplyr')
+1592945331556:has <- wants %in% rownames(installed.packages())
+1592945331736:if (any(!has)) install.packages(wants[!has])
+1592945331907:library(readr)      # biblioteca para leitura de arquivos CVS
+1592945332132:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592945332323:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592945332545:library(dplyr)      # biblioteca para manipular data.frames
+1592945339375:## Leitura do questionario DFS usando arquivo CSV
+1592945339394:fss_dat <- read_csv("data/survey-0-fss.csv")
+1592945369889:## Leitura do questionario DFS usando arquivo CSV
+1592945369908:fss_dat <- read_csv("data/survey-0-fss.csv")
+1592945370462:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1592945379031:## Tratamento de respostas descuidadas (careless response)
+1592945379050:(careless_ffs_long <- longstring(resp_ffs_dat))
+1592945382532:## Leitura do questionario DFS usando arquivo CSV
+1592945382552:fss_dat <- read_csv("data/survey-0-fss.csv")
+1592945382919:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1592945390624:library(readr)      # biblioteca para leitura de arquivos CVS
+1592945390844:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592945391047:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592945391178:library(dplyr)      # biblioteca para manipular data.frames
+1592945391999:## Leitura do questionario DFS usando arquivo CSV
+1592945392018:fss_dat <- read_csv("data/survey-0-fss.csv")
+1592945392217:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1592945392891:## Tratamento de respostas descuidadas (careless response)
+1592945392909:(careless_ffs_long <- longstring(resp_ffs_dat))
+1592945425298:## Leitura do questionario DFS usando arquivo CSV
+1592945425316:fss_dat <- read_csv("data/survey-0-fss.csv")
+1592945425588:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1592945425883:## Tratamento de respostas descuidadas (careless response)
+1592945425901:(careless_ffs_long <- longstring(resp_fss_dat))
+1592945443844:Boxplot(careless_ffs_long, main = "Boxplot do Longstring para o FFS")
+1592945468713:## Tratamento de respostas descuidadas (careless response)
+1592945468735:(careless_ffs_long <- longstring(resp_fss_dat))
+1592945470839:Boxplot(careless_ffs_long, main = "Boxplot do Longstring para o FFS")
+1592945578145:## Tratamento de respostas descuidadas (careless response)
+1592945578167:(careless_ffs_long <- longstring(resp_fss_dat))
+1592945578892:Boxplot(careless_ffs_long, main = "Boxplot do Longstring para o FFS") # 11,27,42,13 respostas a ser eliminada
+1592945595917:careless_ffs_irv <- irv(resp_ffs_dat)
+1592945604680:careless_ffs_irv <- irv(resp_ffs_dat)
+1592945623752:wants <- c('jsonlite', 'readr', 'careless', 'car','dplyr')
+1592945623919:has <- wants %in% rownames(installed.packages())
+1592945624103:if (any(!has)) install.packages(wants[!has])
+1592945624247:library(readr)      # biblioteca para leitura de arquivos CVS
+1592945624647:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1592945624871:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1592945625015:library(dplyr)      # biblioteca para manipular data.frames
+1592945625534:## Leitura do questionario DFS usando arquivo CSV
+1592945625553:fss_dat <- read_csv("data/survey-0-fss.csv")
+1592945629487:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1592945635425:## Tratamento de respostas descuidadas (careless response)
+1592945635444:(careless_fss_long <- longstring(resp_fss_dat))
+1592945668442:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 11,27,42,13 respostas a ser eliminada
+1592945677311:careless_fss_irv <- irv(resp_fss_dat)
+1592945684073:careless_fss_irv_idx <- order(careless_fss_irv)
+1592945727064:careless_irv_df <- cbind(resp = careless_fss_irv_idx
+1592945727084:, IRV=careless_fss_irv[careless_fss_irv_idx]
+1592945727101:, resp_fss_dat[careless_fss_irv_idx,])
+1592945730617:head(careless_irv_df)
+1592945850399:## Tratamento de respostas descuidadas (careless response)
+1592945850419:(careless_fss_long <- longstring(resp_fss_dat))
+1592945850797:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 11,27,42,13 respostas a ser eliminada
+1592945851097:careless_fss_irv <- irv(resp_fss_dat)
+1592945851350:careless_fss_irv_idx <- order(careless_fss_irv)
+1592945851533:careless_irv_df <- cbind(resp = careless_fss_irv_idx
+1592945851551:, IRV=careless_fss_irv[careless_fss_irv_idx]
+1592945851564:, resp_fss_dat[careless_fss_irv_idx,])
+1592945852475:head(careless_irv_df)
+1592945853923:## Salvar respostas descuidadas e DFS sem respostas descuidadas
+1592945853941:write_csv(fss_dat[c(11,27,42,13,14),], 'data/fss-careless.csv')
+1592945854973:write_csv(fss_dat[-c(11,27,42,13,14),], 'data/fss.csv')
+1592945968881:## Tratamento de respostas descuidadas (careless response)
+1592945968901:(careless_fss_long <- longstring(resp_fss_dat))
+1592945975979:head(careless_irv_df)
+1592949404491:wants <- c('car','dplyr')
+1592949404681:has <- wants %in% rownames(installed.packages())
+1592949404843:if (any(!has)) install.packages(wants[!has])
+1592949405273:library(dplyr)
+1592949405635:library(car)
+1592949443030:read_csv('data/user-distribution.csv')
+1592949506450:## leitura de dados
+1592949506469:fss <- read_csv('data/fss.csv')
+1592949506712:users <- read_csv('data/user-distribution.csv')
+1592949554913:?merge
+1592949571219:dat <- merge(users, fss, by='email')
+1592949576363:colnames(dat)
+1592949625354:dat <- merge(users, fss, by='email')
+1592949625734:dat <- select(dat, starts_with("email", "cenario", "dimensao"))
+1592949628303:## leitura de dados
+1592949628332:fss <- read_csv('data/fss.csv')
+1592949628537:users <- read_csv('data/user-distribution.csv')
+1592949629125:dat <- merge(users, fss, by='email')
+1592949650597:## leitura de dados
+1592949650619:fss <- read_csv('data/fss.csv')
+1592949650795:users <- read_csv('data/user-distribution.csv')
+1592949651002:pre_dat <- merge(users, fss, by='email')
+1592949652001:dat <- select(pre_dat, starts_with("email", "cenario", "dimensao"))
+1592949657002:## leitura de dados
+1592949657022:fss <- read_csv('data/fss.csv')
+1592949657195:users <- read_csv('data/user-distribution.csv')
+1592949657798:pre_dat <- merge(users, fss, by='email')
+1592949677785:pre_dat <- merge(users, fss, by='email')
+1592949678140:dat <- select(pre_dat, starts_with("email"), starts_with("cenario"), starts_with("dimensao"))
+1592949685982:colnames(dat)
+1592949713170:colnames(fss)
+1592949729328:pre_dat <- merge(users, fss, by='email')
+1592949729819:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592949773316:## Leitura de dados
+1592949773334:fss <- read_csv('data/fss.csv')
+1592949773528:users <- read_csv('data/user-distribution.csv')
+1592949773727:pre_dat <- merge(users, fss, by='email')
+1592949774081:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592949854090:wilcox.test()
+1592949857696:?wilcox.test
+1592949971529:## Analises não paramétrica
+1592949971553:library(stats)
+1592950004950:wilcox.test(media~cenario, dat)
+1592950051044:## Analises não paramétrica
+1592950051062:library(stats)
+1592950051372:wilcox.test(media~cenario, dat, alternative = "less")
+1592950060274:wilcox.test(media~cenario, dat, alternative = "greater")
+1592950209727:library(rcompanion)
+1592950282572:## Analises não paramétrica
+1592950282589:library(stats)
+1592950283106:library(rcompanion)
+1592950285163:wilcox.test(media~cenario, dat, alternative = "greater")
+1592950316329:wilcoxonOneSampleR(dat$cenario)
+1592950448160:wilcox.test(media~cenario, dat, alternative = "greater", mu=0)
+1592950448758:wilcoxonOneSampleR(dat$cenario, mu=0)
+1592950471339:wilcox.test(media~cenario, dat, alternative = "greater", mu=3)
+1592950472943:wilcoxonOneSampleR(dat$cenario, mu=3)
+1592950484943:wilcox.test(media~cenario, dat, alternative = "greater", mu=3)
+1592950485324:wilcoxonOneSampleR(dat$media, mu=3)
+1592950489753:wilcoxonOneSampleR(dat$media)
+1592950498397:wilcoxonOneSampleR(dat$media, mu=0)
+1592950503685:wilcoxonOneSampleR(dat$media, mu=1)
+1592950509892:wilcox.test(media~cenario, dat, alternative = "greater", mu=3)
+1592950515095:wilcox.test(media~cenario, dat, alternative = "greater", mu=0)
+1592950527137:wilcox.test(media~cenario, dat, alternative = "greater")
+1592950539747:wilcox.test(media~cenario, dat)
+1592950698338:?wilcox_test
+1592950717400:library(coin)
+1592950722582:wilcox_test(media~cenario, dat)
+1592950743832:wilcox_test(media~cenario, dat)
+1592950816425:dat$cenario = factor(dat$cenario)
+1592950821021:wilcox_test(media~cenario, dat)
+1592951008417:wilcox_test(media~cenario, dat, alternative="greater")
+1592951013733:wilcox_test(media~cenario, dat, alternative="less")
+1592951044598:wilcox_test(media~cenario, dat, alternative="equal")
+1592951050925:wilcox_test(media~cenario, dat, alternative="two.sided")
+1592951073264:wilcox_test(media~cenario, dat, alternative="greater")
+1592951147248:wilcox.test(media~cenario, dat, alternative="greater")
+1592951368973:wilcoxonOneSampleR(dat$media)
+1592951377627:wilcoxonOneSampleR(dat$media, mu=0)
+1592951456372:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592951460843:(wt <- wilcox_test(media~cenario, dat, alternative="less"))
+1592951495589:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592951502717:wilcoxonOneSampleR(dat$media, mu=0)
+1592951506153:Z <- as.numeric(statistic(wt))
+1592951510300:pvalue <- pvalue(wt)
+1592951515238:(r <- abs(Z/sqrt(length(x))))
+1592951528395:(r <- abs(Z/sqrt(length(dat$media))))
+1592951670705:wilcoxonR(dat$media)
+1592951868380:library(rstatix)
+1592951888795:install.packages(rstatix)
+1592951894062:install.packages(rstatix)
+1592951972175:library(coin)
+1592951975828:wilcox_effsize()
+1592952045950:wants <- c('rcompanion', 'stats','car','dplyr','rstatix')
+1592952046005:has <- wants %in% rownames(installed.packages())
+1592952046174:if (any(!has)) install.packages(wants[!has])
+1592952047291:library(dplyr)
+1592952058988:install.packages("rstatix")
+1592952133600:install.packages(wants[!has])
+1592952146393:## Analises não paramétrica
+1592952146412:library(stats)
+1592952146627:library(coin)
+1592952146784:library(rcompanion)
+1592952147046:library(rstatix)
+1592952152135:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592952159316:## Leitura de dados
+1592952159339:fss <- read_csv('data/fss.csv')
+1592952159561:users <- read_csv('data/user-distribution.csv')
+1592952159786:pre_dat <- merge(users, fss, by='email')
+1592952160065:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592952163425:dat$cenario = factor(dat$cenario)
+1592952165540:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592952169820:## Leitura de dados
+1592952169840:fss <- read_csv('data/fss.csv')
+1592952170317:users <- read_csv('data/user-distribution.csv')
+1592952173999:library(dplyr)
+1592952174284:library(car)
+1592952175855:## Leitura de dados
+1592952175873:fss <- read_csv('data/fss.csv')
+1592952191765:?read_csv
+1592952230640:library(readr)
+1592952230894:library(dplyr)
+1592952232863:library(car)
+1592952234785:## Leitura de dados
+1592952234803:fss <- read_csv('data/fss.csv')
+1592952235049:users <- read_csv('data/user-distribution.csv')
+1592952235579:pre_dat <- merge(users, fss, by='email')
+1592952235860:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592952236393:dat$cenario = factor(dat$cenario)
+1592952238440:## Analises não paramétrica
+1592952238461:library(stats)
+1592952238647:library(coin)
+1592952238813:library(rcompanion)
+1592952239457:library(rstatix)
+1592952240519:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592952247788:## Leitura de dados
+1592952247806:fss <- read_csv('data/fss.csv')
+1592952248813:users <- read_csv('data/user-distribution.csv')
+1592952250144:pre_dat <- merge(users, fss, by='email')
+1592952250901:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592952252271:dat$cenario = factor(dat$cenario)
+1592952255722:## Analises não paramétrica
+1592952255740:library(stats)
+1592952256294:library(coin)
+1592952256788:library(rcompanion)
+1592952257219:library(rstatix)
+1592952258703:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592952266022:colnames(dat)
+1592952275008:dat$cenario
+1592952279542:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592952301493:colnames(dat)
+1592952307264:(wt <- wilcox_test(media~cenario, dat, alternative="greater"))
+1592952313345:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952320130:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952333498:wilcox_test(media~cenario, data = dat, alternative="greater")
+1592952349713:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952367545:wt
+1592952376395:View(wt)
+1592952394546:?wilcox_effsize
+1592952423671:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592952438450:Z <- as.numeric(statistic(wt))
+1592952438794:pvalue <- pvalue(wt)
+1592952441379:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952446294:Z <- as.numeric(statistic(wt))
+1592952454131:## Analises não paramétrica
+1592952454150:library(stats)
+1592952454349:library(coin)
+1592952454513:library(rcompanion)
+1592952454835:library(rstatix)
+1592952457536:Z <- as.numeric(statistic(wt))
+1592952476421:wt
+1592952508810:Z <- wt$statistic
+1592952510590:pvalue <- pvalue(wt)
+1592952519714:Z <- wt$statistic
+1592952520218:pvalue <- wt$p
+1592952521409:(r <- abs(Z/sqrt(length(dat$media))))
+1592952539981:Z
+1592952547545:length(dat$media)
+1592952552045:sqrt(length(dat$media))
+1592952555806:Z
+1592952561865:Z/sqrt(length(dat$media))
+1592952570449:Z <- wt$statistic
+1592952570838:pvalue <- wt$p
+1592952573427:pvalue
+1592952576705:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592952593738:library(readr)
+1592952593948:library(dplyr)
+1592952594111:library(car)
+1592952594737:## Leitura de dados
+1592952594761:fss <- read_csv('data/fss.csv')
+1592952595091:users <- read_csv('data/user-distribution.csv')
+1592952595535:pre_dat <- merge(users, fss, by='email')
+1592952595880:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592952596576:dat$cenario = factor(dat$cenario)
+1592952598455:## Analises não paramétrica
+1592952598475:library(stats)
+1592952598745:library(coin)
+1592952598979:library(rcompanion)
+1592952599474:library(rstatix)
+1592952600188:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952644164:wilcoxonOneSampleR(dat$media, mu=)
+1592952647652:wilcoxonOneSampleR(dat$media, mu=0)
+1592952652072:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592952675223:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952885598:library(readr)
+1592952885833:library(dplyr)
+1592952886200:library(car)
+1592952887141:## Leitura de dados
+1592952887161:fss <- read_csv('data/fss.csv')
+1592952887906:users <- read_csv('data/user-distribution.csv')
+1592952888173:pre_dat <- merge(users, fss, by='email')
+1592952888411:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592952891092:dat$cenario = factor(dat$cenario)
+1592952893686:## Analises não paramétrica
+1592952893706:library(stats)
+1592952894306:library(coin)
+1592952899396:library(rcompanion)
+1592952901723:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592952912656:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592952952463:Z <- as.numeric(statistic(wt))
+1592952953568:pvalue <- pvalue(wt)
+1592952961795:(r <- abs(Z/sqrt(length(dat$media))))
+1592952976552:install.packages("rstatix")
+1592952990093:install.packages("rstatix")
+1592953066862:library(rstatix)
+1592953067930:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592953071579:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592953164564:## Analises não paramétrica
+1592953164581:library(stats)
+1592953168033:library(coin)
+1592953168991:library(rcompanion)
+1592953171150:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592953192867:Z <- as.numeric(statistic(wt))
+1592953193134:pvalue <- pvalue(wt)
+1592953193968:(r <- abs(Z/sqrt(length(dat$media))))
+1592953198043:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592953228002:## Analises não paramétrica
+1592953228019:library(stats)
+1592953228226:library(coin)
+1592953228484:library(rcompanion)
+1592953229216:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592953231542:#
+1592953231560:library(rstatix)
+1592953232384:wilcox_effsize(dat, media~cenario, alternative = "greater")
+1592953240226:Z <- as.numeric(statistic(wt))
+1592953240871:pvalue <- pvalue(wt)
+1592953241828:(r <- abs(Z/sqrt(length(dat$media))))
+1592953510757:## Analises não paramétrica
+1592953510775:library(stats)
+1592953511148:library(coin)
+1592953512463:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592953524546:wants <- c('rcompanion', 'stats','car','dplyr','rstatix','readr')
+1592953524773:has <- wants %in% rownames(installed.packages())
+1592953524964:if (any(!has)) install.packages(wants[!has])
+1592953526653:library(readr)
+1592953526667:library(dplyr)
+1592953526891:library(car)
+1592953527121:## Leitura de dados
+1592953527139:fss <- read_csv('data/fss.csv')
+1592953531837:install.packages(wants[!has])
+1592959237767:wants <- c('car','dplyr','rstatix','readr')
+1592959238216:has <- wants %in% rownames(installed.packages())
+1592959238620:if (any(!has)) install.packages(wants[!has])
+1592959241206:library(readr)
+1592959241259:library(dplyr)
+1592959250518:install.packages(wants[!has])
+1592959848640:library(readr)
+1592959848974:library(dplyr)
+1592959849290:library(rstatix)
+1592959854090:## Leitura de dados
+1592959854108:fss <- read_csv('data/fss.csv')
+1592959854382:users <- read_csv('data/user-distribution.csv')
+1592959854621:pre_dat <- merge(users, fss, by='email')
+1592959855321:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592959858316:dat$cenario = factor(dat$cenario)
+1592959870369:(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+1592959891746:?wilcox_test
+1592959958347:?wilcox_effsize
+1592960006535:wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+1592960032219:## Analises não paramétrica
+1592960032240:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592960032665:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592960149332:(wt <- wilcox_test(dimensao1~cenario, data = dat, alternative = "greater"))
+1592960155214:(wt <- wilcox_test(dimensao2~cenario, data = dat, alternative = "greater"))
+1592960159060:(wt <- wilcox_test(dimensao3~cenario, data = dat, alternative = "greater"))
+1592960162797:(wt <- wilcox_test(dimensao4~cenario, data = dat, alternative = "greater"))
+1592960166610:(wt <- wilcox_test(dimensao5~cenario, data = dat, alternative = "greater"))
+1592960170107:(wt <- wilcox_test(dimensao6~cenario, data = dat, alternative = "greater"))
+1592960174808:(wt <- wilcox_test(dimensao7~cenario, data = dat, alternative = "greater"))
+1592960178941:(wt <- wilcox_test(dimensao8~cenario, data = dat, alternative = "greater"))
+1592960183821:(wt <- wilcox_test(dimensao9~cenario, data = dat, alternative = "greater"))
+1592960198914:?rbind
+1592960219332:## Analises não paramétrica
+1592960219351:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592960220865:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592960574817:## Leitura de dados
+1592960574838:fss <- read_csv('data/fss.csv')
+1592960575067:users <- read_csv('data/user-distribution.csv')
+1592960575640:pre_dat <- merge(users, fss, by='email')
+1592960575961:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592960579232:dat$cenario = factor(dat$cenario)
+1592960583687:## Analises não paramétrica
+1592960583704:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592960584989:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592960607341:View(fss)
+1592960631123:View(pre_dat)
+1592961816856:library(readr)
+1592961817048:library(dplyr)
+1592961817243:library(rstatix)
+1592961818225:## Leitura de dados
+1592961818245:fss <- read_csv('data/fss.csv')
+1592961818939:users <- read_csv('data/user-distribution.csv')
+1592961819689:pre_dat <- merge(users, fss, by='email')
+1592961819981:dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+1592961820483:dat$cenario = factor(dat$cenario)
+1592961821141:## Analises não paramétrica
+1592961821160:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592961831089:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592962555279:?boxplot
+1592962567709:?car::Boxplot()
+1592962607537:car::Boxplot(media~cenario, data=dat)
+1592962677816:car::Boxplot(media~cenario, data=dat, outline = T)
+1592962701997:car::Boxplot(media~cenario, data=dat, notch=T)
+1592962892123:library(plotly)
+1592962925945:plot_ly(dat, media~cenario)
+1592962955358:plot_ly(dat, media~cenario, jitter = 0.3)
+1592962977855:plot_ly(dat, media~cenario, type = 'box', jitter = 0.3)
+1592963005051:plot_ly(dat, media~cenario, type = "box", boxpoints = "all", jitter = 0.3)
+1592963045208:plot_ly(dat, y=~media, type = "box", boxpoints = "all", jitter = 0.3)
+1592963069749:plot_ly(data=dat, x=~cenario, y=~media, type = "box", boxpoints = "all", jitter = 0.3)
+1592963139072:plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, type = "box", boxpoints = "all", jitter = 0.3)
+1592963249767:## Efetuar plot
+1592963249786:library(plotly)
+1592963250274:plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, type = "box", boxpoints = "all", jitter = 0.3)
+1592963515044:colnames(dat)
+1592963539103:pre_dat <- merge(users, fss, by='email')
+1592963546375:colnames(pre_dat)
+1592963565913:pre_dat <- merge(users, fss, by=c('email','name'))
+1592963586955:pre_dat <- merge(users, fss, by=c('email','nome'))
+1592963596337:colnames(pre_dat)
+1592963630751:## Leitura de dados
+1592963630770:fss <- read_csv('data/fss.csv')
+1592963630940:users <- read_csv('data/user-distribution.csv')
+1592963631136:dat <- merge(users, fss, by=c('email','nome'))
+1592963631714:dat$cenario = factor(dat$cenario)
+1592963636221:## Analises não paramétrica
+1592963636245:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592963636436:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592963636619:## Efetuar plot
+1592963636640:library(plotly)
+1592963642550:plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, text=~nome, type = "box", boxpoints = "all", jitter = 0.3)
+1592963816709:get_summary_stats(dat)
+1592963834501:View(get_summary_stats(dat))
+1592963892819:pre_dat <- merge(users, fss, by=c('email','nome'))
+1592963899423:colnames(pre_dat)
+1592963993724:## Leitura de dados
+1592963993740:fss <- read_csv('data/fss.csv')
+1592963993936:users <- read_csv('data/user-distribution.csv')
+1592963994121:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592963995215:dat <- select(pre_dat, starts_with("email"), starts_with("nome"), starts_with("dimensao"), starts_with("media"))
+1592963998284:dat$cenario = factor(dat$cenario)
+1592964003099:## Leitura de dados
+1592964003119:fss <- read_csv('data/fss.csv')
+1592964003341:users <- read_csv('data/user-distribution.csv')
+1592964059823:fss <- read_csv('data/fss.csv')
+1592964060033:users <- read_csv('data/user-distribution.csv')
+1592964077471:fss <- read_csv('data/fss.csv')
+1592964077732:users <- read_csv('data/user-distribution.csv')
+1592964078020:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592964079095:dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+1592964079114:, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1592964080055:dat$cenario = factor(dat$cenario)
+1592964082095:get_summary_stats(dat)
+1592964151252:## Efeituar estatistica descritiva
+1592964151272:get_summary_stats(dat)
+1592964179682:freq_table(dat)
+1592964181787:freq_table(dat)
+1592964189674:?freq_table
+1592964208178:freq_table(dat,cenario)
+1592964232724:?get_mode
+1592964281628:get_mode(dat$cenario)
+1592964287687:get_mode(dat$email)
+1592964300092:get_mode(dat$media)
+1592964341408:get_mode(dat$dimensao1)
+1592964351816:get_mode(dat$media)
+1592964652640:identify_outliers(dat)
+1592964661625:?identify_outliers
+1592964685461:identify_outliers(dat, media, dimensao1, dimensao2)
+1592964716162:identify_outliers(dat, media)
+1592964739552:identify_outliers(dat, "media")
+1592964751145:identify_outliers(dat, "dimension1")
+1592964753966:identify_outliers(dat, "dimension1")
+1592964761541:colnames(dat)
+1592964769806:identify_outliers(dat, "dimensao1")
+1592964777311:identify_outliers(dat, "dimensao1","media")
+1592964784562:identify_outliers(dat, c("dimensao1","media"))
+1592964795777:identify_outliers(dat, dimensao1)
+1592989616374:identify_outliers(dat, dimensao1)
+1592989654216:mahalanobis_distance(dat, media)
+1592989669430:mahalanobis_distance(dat)
+1592989732627:?mahalanobis_distance
+1592989804834:colnames(dat)
+1592989828486:mahalanobis_distance(dat,-media)
+1592989852846:mahalanobis_distance(dat, media)
+1592989911355:group_by(data, cenario)
+1592989924352:group_by(data, "cenario")
+1592989958259:iris
+1592989976987:group_by(data, cenario)
+1592990022371:mahalanobis_distance(dat, .)
+1592990031963:mahalanobis_distance(dat, ".")
+1592990052210:mahalanobis_distance(dat)
+1592990066224:mahalanobis_distance(dat, media)
+1592990113407:shapiro_test(dat)
+1592990119767:shapiro_test(dat, media)
+1592990127415:mshapiro_test(dat, media)
+1592990136662:mshapiro_test(dat)
+1592990147173:shapiro_test(dat, media, dimension1)
+1592990153926:shapiro_test(dat, media, dimensao1)
+1592990165650:shapiro_test(dat, media, dimensao1, dimensao2)
+1592990184130:?mshapiro_test
+1592990215829:colnames(dat)
+1592990260508:mshapiro_test(dat[,4:8])
+1592990292383:mshapiro_test(dat[,4:13])
+1592990303137:shapiro_test(dat, media, dimensao1, dimensao2)
+1592990742793:## Efeituar estatistica descritiva
+1592990742813:get_summary_stats(dat)
+1592990743791:freq_table(dat, cenario)
+1592990827833:freq_table(dat, cenario)
+1592990897970:# Detect univariate outliers using boxplot methods.
+1592990897990:identify_outliers(dat, dimensao1)
+1592990898633:mahalanobis_distance(dat, media)
+1592990904969:shapiro_test(dat, media, dimensao1, dimensao2)
+1592990983285:plot_ly
+1592990986895:?plot_ly
+1592991106050:library(readr)
+1592991106253:library(dplyr)
+1592991106440:library(rstatix)
+1592991106610:fss <- read_csv('data/fss.csv')
+1592991106822:users <- read_csv('data/user-distribution.csv')
+1592991107300:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592991107619:dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+1592991107635:, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1592991108828:dat$cenario = factor(dat$cenario)
+1592991112455:## Efeituar estatistica descritiva
+1592991112473:summary <- get_summary_stats(dat)
+1592991126521:## Efeituar estatistica descritiva
+1592991126541:(summary <- get_summary_stats(dat))
+1592991129938:(freq_tb <- freq_table(dat, cenario))
+1592991284944:## Efeituar estatistica descritiva
+1592991284964:(fss_summary <- get_summary_stats(dat))
+1592991286026:(fss_frequency <- freq_table(dat, cenario))
+1592991306844:write_csv(fss_summary, 'report/fss-summary.csv')
+1592991325811:write_csv(fss_frequency, 'report/fss-frequency.csv')
+1592991334922:## Analises não paramétrica
+1592991334940:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592991335294:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592991409155:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592991409173:, x=~cenario, y=~media, color=~cenario, text=~nome))
+1592991434758:?export
+1592991652813:## Efetuar plot
+1592991652832:library(plotly)
+1592991653509:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592991653528:, x=~cenario, y=~media, color=~cenario, text=~nome))
+1592991679156:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592991679174:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592992146896:as.widget(p)
+1592992196540:## Efetuar plot
+1592992196560:library(plotly)
+1592992197017:library(htmlwidgets)
+1592992310944:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592992310963:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592992312792:saveWidget(as.widget(p), "report/media-by-cenario-boxplot.html")
+1592992728651:?saveWidget
+1592992831637:## Efetuar plot
+1592992831657:library(plotly)
+1592992831888:library(htmlwidgets)
+1592992832537:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592992832555:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592992942042:export(p, "report/h1-experiencia-fluxo/media-flow-boxplot.png")
+1592992966397:?export
+1592993050679:orca(p, "report/h1-experiencia-fluxo/media-flow-boxplot.png")
+1592993176834:?export
+1592993202814:export(p, "report/h1-experiencia-fluxo/media-flow-boxplot.pdf")
+1592993227441:orca(p, "report/h1-experiencia-fluxo/media-flow-boxplot.pdf")
+1592993254946:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592993254965:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592993743448:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1592993743741:has <- wants %in% rownames(installed.packages())
+1592993743937:if (any(!has)) install.packages(wants[!has])
+1592993766062:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1592993766297:has <- wants %in% rownames(installed.packages())
+1592993766506:if (any(!has)) install.packages(wants[!has])
+1592993766973:library(readr)
+1592993775740:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592993775758:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592993777760:orca(p, "report/h1-experiencia-fluxo/media-flow-boxplot.pdf")
+1592995401070:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1592995401473:has <- wants %in% rownames(installed.packages())
+1592995401889:if (any(!has)) install.packages(wants[!has])
+1592995402498:library(readr)
+1592995402874:library(dplyr)
+1592995404865:library(rstatix)
+1592995409231:fss <- read_csv('data/fss.csv')
+1592995410474:users <- read_csv('data/user-distribution.csv')
+1592995411676:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592995412318:dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+1592995412344:, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1592995413084:dat$cenario = factor(dat$cenario)
+1592995424101:## Efeituar estatistica descritiva
+1592995424129:(fss_summary <- get_summary_stats(dat))
+1592995424603:(fss_frequency <- freq_table(dat, cenario))
+1592995426587:write_csv(fss_summary, 'report/fss-summary.csv')
+1592995426863:write_csv(fss_frequency, 'report/fss-frequency.csv')
+1592995430497:## Efetuar plot
+1592995430527:library(plotly)
+1592995432768:library(htmlwidgets)
+1592995435115:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592995435151:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592995439199:orca(p, "report/h1-experiencia-fluxo/media-flow-boxplot.png")
+1592995510517:orca(add_surface(p), "report/h1-experiencia-fluxo/media-flow-boxplot.png")
+1592995651595:orca(add_surface(p), "report/h1-experiencia-fluxo/media-flow-boxplot.pdf")
+1592995784049:orca(p, "report/h1-experiencia-fluxo/media-flow-boxplot.pdf")
+1592996082039:system("orca")
+1592996218972:## Analises não paramétrica
+1592996218993:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592996222223:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592996226760:non_param_test <- rbind(
+1592996226788:merge(wilcox_test(media~cenario, data = dat, alternative="greater")
+1592996226815:, wilcox_effsize(media~cenario, data = dat, alternative="greater"))
+1592996226846:, merge(wilcox_test(dimensao1~cenario, data = dat, alternative="greater")
+1592996226874:, wilcox_effsize(dimensao1~cenario, data = dat, alternative="greater"))
+1592996226899:, merge(wilcox_test(dimensao2~cenario, data = dat, alternative="greater")
+1592996226927:, wilcox_effsize(dimensao2~cenario, data = dat, alternative="greater"))
+1592996226956:, merge(wilcox_test(dimensao3~cenario, data = dat, alternative="greater")
+1592996226980:, wilcox_effsize(dimensao3~cenario, data = dat, alternative="greater"))
+1592996227008:, merge(wilcox_test(dimensao4~cenario, data = dat, alternative="greater")
+1592996227044:, wilcox_effsize(dimensao4~cenario, data = dat, alternative="greater"))
+1592996227074:, merge(wilcox_test(dimensao5~cenario, data = dat, alternative="greater")
+1592996227101:, wilcox_effsize(dimensao5~cenario, data = dat, alternative="greater"))
+1592996227130:, merge(wilcox_test(dimensao6~cenario, data = dat, alternative="greater")
+1592996227161:, wilcox_effsize(dimensao6~cenario, data = dat, alternative="greater"))
+1592996227196:, merge(wilcox_test(dimensao7~cenario, data = dat, alternative="greater")
+1592996227224:, wilcox_effsize(dimensao7~cenario, data = dat, alternative="greater"))
+1592996227255:, merge(wilcox_test(dimensao8~cenario, data = dat, alternative="greater")
+1592996227280:, wilcox_effsize(dimensao8~cenario, data = dat, alternative="greater"))
+1592996227305:, merge(wilcox_test(dimensao9~cenario, data = dat, alternative="greater")
+1592996227328:, wilcox_effsize(dimensao9~cenario, data = dat, alternative="greater"))
+1592996227352:)
+1592996233280:View(non_param_test)
+1592996281118:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-param-test.csv")
+1592996319944:orca(p)
+1592996552035:shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1592996552058:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9)
+1592996555417:shapiro
+1592997584442:(shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1592997584531:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9))
+1592997585994:write_csv(shapiro, "report/h1-experiencia-fluxo/shapiro-test.csv")
+1592998357613:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1592998357932:has <- wants %in% rownames(installed.packages())
+1592998358192:if (any(!has)) install.packages(wants[!has])
+1592998358463:library(readr)
+1592998358843:library(dplyr)
+1592998359134:library(rstatix)
+1592998364969:## Leitura de dados
+1592998365105:fss <- read_csv('data/fss.csv')
+1592998366034:users <- read_csv('data/user-distribution.csv')
+1592998370547:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592998373927:View(fss)
+1592998389038:## Efeituar estatistica descritiva
+1592998389093:(fss_summary <- get_summary_stats(dat))
+1592998393943:library(readr)
+1592998394139:library(dplyr)
+1592998394307:library(rstatix)
+1592998397367:## Leitura de dados
+1592998397426:fss <- read_csv('data/fss.csv')
+1592998397745:users <- read_csv('data/user-distribution.csv')
+1592998398423:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592998398767:dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+1592998398823:, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1592998399813:dat$cenario = factor(dat$cenario)
+1592998399932:## Efeituar estatistica descritiva
+1592998399978:(fss_summary <- get_summary_stats(dat))
+1592998419841:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592998420643:dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+1592998420695:, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1592998422178:dat$cenario = factor(dat$cenario)
+1592998427510:## Efeituar estatistica descritiva
+1592998427551:(fss_summary <- get_summary_stats(dat))
+1592998430346:(fss_frequency <- freq_table(dat, cenario))
+1592998431479:write_csv(fss_summary, 'report/fss-summary.csv')
+1592998436029:write_csv(fss_frequency, 'report/fss-frequency.csv')
+1592998438611:## Efetuar plot
+1592998438676:library(plotly)
+1592998439707:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592998439749:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592998446361:## Analises não paramétrica
+1592998446414:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592998458476:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592998460991:non_param_test <- rbind(
+1592998461088:merge(wilcox_test(media~cenario, data = dat, alternative="greater")
+1592998461127:, wilcox_effsize(media~cenario, data = dat, alternative="greater"))
+1592998461169:, merge(wilcox_test(dimensao1~cenario, data = dat, alternative="greater")
+1592998461207:, wilcox_effsize(dimensao1~cenario, data = dat, alternative="greater"))
+1592998461256:, merge(wilcox_test(dimensao2~cenario, data = dat, alternative="greater")
+1592998461298:, wilcox_effsize(dimensao2~cenario, data = dat, alternative="greater"))
+1592998461339:, merge(wilcox_test(dimensao3~cenario, data = dat, alternative="greater")
+1592998461407:, wilcox_effsize(dimensao3~cenario, data = dat, alternative="greater"))
+1592998461453:, merge(wilcox_test(dimensao4~cenario, data = dat, alternative="greater")
+1592998461485:, wilcox_effsize(dimensao4~cenario, data = dat, alternative="greater"))
+1592998461517:, merge(wilcox_test(dimensao5~cenario, data = dat, alternative="greater")
+1592998461554:, wilcox_effsize(dimensao5~cenario, data = dat, alternative="greater"))
+1592998461610:, merge(wilcox_test(dimensao6~cenario, data = dat, alternative="greater")
+1592998461666:, wilcox_effsize(dimensao6~cenario, data = dat, alternative="greater"))
+1592998461721:, merge(wilcox_test(dimensao7~cenario, data = dat, alternative="greater")
+1592998461761:, wilcox_effsize(dimensao7~cenario, data = dat, alternative="greater"))
+1592998461818:, merge(wilcox_test(dimensao8~cenario, data = dat, alternative="greater")
+1592998461873:, wilcox_effsize(dimensao8~cenario, data = dat, alternative="greater"))
+1592998461915:, merge(wilcox_test(dimensao9~cenario, data = dat, alternative="greater")
+1592998461952:, wilcox_effsize(dimensao9~cenario, data = dat, alternative="greater"))
+1592998462031:)
+1592998475951:View(non_param_test)
+1592998558951:library(readr)
+1592998559002:user_distribution <- read_csv("data/user-distribution.csv")
+1592998559060:View(user_distribution)
+1592998612271:library(readr)
+1592998612347:survey_0_dfs <- read_csv("data/survey-0-dfs.csv")
+1592998612439:View(survey_0_dfs)
+1592998710675:## Efetuar plot
+1592998710704:library(plotly)
+1592998712331:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592998712378:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592998939992:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1592998940210:has <- wants %in% rownames(installed.packages())
+1592998940414:if (any(!has)) install.packages(wants[!has])
+1592998940488:library(readr)
+1592998940700:library(dplyr)
+1592998940875:library(rstatix)
+1592998941019:## Leitura de dados
+1592998941061:fss <- read_csv('data/fss.csv')
+1592998941359:users <- read_csv('data/user-distribution.csv')
+1592998941638:pre_dat <- merge(users, fss, by=c("email","nome"))
+1592998942126:dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+1592998942174:, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1592998942537:dat$cenario = factor(dat$cenario)
+1592998943700:## Efeituar estatistica descritiva
+1592998943752:(fss_summary <- get_summary_stats(dat))
+1592998944155:(fss_frequency <- freq_table(dat, cenario))
+1592998948118:write_csv(fss_summary, 'report/fss-summary.csv')
+1592998948503:write_csv(fss_frequency, 'report/fss-frequency.csv')
+1592998948902:## Efetuar plot
+1592998948952:library(plotly)
+1592998949583:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1592998949640:, x=~cenario, y=~media, color=~cenario, text=~email))
+1592998950599:## Analises não paramétrica
+1592998950658:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592998951028:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592998996424:## Analises não paramétrica
+1592998996473:(wt <- wilcox_test(media~cenario, data = dat, alternative = "equal"))
+1592999006182:## Analises não paramétrica
+1592999006245:(wt <- wilcox_test(media~cenario, data = dat, alternative = "two.side"))
+1592999084565:## Analises não paramétrica
+1592999084628:(wt <- wilcox_test(media~cenario, data = dat, alternative = "lesser"))
+1592999087701:## Analises não paramétrica
+1592999087737:(wt <- wilcox_test(media~cenario, data = dat, alternative = "less"))
+1592999101420:## Analises não paramétrica
+1592999101467:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592999108469:## Analises não paramétrica
+1592999108509:(wt <- wilcox_test(media~cenario, data = dat, alternative = "less"))
+1592999158656:## Analises não paramétrica
+1592999158707:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592999170361:## Analises não paramétrica
+1592999170431:(wt <- wilcox_test(media~cenario, data = dat, alternative = "two.side"))
+1592999180002:## Analises não paramétrica
+1592999180060:(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+1592999201460:(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+1592999594366:library(readr)
+1592999594444:user_distribution <- read_csv("data/user-distribution.csv")
+1592999594521:View(user_distribution)
+1593000702477:(shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1593000702515:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9))
+1593000717239:write_csv(shapiro, "report/h1-experiencia-fluxo/shapiro-test.csv")
+1593000749732:identify_outliers(dat, dimensao1)
+1593000755370:mahalanobis_distance(dat, media)
+1593002476207:identify_outliers(dat, dimensao1)
+1593002479446:mahalanobis_distance(dat, media)
+1593003610368:for (v in c("media","dimensao1","dimensao2")) {
+1593003610428:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593003610461:, x=~cenario, y=~v, color=~cenario, text=~email))
+1593003610491:#orca(p)
+1593003610518:}
+1593003660978:for (v in c("media","dimensao1","dimensao2")) {
+1593003661027:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593003661060:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email))
+1593003661087:#orca(p)
+1593003661118:}
+1593003677293:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593003677332:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email))
+1593003717709:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593003717740:, x=~cenario, y=as.formula(paste0("~", "dimensao4")), color=~cenario, text=~email))
+1593003749728:for (v in c("media","dimensao1","dimensao2","dimensao3","dimensao4","dimensao5","dimensao6")) {
+1593003749762:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593003749795:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email))
+1593003749825:#orca(p)
+1593003749857:}
+1593003924644:orca(p)
+1593003991798:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593003991832:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email)
+1593004007434:v="dimensao6"
+1593004009512:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593004009570:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email)
+1593004011199:orca(p)
+1593004018330:p
+1593004060655:?stop
+1593004105747:readline(prompt="Press [enter] to continue")
+1593004132205:for (v in c("media","dimensao1","dimensao2","dimensao3","dimensao4","dimensao5","dimensao6")) {
+1593004132241:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593004132276:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email))
+1593004132328:readline(prompt="Press [enter] to continue")
+1593004132360:}
+1593004160922:?plotly
+1593004181055:for (v in c("media","dimensao1","dimensao2","dimensao3","dimensao4","dimensao5","dimensao6")) {
+1593004181081:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593004181111:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email)
+1593004181142:p
+1593004181182:readline(prompt="Press [enter] to continue")
+1593004181217:}
+1593004245301:?print
+1593004255051:for (v in c("media","dimensao1","dimensao2","dimensao3","dimensao4","dimensao5","dimensao6")) {
+1593004255081:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593004255112:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email)
+1593004255144:print(p)
+1593004255171:readline(prompt="Press [enter] to continue")
+1593004255204:}
+1593004384570:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593004384603:, x=~cenario, y=~media, color=~cenario, text=~email))
+1593004433822:for (v in c("dimensao1","dimensao2","dimensao3","dimensao4","dimensao5","dimensao6",
+1593004433870:"dimensao7","dimensao8","dimensao9","media")) {
+1593004433900:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593004433929:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email)
+1593004433967:print(p)
+1593004433996:readline(prompt="Press [enter] to continue")
+1593004434032:}
+1593004645054:(shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1593004645091:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9))
+1593004652630:write_csv(shapiro, "report/h1-experiencia-fluxo/shapiro-test.csv")
+1593004657667:identify_outliers(dat, dimensao1) # outliers na dimensao1 - método boxplot
+1593004658511:mahalanobis_distance(dat, media)  # outliers na media do flow - método mahalanobis
+1593004738517:?t_test
+1593004790523:t_test(media~cenario, data = dat, alternative = "greater")
+1593004820025:(tt <- t_test(media~cenario, data = dat, alternative = "greater"))
+1593004921725:?cohens_d
+1593004956089:cohens_d(media~cenario, data = dat)
+1593005028673:wilcox_test(media~cenario, data = dat, alternative = "greater")
+1593005030392:wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+1593005047809:t_test(media~cenario, data = dat, alternative = "greater")
+1593005048565:cohens_d(media~cenario, data = dat)
+1593005159999:t_test(media~cenario, data = dat)
+1593005179257:t_test(media~cenario, data = dat, alternative = "less")
+1593005183489:t_test(media~cenario, data = dat, alternative = "greater")
+1593005185738:cohens_d(media~cenario, data = dat)
+1593005203041:param_test <- rbind(
+1593005203077:merge(t_test(media~cenario, data = dat, alternative="greater")
+1593005203114:, cohens_d(media~cenario, data = dat, alternative="greater"))
+1593005203149:)
+1593005210383:merge(t_test(media~cenario, data = dat, alternative="greater")
+1593005210427:, cohens_d(media~cenario, data = dat, alternative="greater"))
+1593005223599:merge(t_test(media~cenario, data = dat, alternative="greater")
+1593005223637:, cohens_d(media~cenario, data = dat))
+1593005235557:wilcox_effsize(dimensao1~cenario, data = dat, alternative="greater")
+1593005243452:wilcox_effsize(dimensao1~cenario, data = dat)
+1593005261799:cohens_d(media~cenario, data = dat, alternative="greater")
+1593005279555:wilcox_effsize(media~cenario, data = dat)
+1593005288017:wilcox_effsize(dimensao1~cenario, data = dat, alternative="greater")
+1593005294764:wilcox_effsize(dimensao1~cenario, data = dat)
+1593005367012:param_test <- rbind(
+1593005367045:merge(t_test(media~cenario, data = dat, alternative="greater")
+1593005367072:, cohens_d(media~cenario, data = dat))
+1593005367101:, merge(t_test(dimensao1~cenario, data = dat, alternative="greater")
+1593005367129:, cohens_d(dimensao1~cenario, data = dat))
+1593005367156:)
+1593005369889:param_test
+1593005386603:param_test
+1593005524635:param_test <- rbind(
+1593005524666:merge(t_test(media~cenario, data = dat, alternative="greater")
+1593005524701:, cohens_d(media~cenario, data = dat))
+1593005524739:, merge(t_test(dimensao1~cenario, data = dat, alternative="greater")
+1593005524767:, cohens_d(dimensao1~cenario, data = dat))
+1593005524808:, merge(t_test(dimensao2~cenario, data = dat, alternative="greater")
+1593005524837:, cohens_d(dimensao2~cenario, data = dat))
+1593005524869:, merge(t_test(dimensao3~cenario, data = dat, alternative="greater")
+1593005524901:, cohens_d(dimensao3~cenario, data = dat))
+1593005524932:, merge(t_test(dimensao4~cenario, data = dat, alternative="greater")
+1593005524969:, cohens_d(dimensao4~cenario, data = dat))
+1593005525003:, merge(t_test(dimensao5~cenario, data = dat, alternative="greater")
+1593005525031:, cohens_d(dimensao5~cenario, data = dat))
+1593005525073:, merge(t_test(dimensao6~cenario, data = dat, alternative="greater")
+1593005525103:, cohens_d(dimensao6~cenario, data = dat))
+1593005525135:, merge(t_test(dimensao7~cenario, data = dat, alternative="greater")
+1593005525173:, cohens_d(dimensao7~cenario, data = dat))
+1593005525210:, merge(t_test(dimensao8~cenario, data = dat, alternative="greater")
+1593005525233:, cohens_d(dimensao8~cenario, data = dat))
+1593005525262:, merge(t_test(dimensao9~cenario, data = dat, alternative="greater")
+1593005525296:, cohens_d(dimensao9~cenario, data = dat))
+1593005525335:)
+1593005527630:param_test
+1593005611390:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1593005611572:has <- wants %in% rownames(installed.packages())
+1593005611717:if (any(!has)) install.packages(wants[!has])
+1593005612154:options(scipen = 999)
+1593005623288:t_test(media~cenario, data = dat)
+1593005623560:t_test(media~cenario, data = dat, alternative = "less")
+1593005623754:t_test(media~cenario, data = dat, alternative = "greater")
+1593005623963:cohens_d(media~cenario, data = dat)
+1593005625617:param_test <- rbind(
+1593005625669:merge(t_test(media~cenario, data = dat, alternative="greater")
+1593005625700:, cohens_d(media~cenario, data = dat))
+1593005625728:, merge(t_test(dimensao1~cenario, data = dat, alternative="greater")
+1593005625762:, cohens_d(dimensao1~cenario, data = dat))
+1593005625805:, merge(t_test(dimensao2~cenario, data = dat, alternative="greater")
+1593005625834:, cohens_d(dimensao2~cenario, data = dat))
+1593005625864:, merge(t_test(dimensao3~cenario, data = dat, alternative="greater")
+1593005625893:, cohens_d(dimensao3~cenario, data = dat))
+1593005625917:, merge(t_test(dimensao4~cenario, data = dat, alternative="greater")
+1593005625944:, cohens_d(dimensao4~cenario, data = dat))
+1593005625975:, merge(t_test(dimensao5~cenario, data = dat, alternative="greater")
+1593005626002:, cohens_d(dimensao5~cenario, data = dat))
+1593005626032:, merge(t_test(dimensao6~cenario, data = dat, alternative="greater")
+1593005626063:, cohens_d(dimensao6~cenario, data = dat))
+1593005626087:, merge(t_test(dimensao7~cenario, data = dat, alternative="greater")
+1593005626111:, cohens_d(dimensao7~cenario, data = dat))
+1593005626136:, merge(t_test(dimensao8~cenario, data = dat, alternative="greater")
+1593005626163:, cohens_d(dimensao8~cenario, data = dat))
+1593005626192:, merge(t_test(dimensao9~cenario, data = dat, alternative="greater")
+1593005626221:, cohens_d(dimensao9~cenario, data = dat))
+1593005626252:)
+1593005627289:param_test
+1593005669098:write_csv(param_test, "report/h1-experiencia-fluxo/param-test.csv")
+1593005684454:wilcox_test(media~cenario, data = dat, alternative = "greater")
+1593005686124:wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+1593005687714:non_param_test <- rbind(
+1593005687744:merge(wilcox_test(media~cenario, data = dat, alternative="greater")
+1593005687779:, wilcox_effsize(media~cenario, data = dat))
+1593005687806:, merge(wilcox_test(dimensao1~cenario, data = dat, alternative="greater")
+1593005687835:, wilcox_effsize(dimensao1~cenario, data = dat))
+1593005687866:, merge(wilcox_test(dimensao2~cenario, data = dat, alternative="greater")
+1593005687894:, wilcox_effsize(dimensao2~cenario, data = dat))
+1593005687919:, merge(wilcox_test(dimensao3~cenario, data = dat, alternative="greater")
+1593005687945:, wilcox_effsize(dimensao3~cenario, data = dat))
+1593005687973:, merge(wilcox_test(dimensao4~cenario, data = dat, alternative="greater")
+1593005688002:, wilcox_effsize(dimensao4~cenario, data = dat))
+1593005688029:, merge(wilcox_test(dimensao5~cenario, data = dat, alternative="greater")
+1593005688056:, wilcox_effsize(dimensao5~cenario, data = dat))
+1593005688087:, merge(wilcox_test(dimensao6~cenario, data = dat, alternative="greater")
+1593005688125:, wilcox_effsize(dimensao6~cenario, data = dat))
+1593005688155:, merge(wilcox_test(dimensao7~cenario, data = dat, alternative="greater")
+1593005688186:, wilcox_effsize(dimensao7~cenario, data = dat))
+1593005688219:, merge(wilcox_test(dimensao8~cenario, data = dat, alternative="greater")
+1593005688255:, wilcox_effsize(dimensao8~cenario, data = dat))
+1593005688284:, merge(wilcox_test(dimensao9~cenario, data = dat, alternative="greater")
+1593005688314:, wilcox_effsize(dimensao9~cenario, data = dat))
+1593005688346:)
+1593005694767:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-param-test.csv")
+1593005718725:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-param-test.csv")
+1593005728745:non-param-test
+1593005730842:non-param-test
+1593005741968:non_param_test
+1593005790095:## Efetuar plot
+1593005790130:library(plotly)
+1593005791826:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593005791865:, x=~cenario, y=~media, color=~cenario, text=~email))
+1593005850970:## Efetuar plot
+1593005851005:library(plotly)
+1593005851286:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593005851329:, x=~cenario, y=~media, color=~cenario, text=~email))
+1593005897124:for (v in c("dimensao1","dimensao2","dimensao3","dimensao4","dimensao5","dimensao6",
+1593005897159:"dimensao7","dimensao8","dimensao9","media")) {
+1593005897197:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3, ylab="dsdf"
+1593005897229:, x=~cenario, y=as.formula(paste0("~", v)), color=~cenario, text=~email)
+1593005897262:print(p)
+1593005897295:readline(prompt="Press [enter] to continue")
+1593005897323:}
+1593006012094:(p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3, yaxis="dfs"
+1593006012130:, x=~cenario, y=~media, color=~cenario, text=~email))
+1593006112795:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006112828:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593006114290:p <- layout(p, xaxis = "cenario", yaxis = "media flow", showlegend = F)
+1593006117052:p
+1593006124868:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006124901:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593006126115:p <- layout(p, xaxis = "cenario", yaxis = "media flow", showlegend = F)
+1593006132128:print(p)
+1593006136434:p
+1593006140492:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006140523:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593006181404:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006181445:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593006183323:p <- layout(p, xaxis = list(title="cenario"), yaxis = list(title="media flow"), showlegend = F)
+1593006184372:print(p)
+1593006206572:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006206624:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593006206973:p <- layout(p, yaxis = list(title="media flow"), showlegend = F)
+1593006208196:print(p)
+1593006300159:?pairs
+1593006331940:ac(a="df",sf)
+1593006334529:c(a="df",sf)
+1593006560890:list("dimensao1", "Balanço desafio habilidade")
+1593006948254:## Efetuar plot
+1593006948291:library(plotly)
+1593006948508:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006948537:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593006948738:p <- layout(p, yaxis = list(title="media flow"), showlegend = F)
+1593006948987:print(p)
+1593006951738:for (param in c(list("dimensao1", "balanço desafio/habilidade")
+1593006951772:, list("dimensao2", "fusão ação e atenção")
+1593006951805:, list("dimensao3", "objetivos claros")
+1593006951836:, list("dimensao4", "feedback")
+1593006951869:, list("dimensao5", "concentração")
+1593006951904:, list("dimensao6", "controle")
+1593006951935:, list("dimensao7", "perda autoconsciência")
+1593006951966:, list("dimensao8", "transformação do tempo")
+1593006951994:, list("dimensao9", "experiência autotélica")
+1593006952023:, list("media", "experiência de fluxo"))) {
+1593006952060:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006952089:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~email)
+1593006952119:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1593006952149:print(p)
+1593006952195:readline(prompt="Press [enter] to continue")
+1593006952229:}
+1593006971121:c(list("dimensao1", "balanço desafio/habilidade")
+1593006971171:, list("dimensao2", "fusão ação e atenção")
+1593006971211:, list("dimensao3", "objetivos claros")
+1593006971246:, list("dimensao4", "feedback")
+1593006971276:, list("dimensao5", "concentração")
+1593006971315:, list("dimensao6", "controle")
+1593006971342:, list("dimensao7", "perda autoconsciência")
+1593006971377:, list("dimensao8", "transformação do tempo")
+1593006971419:, list("dimensao9", "experiência autotélica")
+1593006971452:, list("media", "experiência de fluxo"))
+1593006992864:, list("media", "experiência de fluxo"))) {
+1593006992901:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593006992941:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~email)
+1593006992971:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1593006993008:print(p)
+1593006993172:readline(prompt="Press [enter] to continue")
+1593007006150:for (param in list(list("dimensao1", "balanço desafio/habilidade")
+1593007006187:, list("dimensao2", "fusão ação e atenção")
+1593007006227:, list("dimensao3", "objetivos claros")
+1593007006266:, list("dimensao4", "feedback")
+1593007006294:, list("dimensao5", "concentração")
+1593007006324:, list("dimensao6", "controle")
+1593007006359:, list("dimensao7", "perda autoconsciência")
+1593007006390:, list("dimensao8", "transformação do tempo")
+1593007006424:, list("dimensao9", "experiência autotélica")
+1593007006459:, list("media", "experiência de fluxo"))) {
+1593007006489:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593007006519:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~email)
+1593007006552:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1593007006582:print(p)
+1593007006623:readline(prompt="Press [enter] to continue")
+1593007006652:}
+1593007095926:## Efetuar plot
+1593007095956:library(plotly)
+1593007096130:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593007096165:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593007097034:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1593007097867:print(p)
+1593007143171:View(param_test)
+1593008120587:t_test(media~cenario, data = dat)
+1593008120849:t_test(media~cenario, data = dat, alternative = "less")
+1593008121061:t_test(media~cenario, data = dat, alternative = "greater")
+1593008121268:cohens_d(media~cenario, data = dat)
+1593008122677:param_test <- do.call(
+1593008122704:rbind
+1593008122728:, lapply(
+1593008122750:list(list("dimensao1", "balanço desafio/habilidade")
+1593008122771:, list("dimensao2", "fusão ação e atenção")
+1593008122794:, list("dimensao3", "objetivos claros")
+1593008122815:, list("dimensao4", "feedback")
+1593008122836:, list("dimensao5", "concentração")
+1593008122857:, list("dimensao6", "controle")
+1593008122887:, list("dimensao7", "perda autoconsciência")
+1593008122909:, list("dimensao8", "transformação do tempo")
+1593008122932:, list("dimensao9", "experiência autotélica")
+1593008122957:, list("media", "média do fluxo"))
+1593008122982:, FUN = function(param) {
+1593008123005:formula <- as.formula(paste0(param[[1]],'~cenario'))
+1593008123026:return(
+1593008123048:cbind(
+1593008123071:"fator latente" = param[[2]]
+1593008123091:, merge(t_test(formula, data = dat, alternative="greater")
+1593008123113:, cohens_d(formula, data = dat))
+1593008123135:)
+1593008123154:)
+1593008123176:}
+1593008123196:)
+1593008123224:)
+1593008126530:param_test
+1593008161004:write_csv(param_test, "report/h1-experiencia-fluxo/param-test.csv")
+1593008166063:param_test
+1593008184392:param_test
+1593008213486:wilcox_test(media~cenario, data = dat, alternative = "greater")
+1593008213932:wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+1593008278345:non_param_test <- do.call(
+1593008278368:rbind
+1593008278397:, lapply(
+1593008278418:list(list("dimensao1", "balanço desafio/habilidade")
+1593008278439:, list("dimensao2", "fusão ação e atenção")
+1593008278461:, list("dimensao3", "objetivos claros")
+1593008278483:, list("dimensao4", "feedback")
+1593008278504:, list("dimensao5", "concentração")
+1593008278525:, list("dimensao6", "controle")
+1593008278545:, list("dimensao7", "perda autoconsciência")
+1593008278563:, list("dimensao8", "transformação do tempo")
+1593008278584:, list("dimensao9", "experiência autotélica")
+1593008278606:, list("media", "média do fluxo"))
+1593008278624:, FUN = function(param) {
+1593008278645:formula <- as.formula(paste0(param[[1]],'~cenario'))
+1593008278665:return(
+1593008278684:cbind(
+1593008278704:"fator latente" = param[[2]]
+1593008278725:, merge(wilcox_test(formula, data = dat, alternative="greater")
+1593008278743:, wilcox_effsize(formula, data = dat))
+1593008278763:)
+1593008278786:)
+1593008278803:}
+1593008278822:)
+1593008278842:)
+1593008281668:non_param_test
+1593008300167:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-param-test.csv")
+1593008324832:## Efetuar plot
+1593008324865:library(plotly)
+1593008329464:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593008329488:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593008329802:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1593008330555:print(p)
+1593008422490:param_list <- list(list("dimensao1", "balanço desafio/habilidade")
+1593008422517:, list("dimensao2", "fusão ação e atenção")
+1593008422539:, list("dimensao3", "objetivos claros")
+1593008422560:, list("dimensao4", "feedback")
+1593008422579:, list("dimensao5", "concentração")
+1593008422601:, list("dimensao6", "controle")
+1593008422622:, list("dimensao7", "perda autoconsciência")
+1593008422641:, list("dimensao8", "transformação do tempo")
+1593008422662:, list("dimensao9", "experiência autotélica")
+1593008422685:, list("media", "média do fluxo"))
+1593008536345:non_param_test <- do.call(rbind, lapply(param_list, FUN = function(param) {
+1593008536368:formula <- as.formula(paste0(param[[1]],'~cenario'))
+1593008536390:cbind("fator latente" = param[[2]]
+1593008536412:, merge(wilcox_test(formula, data = dat, alternative="greater")
+1593008536432:, wilcox_effsize(formula, data = dat)))
+1593008536453:}))
+1593008537594:non_param_test
+1593008546114:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-param-test.csv")
+1593008570592:## Efetuar plot
+1593008570618:library(plotly)
+1593008570765:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593008570792:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593008570908:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1593008571170:print(p)
+1593008579884:for (param in param_list) {
+1593008579907:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593008579928:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~email)
+1593008579949:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1593008579969:print(p)
+1593008579997:readline(prompt="Press [enter] to continue")
+1593008580018:}
+1593008974641:library(readr)      # biblioteca para leitura de arquivos CVS
+1593008974931:library(digest)     # biblioteca para anonimizar dados
+1593009005590:?digest
+1593009048869:digest("ad")
+1593009050173:digest("ad")
+1593009059223:digest("sd")
+1593009061667:digest("ad")
+1593009066488:digest("tt")
+1593009079845:digest("tt", algo = "crc32")
+1593009400320:wants <- c('jsonlite', 'digest', 'readr', 'careless', 'car','dplyr')
+1593009400548:has <- wants %in% rownames(installed.packages())
+1593009402175:if (any(!has)) install.packages(wants[!has])
+1593009403011:library(readr)      # biblioteca para leitura de arquivos CVS
+1593009403224:library(digest)     # biblioteca para anonimizar dados
+1593009403388:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593009403584:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593009405482:library(dplyr)      # biblioteca para manipular data.frames
+1593009413948:## Leitura do questionario DFS usando arquivo CSV
+1593009413974:fss_dat <- read_csv("data/survey-fss.csv")
+1593009415459:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1593009416719:## Tratamento de respostas descuidadas (careless response)
+1593009416749:(careless_fss_long <- longstring(resp_fss_dat))
+1593009422584:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 11,27,42,13 respostas a ser eliminada
+1593009424476:careless_fss_irv <- irv(resp_fss_dat)
+1593009425047:careless_fss_irv_idx <- order(careless_fss_irv)
+1593009425637:careless_irv_df <- cbind(resp = careless_fss_irv_idx
+1593009425660:, IRV=careless_fss_irv[careless_fss_irv_idx]
+1593009425689:, resp_fss_dat[careless_fss_irv_idx,])
+1593009426294:head(careless_irv_df)
+1593009427088:## Salvar respostas descuidadas e DFS sem respostas descuidadas
+1593009427111:write_csv(fss_dat[c(11,27,42,13,14),], 'data/fss-careless.csv')
+1593010415333:wants <- c('jsonlite', 'digest', 'readr', 'dplyr')
+1593010416015:has <- wants %in% rownames(installed.packages())
+1593010416341:if (any(!has)) install.packages(wants[!has])
+1593010417967:library(readr)      # biblioteca para leitura de arquivos CVS
+1593010418324:library(digest)     # biblioteca para anonimizar dados
+1593010426991:library(jsonlite)
+1593010458474:wants <- c('jsonlite', 'digest', 'readr', 'dplyr')
+1593010458716:has <- wants %in% rownames(installed.packages())
+1593010458851:if (any(!has)) install.packages(wants[!has])
+1593010459013:library(jsonlite)   # biblioteca para leitura de arquivos JSON
+1593010459360:library(readr)      # biblioteca para leitura de arquivos CVS
+1593010459552:library(digest)     # biblioteca para anonimizar dados
+1593010460090:library(dplyr)      # biblioteca para manipular data.frames
+1593010550820:wants <- c('digest', 'readr', 'dplyr')
+1593010551003:has <- wants %in% rownames(installed.packages())
+1593010551180:if (any(!has)) install.packages(wants[!has])
+1593010551656:library(readr)      # biblioteca para leitura de arquivos CVS
+1593010551876:library(digest)     # biblioteca para anonimizar dados
+1593010552130:library(dplyr)      # biblioteca para manipular data.frames
+1593010571462:library(readr)
+1593010571500:dataset <- read_csv(NULL)
+1593010571535:View(dataset)
+1593010608037:participants <- read_csv("raw-data/participants.csv")
+1593010611608:participants
+1593010705111:participants[["UserID"]] <-
+1593010705159:sapply(participants$nome)
+1593010722569:participants[["UserID"]] <-
+1593010722624:sapply(participants$nome, FUN = function(x) digest(x))
+1593010743768:participants$nome
+1593010751309:sapply(participants$nome, FUN = function(x) digest(x))
+1593011164930:sapply(participants$nome, digest)
+1593011186118:participants[["UserID"]] <- sapply(participants$email, digest) # anonimizando por email
+1593011189672:participants
+1593011278630:participants <- read_csv("raw-data/participants.csv")
+1593011279445:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1593011279475:digest(x, algo = "crc32")
+1593011279501:})
+1593011283345:participants
+1593011352930:participants <- read_csv("raw-data/participants.csv")
+1593011353147:participants[["UserID"]] <- sapply(participants$nome, FUN = function(x) { # anonimizando por nome
+1593011353175:digest(x, algo = "crc32")
+1593011353219:})
+1593011353500:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1593011353524:digest(x, algo = "crc32")
+1593011353550:})
+1593011479022:colnames(dat)
+1593011486714:colnames(participants)
+1593011532455:participants <- read_csv("raw-data/participants.csv")
+1593011532696:participants[["UserID"]] <- sapply(participants$nome, FUN = function(x) { # anonimizando por nome
+1593011532719:digest(x, algo = "crc32")
+1593011532739:})
+1593011532953:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1593011532976:digest(x, algo = "crc32")
+1593011532998:})
+1593011533199:write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+1593011683269:dfs <- read_csv("raw-data/survey-dfs.csv")
+1593011693747:dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593011754840:merge(participants, dfs)
+1593011796127:dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593011800740:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593011805038:dfs <- merge(participants, pre_dfs, by='email')
+1593011814906:colnames(dfs)
+1593011836857:dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593011837446:dfs <- merge(participants, pre_dfs, by='email')
+1593011845695:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593011847174:dfs <- merge(participants, pre_dfs, by='email')
+1593011990531:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593011990786:dfs <- merge(participants, pre_dfs, by='email')
+1593012001361:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593012001655:dfs <- merge(participants, pre_dfs, by='email')
+1593012002854:dfs <- select(dfs, starts_with("UserID"), starts_with("cenario")
+1593012002876:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593012011527:View(dfs)
+1593012106197:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593012106381:dfs <- merge(participants, pre_dfs, by='email')
+1593012106577:dfs <- select(dfs, starts_with("UserID"), starts_with("cenario")
+1593012106600:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593012107322:write_csv(dfs, "data/survey-dfs.csv")
+1593012118783:View(dfs)
+1593012156326:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1593012168630:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1593012169933:fss <- merge(participants, pre_fss, by='email')
+1593012184328:fss <- select(fss, starts_with("UserID"), starts_with("cenario")
+1593012184355:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593012187936:View(fss)
+1593012211280:write_csv(fss, "data/survey-fss.csv")
+1593012395273:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593012415260:colnames(pre_qpj)
+1593012451088:unique(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`)
+1593012883393:unique(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`)
+1593013177654:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593013178807:qpj <- mutate(
+1593013178830:pre_qpj
+1593013178854:, "Item-Icus9"=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013178877:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, "Pouco tempo" = 2, "Pouquíssimo tempo" = 1))
+1593013190225:qpj <- mutate(
+1593013190251:pre_qpj
+1593013190275:, "Item-Icus9"=recode(`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013190298:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, "Pouco tempo" = 2, "Pouquíssimo tempo" = 1))
+1593013213031:recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013213056:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, "Pouco tempo" = 2, "Pouquíssimo tempo" = 1)
+1593013251566:library(readr)      # biblioteca para leitura de arquivos CVS
+1593013251917:library(digest)     # biblioteca para anonimizar dados
+1593013252129:library(dplyr)      # biblioteca para manipular data.frames
+1593013254812:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593013256548:qpj <- mutate(
+1593013256574:pre_qpj
+1593013256600:, "Item-Icus9"=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013256622:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, "Pouco tempo" = 2, "Pouquíssimo tempo" = 1))
+1593013267195:?recode
+1593013315000:recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013315023:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, "Pouco tempo" = 2, "Pouquíssimo tempo" = 1)
+1593013327073:recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013327101:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1)
+1593013350740:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593013467267:qpj <- mutate(
+1593013467302:pre_qpj
+1593013467332:, "Item-Icus9"=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013467361:, "Sempre" = 5, "Frequentemente" = 4, "Não sei ao certo" = 3, "Pouco tempo" = 2, "Pouquíssimo tempo" = 1))
+1593013535207:qpj <- mutate(
+1593013535254:pre_qpj
+1593013535289:, "Item-Icus9"=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013535323:, `Sempre` = 5, `Frequentemente` = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1))
+1593013561859:qpj <- mutate(
+1593013561900:pre_qpj
+1593013561928:, "Item-Icus9"=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013561954:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1))
+1593013572085:qpj <- mutate(
+1593013572114:pre_qpj
+1593013572141:, "Item-Icus9"=recode(`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013572168:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1))
+1593013580109:qpj <- mutate(
+1593013580139:pre_qpj
+1593013580167:, "Item-Icus9"=recode("4 - Quanto tempo você passa customizando seu personagem durante a criação dele?"
+1593013580197:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1))
+1593013589041:qpj <- transmutate(
+1593013589068:pre_qpj
+1593013589097:, "Item-Icus9"=recode("4 - Quanto tempo você passa customizando seu personagem durante a criação dele?"
+1593013589118:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1))
+1593013601151:qpj <- transmute(
+1593013601178:pre_qpj
+1593013601210:, "Item-Icus9"=recode("4 - Quanto tempo você passa customizando seu personagem durante a criação dele?"
+1593013601234:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1))
+1593013732650:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593013764859:colnames(pre_qpj)
+1593013858744:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593013903674:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593013905833:pre_qpj <- transmute(
+1593013905865:pre_qpj
+1593013905895:, Item8=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013905929:, 'Sim' = 1, 'Não' = 0)
+1593013905959:)
+1593013922819:unique(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`)
+1593013960434:pre_qpj <- transmute(
+1593013960470:pre_qpj
+1593013960498:, Item8=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013960522:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1)
+1593013960544:)
+1593013999899:pre_qpj <- transmute(
+1593013999935:pre_qpj
+1593013999964:, Item8=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593013999991:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593014000028:)
+1593014001784:pre_qpj <- transmute(
+1593014001805:pre_qpj
+1593014001828:, Item8=recode(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593014001854:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593014001877:)
+1593014019220:pre_qpj <- transmute(
+1593014019257:pre_qpj
+1593014019286:, Item8=recode("4 - Quanto tempo você passa customizando seu personagem durante a criação dele?"
+1593014019320:, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593014019349:)
+1593014313144:unique(pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`)
+1593014322814:unique(pre_qpj$`...estar em vantagem em relação aos outros jogadores?`)
+1593014336614:unique(pre_qpj$`...estar em vantagem em relação aos outros jogadores?`)
+1593014595901:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593014597901:pre_qpj <- data.frame(
+1593014597925:nome = pre_qpj$`Nome completo`
+1593014597947:, email = pre_qpj$email
+1593014597970:# componente - realização
+1593014597992:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593014598022:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593014598094:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593014598119:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593014598141:, Acom8 = pre_qpj$`... você gosta de fazer coisas que incomodam outros jogadores?`
+1593014598166:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593014598195:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593014598223:)
+1593014630228:pre_qpj <- data.frame(
+1593014630262:nome = pre_qpj$`Nome completo`
+1593014630289:, email = pre_qpj$email
+1593014630313:# componente - realização
+1593014630345:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593014630370:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593014630399:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593014630426:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593014630460:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593014630484:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593014630513:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593014630634:)
+1593014875738:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593014876100:pre_qpj <- data.frame(
+1593014876122:nome = pre_qpj$`Nome completo`
+1593014876151:, email = pre_qpj$email
+1593014876174:# componente - realização
+1593014876196:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593014876216:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593014876236:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593014876257:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593014876279:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593014876299:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593014876318:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593014876338:# componente - imersão
+1593014876354:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593014876375:, Icus1 = pre_qpj$`... a armadura ou roupas de seu personagem estejam combinando em cor e estilo ou que as peças do jogo tenham uma aparência interessante?`
+1593014876394:, Icus3 = pre_qpj$`... a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593014876415:, Icus9 = pre_qpj$`... quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593014876436:, Irol8 = pre_qpj$`... Você gosta de estar imerso em um mundo de fantasia?`
+1593014876455:)
+1593014918670:colnames(pre_qpj)
+1593015043660:pre_qpj <- data.frame(
+1593015043686:nome = pre_qpj$`Nome completo`
+1593015043712:, email = pre_qpj$email
+1593015043741:# componente - realização
+1593015043768:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015043797:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015043825:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015043846:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015043868:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015043889:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015043909:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015043930:# componente - imersão
+1593015043951:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015043971:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015043991:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015044013:, Icus9 = pre_qpj$`... quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015044032:, Irol8 = pre_qpj$`... Você gosta de estar imerso em um mundo de fantasia?`
+1593015044051:)
+1593015076208:pre_qpj <- data.frame(
+1593015076231:nome = pre_qpj$`Nome completo`
+1593015076254:, email = pre_qpj$email
+1593015076272:# componente - realização
+1593015076291:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015076313:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015076334:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015076352:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015076372:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015076393:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015076412:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015076432:# componente - imersão
+1593015076452:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015076475:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015076494:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015076515:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015076535:, Irol8 = pre_qpj$`... Você gosta de estar imerso em um mundo de fantasia?`
+1593015076555:)
+1593015146069:pre_qpj <- data.frame(
+1593015146112:nome = pre_qpj$`Nome completo`
+1593015146141:, email = pre_qpj$email
+1593015146168:# componente - realização
+1593015146222:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015146255:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015146285:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015146308:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015146331:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015146354:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015146375:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015146397:# componente - imersão
+1593015146424:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015146444:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015146469:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015146493:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015146517:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015146540:# componente - social
+1593015146561:)
+1593015389381:pre_qpj <- data.frame(
+1593015389412:nome = pre_qpj$`Nome completo`
+1593015389443:, email = pre_qpj$email
+1593015389514:# componente - realização
+1593015389536:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015389585:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015389613:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015389641:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015389671:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015389697:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015389718:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015389741:# componente - imersão
+1593015389765:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015389786:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015389805:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015389833:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015389856:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015389881:# componente - social
+1593015389903:, Srel0 = pre_qpj$`... conversar com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015389925:, Srel1 = pre_qpj$`... com que frequência outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015389950:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015389990:, Ssoc7 = pre_qpj$`... Você gosta de ajudar outros jogadores?`
+1593015390019:, Ssoc8 = pre_qpj$`... Você gosta de conhecer outros jogadores?`
+1593015390042:, Ssoc9 = pre_qpj$`... Você gosta de conversar com outros jogadores?`
+1593015390064:, Stra2 = pre_qpj$`... Procura fazer parte de um grupo em jogos?`
+1593015390086:)
+1593015402633:pre_qpj$`... Você gosta de ajudar outros jogadores?`
+1593015409001:pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015413661:pre_qpj$`... conversar com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015420652:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593015437550:colnames(pre_qpj)
+1593015566788:pre_qpj <- data.frame(
+1593015566817:nome = pre_qpj$`Nome completo`
+1593015566849:, email = pre_qpj$email
+1593015566874:# componente - realização
+1593015566896:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015566917:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015566937:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015566959:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015566979:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015567000:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015567022:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015567043:# componente - imersão
+1593015567063:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015567084:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015567104:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015567124:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015567144:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015567164:# componente - social
+1593015567185:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015567204:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015567226:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015567248:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015567267:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015567288:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015567309:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015567328:)
+1593015595758:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593015597597:pre_qpj <- data.frame(
+1593015597622:nome = pre_qpj$`Nome completo`
+1593015597645:, email = pre_qpj$email
+1593015597665:# componente - realização
+1593015597692:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015597715:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015597738:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015597767:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015597792:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015597815:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015597836:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015597856:# componente - imersão
+1593015597877:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015597900:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015597920:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015597938:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015597958:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015597983:# componente - social
+1593015598006:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015598032:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015598060:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015598080:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015598102:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015598124:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015598144:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015598165:)
+1593015601752:View(pre_qpj)
+1593015659487:pre_qpj <- data.frame(
+1593015659512:nome = pre_qpj$`Nome completo`
+1593015659534:, email = pre_qpj$email
+1593015659558:# componente - realização
+1593015659589:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015659617:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015659644:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015659668:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015659696:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015659721:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015659741:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015659764:# componente - imersão
+1593015659788:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015659810:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015659831:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015659851:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015659871:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015659892:# componente - social
+1593015659914:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015659933:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015659953:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015659971:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015660003:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015660030:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015660053:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015660075:)
+1593015665076:qpj <- transmute(
+1593015665110:pre_qpj
+1593015665139:, Icus9=recode(Icus9, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593015665164:)
+1593015677728:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593015678215:pre_qpj <- data.frame(
+1593015678239:nome = pre_qpj$`Nome completo`
+1593015678264:, email = pre_qpj$email
+1593015678287:# componente - realização
+1593015678310:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015678331:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015678354:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015678377:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015678403:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015678426:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015678446:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015678474:# componente - imersão
+1593015678498:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015678520:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015678543:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015678564:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015678585:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015678614:# componente - social
+1593015678637:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015678658:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015678678:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015678699:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015678721:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015678741:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015678768:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015678793:)
+1593015685821:qpj <- transmute(
+1593015685855:pre_qpj
+1593015685882:, Icus9=recode(Icus9, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593015685913:)
+1593015692440:pre_qpj
+1593015705941:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593015706690:qpj <- data.frame(
+1593015706719:nome = pre_qpj$`Nome completo`
+1593015706745:, email = pre_qpj$email
+1593015706768:# componente - realização
+1593015706790:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015706814:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015706836:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015706856:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015706879:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015706900:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015706920:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015706941:# componente - imersão
+1593015706962:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015706985:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015707007:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015707028:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015707046:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015707068:# componente - social
+1593015707090:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015707110:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015707140:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015707163:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015707183:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015707211:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015707233:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015707261:)
+1593015733274:qpj <- transmute(
+1593015733295:qpj
+1593015733319:, Icus9=recode(Icus9, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593015733342:)
+1593015773288:qpj <- transmute(
+1593015773321:qpj
+1593015773351:, Icus9=recode(Icus9, 'Sempre' = 5, 'Frequentemente' = 4, 'Não sei ao certo' = 3, 'Pouco tempo' = 2, 'Pouquíssimo tempo' = 1, .defaul = "")
+1593015773379:)
+1593015778935:qpj <- data.frame(
+1593015778973:nome = pre_qpj$`Nome completo`
+1593015779005:, email = pre_qpj$email
+1593015779036:# componente - realização
+1593015779074:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015779098:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015779121:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015779151:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015779174:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015779199:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015779224:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015779246:# componente - imersão
+1593015779267:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015779287:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015779310:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015779330:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015779350:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015779372:# componente - social
+1593015779392:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015779413:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015779435:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015779456:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015779478:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015779499:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015779519:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015779543:)
+1593015816051:qpj$Icus9
+1593015818817:qpj$Icus9
+1593015898323:qpj <- data.frame(
+1593015898351:nome = pre_qpj$`Nome completo`
+1593015898375:, email = pre_qpj$email
+1593015898398:# componente - realização
+1593015898422:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015898445:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015898466:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015898488:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015898508:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015898526:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015898550:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015898569:# componente - imersão
+1593015898588:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015898607:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015898626:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015898644:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015898665:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015898685:# componente - social
+1593015898705:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015898726:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015898745:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015898765:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015898786:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015898813:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015898834:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015898858:)
+1593015899308:qpj[["Icus9"]] <- sapply(qpj$Icus9, FUN = function(x) {
+1593015899329:if (x == 'Sempre') return(5)
+1593015899351:if (x == 'Frequentemente') return(4)
+1593015899377:if (x == 'Não sei ao certo') return(3)
+1593015899396:if (x == 'Pouco tempo') return(2)
+1593015899420:if (x == 'Pouquíssimo tempo') return(1)
+1593015899439:})
+1593015907602:View(qpj)
+1593015995502:qpj <- data.frame(
+1593015995562:nome = pre_qpj$`Nome completo`
+1593015995583:, email = pre_qpj$email
+1593015995603:# componente 1 - realização
+1593015995625:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593015995647:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593015995669:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593015995691:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593015995717:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593015995745:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593015995766:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593015995793:# componente 2 - imersão
+1593015995819:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593015995849:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593015995873:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593015995895:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593015995915:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593015995937:# componente 3 - social
+1593015995965:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593015995988:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593015996013:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593015996036:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593015996059:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593015996080:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593015996103:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593015996127:)
+1593015997764:qpj[["Icus9"]] <- sapply(qpj$Icus9, FUN = function(x) {
+1593015997819:if (x == 'Sempre') return(5)
+1593015997849:if (x == 'Frequentemente') return(4)
+1593015997881:if (x == 'Não sei ao certo') return(3)
+1593015997908:if (x == 'Pouco tempo') return(2)
+1593015997941:if (x == 'Pouquíssimo tempo') return(1)
+1593015997963:})
+1593016161221:qpj <- data.frame(
+1593016161270:nome = pre_qpj$`Nome completo`
+1593016161315:, email = pre_qpj$email
+1593016161344:# componente 1 - realização
+1593016161369:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016161398:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016161428:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016161457:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016161478:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016161497:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593016161516:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016161536:# componente 2 - imersão
+1593016161553:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016161572:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016161591:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016161609:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016161630:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016161647:# componente 3 - social
+1593016161665:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016161682:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016161700:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016161718:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016161739:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016161759:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016161779:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016161799:)
+1593016161863:qpj[["Icus9"]] <- sapply(qpj$Icus9, FUN = function(x) {
+1593016161887:if (x == 'Sempre') return(5)
+1593016161906:if (x == 'Frequentemente') return(4)
+1593016161927:if (x == 'Não sei ao certo') return(3)
+1593016161952:if (x == 'Pouco tempo') return(2)
+1593016161974:if (x == 'Pouquíssimo tempo') return(1)
+1593016161995:})
+1593016162739:qpj <- transmute(
+1593016162761:qpj
+1593016162786:, "social" = (Srel0+Srel1+Srel9+Ssoc7+Ssoc8+Ssoc9+Stra2)/7
+1593016162806:)
+1593016168662:View(qpj)
+1593016181469:qpj <- data.frame(
+1593016181496:nome = pre_qpj$`Nome completo`
+1593016181519:, email = pre_qpj$email
+1593016181539:# componente 1 - realização
+1593016181559:, Acom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016181580:, Acom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016181599:, Acom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016181621:, Acom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016181643:, Acom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016181666:, ACom9 = pre_qpj$`... competir com outros jogadores?`
+1593016181686:, AAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016181705:# componente 2 - imersão
+1593016181725:, Icus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016181743:, Icus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016181761:, Icus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016181780:, Icus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016181801:, Irol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016181821:# componente 3 - social
+1593016181841:, Srel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016181863:, Srel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016181882:, Srel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016181902:, Ssoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016181921:, Ssoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016181942:, Ssoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016181962:, Stra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016181982:)
+1593016182042:qpj[["Icus9"]] <- sapply(qpj$Icus9, FUN = function(x) {
+1593016182065:if (x == 'Sempre') return(5)
+1593016182086:if (x == 'Frequentemente') return(4)
+1593016182110:if (x == 'Não sei ao certo') return(3)
+1593016182131:if (x == 'Pouco tempo') return(2)
+1593016182153:if (x == 'Pouquíssimo tempo') return(1)
+1593016182173:})
+1593016182679:qpj <- mutate(
+1593016182707:qpj
+1593016182730:, "social" = (Srel0+Srel1+Srel9+Ssoc7+Ssoc8+Ssoc9+Stra2)/7
+1593016182754:)
+1593016185898:View(qpj)
+1593016370335:wants <- c('digest', 'readr', 'dplyr')
+1593016370541:has <- wants %in% rownames(installed.packages())
+1593016370665:if (any(!has)) install.packages(wants[!has])
+1593016370827:library(readr)      # biblioteca para leitura de arquivos CVS
+1593016371030:library(digest)     # biblioteca para anonimizar dados
+1593016371160:library(dplyr)      # biblioteca para manipular data.frames
+1593016371319:participants <- read_csv("raw-data/participants.csv")
+1593016371540:participants[["UserID"]] <- sapply(participants$nome, FUN = function(x) { # anonimizando por nome
+1593016371614:digest(x, algo = "crc32")
+1593016371633:})
+1593016371678:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1593016371703:digest(x, algo = "crc32")
+1593016371728:})
+1593016371821:write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+1593016371978:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593016372698:dfs <- merge(participants, pre_dfs, by='email')
+1593016373017:dfs <- select(dfs, starts_with("UserID"), starts_with("cenario")
+1593016373039:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593016373296:write_csv(dfs, "data/survey-dfs.csv")
+1593016374256:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1593016374942:fss <- merge(participants, pre_fss, by='email')
+1593016375165:fss <- select(fss, starts_with("UserID"), starts_with("cenario")
+1593016375192:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593016375346:write_csv(fss, "data/survey-fss.csv")
+1593016377659:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016421173:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016421649:qpj <- data.frame(
+1593016421669:nome = pre_qpj$`Nome completo`
+1593016421692:, email = pre_qpj$email
+1593016421711:# componente 1 - realização
+1593016421730:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016421758:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016421779:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016421799:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016421819:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016421840:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016421861:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016421881:# componente 2 - imersão
+1593016421900:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016421922:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016421939:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016421956:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016421972:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016421988:# componente 3 - social
+1593016422006:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016422026:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016422044:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016422063:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016422081:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016422098:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016422116:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016422133:)
+1593016427591:qpj[["Icus9"]] <- sapply(qpj$ItemIcus9, FUN = function(x) {
+1593016427612:if (x == 'Sempre') return(5)
+1593016427635:if (x == 'Frequentemente') return(4)
+1593016427654:if (x == 'Não sei ao certo') return(3)
+1593016427673:if (x == 'Pouco tempo') return(2)
+1593016427694:if (x == 'Pouquíssimo tempo') return(1)
+1593016427716:})
+1593016462145:qpj[["Icus9"]] <- sapply(qpj$ItemIcus9, FUN = function(x) {
+1593016462166:if (x == 'Sempre') return(5)
+1593016462185:if (x == 'Frequentemente') return(4)
+1593016462204:if (x == 'Não sei ao certo') return(3)
+1593016462222:if (x == 'Pouco tempo') return(2)
+1593016462238:if (x == 'Pouquíssimo tempo') return(1)
+1593016462256:})
+1593016490116:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016491355:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016493047:qpj <- data.frame(
+1593016493065:nome = pre_qpj$`Nome completo`
+1593016493083:, email = pre_qpj$email
+1593016493099:# componente 1 - realização
+1593016493117:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016493133:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016493152:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016493170:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016493188:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016493205:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016493221:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016493238:# componente 2 - imersão
+1593016493257:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016493273:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016493289:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016493308:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016493324:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016493341:# componente 3 - social
+1593016493359:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016493376:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016493394:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016493411:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016493427:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016493446:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016493464:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016493479:)
+1593016507269:qpj <- data.frame(
+1593016507313:nome = pre_qpj$`Nome completo`
+1593016507344:, email = pre_qpj$email
+1593016507371:# componente 1 - realização
+1593016507397:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016507424:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016507448:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016507469:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016507503:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016507525:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016507547:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016507570:# componente 2 - imersão
+1593016507591:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016507614:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016507634:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016507655:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016507683:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016507707:# componente 3 - social
+1593016507734:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016507768:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016507788:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016507808:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016507833:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016507854:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016507878:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016507907:)
+1593016512716:qpj[["Icus9"]] <- sapply(pre_qpj$ItemIcus9, FUN = function(x) {
+1593016512742:if (x == 'Sempre') return(5)
+1593016512765:if (x == 'Frequentemente') return(4)
+1593016512796:if (x == 'Não sei ao certo') return(3)
+1593016512822:if (x == 'Pouco tempo') return(2)
+1593016512850:if (x == 'Pouquíssimo tempo') return(1)
+1593016512875:})
+1593016519537:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016521424:qpj <- data.frame(
+1593016521469:nome = pre_qpj$`Nome completo`
+1593016521493:, email = pre_qpj$email
+1593016521517:# componente 1 - realização
+1593016521537:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016521558:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016521580:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016521597:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016521617:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016521637:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016521656:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016521683:# componente 2 - imersão
+1593016521703:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016521727:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016521751:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016521772:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016521791:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016521813:# componente 3 - social
+1593016521833:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016521854:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016521874:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016521894:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016521915:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016521935:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016521955:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016521976:)
+1593016534399:qpj[["ItemIcus9"]] <- sapply(pre_qpj$ItemIcus9, FUN = function(x) {
+1593016534421:if (x == 'Sempre') return(5)
+1593016534445:if (x == 'Frequentemente') return(4)
+1593016534466:if (x == 'Não sei ao certo') return(3)
+1593016534490:if (x == 'Pouco tempo') return(2)
+1593016534514:if (x == 'Pouquíssimo tempo') return(1)
+1593016534536:})
+1593016559640:qpj <- data.frame(
+1593016559660:nome = pre_qpj$`Nome completo`
+1593016559678:, email = pre_qpj$email
+1593016559694:# componente 1 - realização
+1593016559713:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016559729:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016559745:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016559764:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016559782:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016559802:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016559820:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016559837:# componente 2 - imersão
+1593016559854:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016559874:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016559892:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016559910:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016559932:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016559947:# componente 3 - social
+1593016559963:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016559980:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016559998:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016560019:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016560040:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016560057:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016560075:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016560091:)
+1593016623846:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016624336:qpj <- data.frame(
+1593016624356:nome = pre_qpj$`Nome completo`
+1593016624383:, email = pre_qpj$email
+1593016624404:# componente 1 - realização
+1593016624423:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016624443:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016624463:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016624483:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016624503:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016624522:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016624541:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016624558:# componente 2 - imersão
+1593016624578:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016624595:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016624617:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016624634:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016624652:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016624669:# componente 3 - social
+1593016624689:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016624708:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016624727:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016624747:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016624765:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016624782:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016624802:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016624820:)
+1593016628176:qpj[["ItemIcus9"]] <- sapply(
+1593016628199:pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016628220:, FUN = function(x) {
+1593016628239:if (x == 'Sempre') return(5)
+1593016628259:if (x == 'Frequentemente') return(4)
+1593016628279:if (x == 'Não sei ao certo') return(3)
+1593016628301:if (x == 'Pouco tempo') return(2)
+1593016628320:if (x == 'Pouquíssimo tempo') return(1)
+1593016628341:})
+1593016636145:qpj <- mutate(
+1593016636171:qpj
+1593016636196:, "realizacao" = (ItemAcom0+ItemAcom3+ItemAcom5+ItemAcom6+ItemAcom8+ItemAcom9+ItemAAva2)/7
+1593016636219:, "imersao" = (ItemIcus0+ItemIcus1+ItemIcus3+ItemIcus9+ItemIrol8)/5
+1593016636242:, "social" = (ItemSrel0+ItemSrel1+ItemSrel9+ItemSsoc7+ItemSsoc8+ItemSsoc9+ItemStra2)/7
+1593016636276:)
+1593016648919:View(qpj)
+1593016723904:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016734300:wants <- c('digest', 'readr', 'dplyr')
+1593016734461:has <- wants %in% rownames(installed.packages())
+1593016734617:if (any(!has)) install.packages(wants[!has])
+1593016734760:library(readr)      # biblioteca para leitura de arquivos CVS
+1593016734952:library(digest)     # biblioteca para anonimizar dados
+1593016735115:library(dplyr)      # biblioteca para manipular data.frames
+1593016735290:participants <- read_csv("raw-data/participants.csv")
+1593016735682:participants[["UserID"]] <- sapply(participants$nome, FUN = function(x) { # anonimizando por nome
+1593016735703:digest(x, algo = "crc32")
+1593016735725:})
+1593016735916:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1593016735938:digest(x, algo = "crc32")
+1593016735958:})
+1593016737668:write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+1593016741352:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1593016741576:dfs <- merge(participants, pre_dfs, by='email')
+1593016741776:dfs <- select(dfs, starts_with("UserID"), starts_with("cenario")
+1593016741798:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593016741957:write_csv(dfs, "data/survey-dfs.csv")
+1593016742108:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1593016742326:fss <- merge(participants, pre_fss, by='email')
+1593016742680:fss <- select(fss, starts_with("UserID"), starts_with("cenario")
+1593016742700:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593016742976:write_csv(fss, "data/survey-fss.csv")
+1593016743485:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016775221:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016780994:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016783399:qpj <- data.frame(
+1593016783431:nome = pre_qpj$`Nome completo`
+1593016783458:, email = pre_qpj$email
+1593016783479:# componente 1 - realização
+1593016783505:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016783529:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016783556:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016783578:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016783600:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016783620:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016783640:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016783660:# componente 2 - imersão
+1593016783678:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016783698:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016783718:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016783737:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016783755:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016783774:# componente 3 - social
+1593016783792:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016783810:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016783831:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016783850:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016783868:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016783885:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016783904:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016783921:)
+1593016790507:qpj[["ItemIcus9"]] <- sapply(
+1593016790534:pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016790560:, FUN = function(x) {
+1593016790580:if (x == 'Sempre') return(5)
+1593016790601:if (x == 'Frequentemente') return(4)
+1593016790622:if (x == 'Não sei ao certo') return(3)
+1593016790644:if (x == 'Pouco tempo') return(2)
+1593016790661:if (x == 'Pouquíssimo tempo') return(1)
+1593016790680:})
+1593016796970:View(qpj)
+1593016814641:qpj <- mutate(
+1593016814664:qpj
+1593016814685:, "realizacao" = (ItemAcom0+ItemAcom3+ItemAcom5+ItemAcom6+ItemAcom8+ItemAcom9+ItemAAva2)/7
+1593016814703:, "imersao" = (ItemIcus0+ItemIcus1+ItemIcus3+ItemIcus9+ItemIrol8)/5
+1593016814722:, "social" = (ItemSrel0+ItemSrel1+ItemSrel9+ItemSsoc7+ItemSsoc8+ItemSsoc9+ItemStra2)/7
+1593016814740:)
+1593016855270:qpj <- merge(participants, qpj, by='email')
+1593016864564:colnames(qpj)
+1593016912278:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016912778:pre_qpj <- data.frame(
+1593016912796:nome = pre_qpj$`Nome completo`
+1593016912814:, email = pre_qpj$email
+1593016912834:# componente 1 - realização
+1593016912853:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016912870:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016912886:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016912903:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016912956:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016912973:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016912993:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016913013:# componente 2 - imersão
+1593016913032:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016913050:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016913067:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016913084:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016913101:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016913118:# componente 3 - social
+1593016913137:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016913155:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016913171:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016913189:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016913206:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016913222:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016913239:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016913256:)
+1593016948207:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1593016948431:pre_qpj <- data.frame(
+1593016948452:nome = pre_qpj$`Nome completo`
+1593016948473:, email = pre_qpj$email
+1593016948493:# componente 1 - realização
+1593016948512:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1593016948531:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1593016948546:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1593016948563:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1593016948577:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1593016948594:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1593016948610:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1593016948626:# componente 2 - imersão
+1593016948644:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1593016948659:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1593016948677:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1593016948692:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1593016948708:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1593016948732:# componente 3 - social
+1593016948750:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1593016948766:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1593016948782:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1593016948802:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1593016948823:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1593016948844:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1593016948867:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1593016948894:)
+1593016949225:pre_qpj[["ItemIcus9"]] <- sapply(pre_qpj$ItemIcus9, FUN = function(x) {
+1593016949243:if (x == 'Sempre') return(5)
+1593016949263:if (x == 'Frequentemente') return(4)
+1593016949284:if (x == 'Não sei ao certo') return(3)
+1593016949300:if (x == 'Pouco tempo') return(2)
+1593016949317:if (x == 'Pouquíssimo tempo') return(1)
+1593016949335:})
+1593016962192:pre_qpj <- mutate(
+1593016962210:pre_qpj
+1593016962235:, "realizacao" = (ItemAcom0+ItemAcom3+ItemAcom5+ItemAcom6+ItemAcom8+ItemAcom9+ItemAAva2)/7
+1593016962263:, "imersao" = (ItemIcus0+ItemIcus1+ItemIcus3+ItemIcus9+ItemIrol8)/5
+1593016962289:, "social" = (ItemSrel0+ItemSrel1+ItemSrel9+ItemSsoc7+ItemSsoc8+ItemSsoc9+ItemStra2)/7
+1593016962314:)
+1593016968843:qpj <- merge(participants, pre_qpj, by='email')
+1593016986501:colnames(pre_qpj)
+1593017030811:qpj <- merge(participants, pre_qpj, by='email')
+1593017035811:qpj <- select(qpj, starts_with("UserID"), starts_with("cenario"), starts_with("Item")
+1593017035837:, starts_with("realizacao"), starts_with("imersao"), starts_with("social"))
+1593017041750:write_csv(qpj, "data/survey-qpj.csv")
+1593017046606:View(qpj)
+1593017126491:wants <- c('jsonlite', 'digest', 'readr', 'careless', 'car','dplyr')
+1593017126657:has <- wants %in% rownames(installed.packages())
+1593017126798:if (any(!has)) install.packages(wants[!has])
+1593017126954:library(readr)      # biblioteca para leitura de arquivos CVS
+1593017127187:library(digest)     # biblioteca para anonimizar dados
+1593017127273:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593017127454:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593017127627:library(dplyr)      # biblioteca para manipular data.frames
+1593017127815:## Leitura do questionario DFS usando arquivo CSV
+1593017127835:fss_dat <- read_csv("data/survey-fss.csv")
+1593017133862:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1593017134481:## Tratamento de respostas descuidadas (careless response)
+1593017134500:(careless_fss_long <- longstring(resp_fss_dat))
+1593017135713:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 11,27,42,13 respostas a ser eliminada
+1593017168335:wants <- c('jsonlite', 'digest', 'readr', 'careless', 'car','dplyr')
+1593017168524:has <- wants %in% rownames(installed.packages())
+1593017168847:if (any(!has)) install.packages(wants[!has])
+1593017169086:library(readr)      # biblioteca para leitura de arquivos CVS
+1593017169228:library(digest)     # biblioteca para anonimizar dados
+1593017169396:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593017169574:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593017169775:library(dplyr)      # biblioteca para manipular data.frames
+1593017187204:wants <- c('readr', 'careless', 'car','dplyr')
+1593017187415:has <- wants %in% rownames(installed.packages())
+1593017187593:if (any(!has)) install.packages(wants[!has])
+1593017187898:library(readr)      # biblioteca para leitura de arquivos CVS
+1593017188549:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593017189290:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593017190589:library(dplyr)      # biblioteca para manipular data.frames
+1593017192030:## Leitura do questionario DFS usando arquivo CSV
+1593017192049:fss_dat <- read_csv("data/survey-fss.csv")
+1593017196098:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1593017199564:View(resp_fss_dat)
+1593017209938:## Tratamento de respostas descuidadas (careless response)
+1593017209960:(careless_fss_long <- longstring(resp_fss_dat))
+1593017235063:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 11,27,42,13 respostas a ser eliminada
+1593017335346:careless_fss_irv <- irv(resp_fss_dat)
+1593017336840:careless_fss_irv_idx <- order(careless_fss_irv)
+1593017338674:careless_irv_df <- cbind(resp = careless_fss_irv_idx
+1593017338700:, IRV=careless_fss_irv[careless_fss_irv_idx]
+1593017338725:, resp_fss_dat[careless_fss_irv_idx,])
+1593017347693:head(careless_irv_df)
+1593017444100:write_csv(fss_dat[c(3,20,38,5,6),], 'data/fss-careless.csv')
+1593017444648:write_csv(fss_dat[-c(3,20,38,5,6),], 'data/fss.csv')
+1593017521242:wants <- c('readr', 'careless', 'car','dplyr')
+1593017521559:has <- wants %in% rownames(installed.packages())
+1593017521955:if (any(!has)) install.packages(wants[!has])
+1593017522240:library(readr)      # biblioteca para leitura de arquivos CVS
+1593017522532:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593017522796:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593017523206:library(dplyr)      # biblioteca para manipular data.frames
+1593017525470:## Leitura do questionario DFS usando arquivo CSV
+1593017525491:dfs_dat <- read_csv("data/survey-0-dfs.csv")
+1593017530582:## Leitura do questionario DFS usando arquivo CSV
+1593017530602:dfs_dat <- read_csv("data/survey-dfs.csv")
+1593017531671:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1593017534631:(careless_dfs_long <- longstring(resp_dfs_dat))
+1593017541301:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS")
+1593017601234:(careless_dfs_long <- longstring(resp_dfs_dat))
+1593017605046:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 3,20
+1593017607059:careless_dfs_irv <- irv(resp_dfs_dat)
+1593017608400:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1593017609195:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1593017609217:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1593017609236:, resp_dfs_dat[careless_dfs_irv_idx,])
+1593017610330:head(careless_irv_df)
+1593017661622:write_csv(dfs_dat[c(3,20,6),], 'data/dfs-careless.csv')
+1593017662771:write_csv(dfs_dat[-c(3,20,6),], 'data/dfs.csv')
+1593017780911:wants <- c('readr', 'careless', 'car','dplyr')
+1593017781103:has <- wants %in% rownames(installed.packages())
+1593017781338:if (any(!has)) install.packages(wants[!has])
+1593017781535:library(readr)      # biblioteca para leitura de arquivos CVS
+1593017781889:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593017782104:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593017782297:library(dplyr)      # biblioteca para manipular data.frames
+1593017782737:dfs_dat <- read_csv("data/survey-qpj.csv")
+1593017795947:wants <- c('readr', 'careless', 'car','dplyr')
+1593017796121:has <- wants %in% rownames(installed.packages())
+1593017796263:if (any(!has)) install.packages(wants[!has])
+1593017796405:library(readr)      # biblioteca para leitura de arquivos CVS
+1593017796566:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1593017796729:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1593017796930:library(dplyr)      # biblioteca para manipular data.frames
+1593017797344:qpj_dat <- read_csv("data/survey-qpj.csv")
+1593017822281:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1593017830369:(careless_dfs_long <- longstring(resp_qpj_dat))
+1593017841166:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o QPJ") # careless 3,20
+1593017957075:careless_dfs_irv <- irv(resp_dfs_dat)
+1593017974817:(careless_qpj_long <- longstring(resp_qpj_dat))
+1593017976059:Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+1593017996722:careless_qpj_irv <- irv(resp_qpj_dat)
+1593017997616:careless_qpj_irv_idx <- order(careless_qpj_irv)
+1593018024272:careless_qpj_df <- cbind(resp = careless_qpj_irv_idx
+1593018024306:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1593018024330:, resp_qpj_dat[careless_qpj_irv_idx,])
+1593018025354:head(careless_irv_df) # careless 3, 20, 6
+1593018040762:careless_irv_df <- cbind(resp = careless_qpj_irv_idx
+1593018040790:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1593018040820:, resp_qpj_dat[careless_qpj_irv_idx,])
+1593018043025:head(careless_irv_df) # careless 3, 20, 6
+1593018096973:careless_qpj_irv <- irv(resp_qpj_dat)
+1593018097254:careless_qpj_irv_idx <- order(careless_qpj_irv)
+1593018097442:careless_irv_df <- cbind(resp = careless_qpj_irv_idx
+1593018097461:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1593018097485:, resp_qpj_dat[careless_qpj_irv_idx,])
+1593018098580:head(careless_irv_df) # careless 40
+1593018099937:write_csv(dfs_dat[c(40),], 'data/qpj-careless.csv')
+1593018111811:qpj_dat <- read_csv("data/survey-qpj.csv")
+1593018113171:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1593018113669:(careless_qpj_long <- longstring(resp_qpj_dat))
+1593018114144:Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+1593018114680:careless_qpj_irv <- irv(resp_qpj_dat)
+1593018114989:careless_qpj_irv_idx <- order(careless_qpj_irv)
+1593018115256:careless_irv_df <- cbind(resp = careless_qpj_irv_idx
+1593018115276:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1593018115296:, resp_qpj_dat[careless_qpj_irv_idx,])
+1593018116288:head(careless_irv_df) # careless 40
+1593018117099:write_csv(qpj_dat[c(40),], 'data/qpj-careless.csv')
+1593018117716:write_csv(qpj_dat[-c(40),], 'data/qpj.csv')
+1593018125961:View(resp_qpj_dat)
+1593018141493:View(qpj_dat)
+1593018243864:wants <- c('plotly','processx','dplyr','rstatix','readr')
+1593018244125:has <- wants %in% rownames(installed.packages())
+1593018244299:if (any(!has)) install.packages(wants[!has])
+1593018245162:options(scipen = 999)
+1593018245474:library(readr)
+1593018245690:library(dplyr)
+1593018245864:library(rstatix)
+1593018248101:fss <- read_csv('data/fss.csv')
+1593018264310:colnames(fss)
+1593018308921:fss <- read_csv('data/fss.csv')
+1593018309816:dat <- select(fss, starts_with("UserID"), starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+1593018311037:dat$cenario = factor(dat$cenario)
+1593018313961:View(dat)
+1593018326058:(fss_summary <- get_summary_stats(dat))
+1593018333294:(fss_frequency <- freq_table(dat, cenario))
+1593018336162:write_csv(fss_summary, 'report/fss-summary.csv')
+1593018336937:write_csv(fss_frequency, 'report/fss-frequency.csv')
+1593018342256:(shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1593018342282:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9))
+1593018819570:if_else(shapiro$p < 0.5, 'não normal', 'normal')
+1593018833609:if_else(shapiro$p < 0.5, 'não normal', 'normal')
+1593018854942:if_else(shapiro$p < 0.05, 'não normal', 'normal')
+1593018874630:shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1593018874653:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9)
+1593018875205:shapiro[["obs"]] <- if_else(shapiro$p < 0.05, 'não normal', 'normal')
+1593018875847:print(shapiro)
+1593018901328:mahalanobis_distance(dat, dimensao5)  # identificação de outliers na media do flow - método mahalanobis
+1593018975574:identify_outliers(dat, dimensao2) # identificação de outliers na dimensao1 - método boxplot
+1593018986654:mahalanobis_distance(dat, dimensao2)  # identificação de outliers na media do flow - método mahalanobis
+1593019005279:mahalanobis_distance(dat)
+1593019165460:identify_outliers(dat, dimensao2) # identificação de outliers na dimensao1 - método boxplot
+1593019175610:print(shapiro)
+1593019188526:identify_outliers(dat, media) # identificação de outliers na dimensao1 - método boxplot
+1593019277407:t_test(dimensao1~cenario, data = dat)
+1593019277775:t_test(dimensao1~cenario, data = dat, alternative = "less")
+1593019278052:t_test(dimensao1~cenario, data = dat, alternative = "greater")
+1593019278463:cohens_d(dimensao1~cenario, data = dat)
+1593019314999:t_test(dimensao1~cenario, data = dat)
+1593019318649:t_test(dimensao1~cenario, data = dat, alternative = "less")
+1593019333778:t_test(media~cenario, data = dat)
+1593019334901:t_test(media~cenario, data = dat, alternative = "less")
+1593019335640:t_test(media~cenario, data = dat, alternative = "greater")
+1593019336978:cohens_d(media~cenario, data = dat)
+1593019373785:shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1593019373806:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9)
+1593019379284:print(shapiro)
+1593019487367:MVN::mvn(dat)
+1593019491944:MVN::mvn(dat)
+1593019495532:?mnv
+1593019510146:?MVN::mvn
+1593019525417:MVN::mvn(dat, univariateNormality =T)
+1593019549255:MVN::mvn(dat, univariateTest = "SW")
+1593019560731:MVN::mvn(dat$dimensao1, univariateTest = "SW")
+1593019653193:MVN::mvn(select(dat, starts_with("dimensao")) , univariateTest = "SW")
+1593019749084:shapiro <- shapiro_test(dat, media, dimensao1, dimensao2, dimensao3
+1593019749117:, dimensao4, dimensao5, dimensao6, dimensao7, dimensao8, dimensao9)
+1593019749846:shapiro[["dist.normal"]] <- if_else(shapiro$p > 0.05, 'sim', 'não')
+1593019751558:print(shapiro)
+1593019760780:MVN::mvn(select(dat, starts_with("dimensao")) , univariateTest = "SW")
+1593019775700:print(shapiro)
+1593019864969:identify_outliers(dat, media) # identificação de outliers na media do fluxo - método boxplot
+1593019891697:t_test(dimensao1~cenario, data = dat)
+1593019895562:t_test(dimensao1~cenario, data = dat, alternative = "less")
+1593019900756:t_test(dimensao1~cenario, data = dat, alternative = "greater")
+1593019904205:cohens_d(dimensao1~cenario, data = dat)
+1593019964019:param_test <- do.call(
+1593019964040:rbind
+1593019964059:, lapply(
+1593019964074:list(list("dimensao1", "balanço desafio/habilidade")
+1593019964089:, list("dimensao5", "concentração"))
+1593019964107:, FUN = function(param) {
+1593019964123:formula <- as.formula(paste0(param[[1]],'~cenario'))
+1593019964142:return(
+1593019964160:cbind(
+1593019964178:"fator latente" = param[[2]]
+1593019964197:, merge(t_test(formula, data = dat, alternative="greater")
+1593019964221:, cohens_d(formula, data = dat))
+1593019964240:)
+1593019964260:)
+1593019964280:}
+1593019964297:)
+1593019964318:)
+1593019965646:param_test
+1593019991827:write_csv(param_test, "report/h1-experiencia-fluxo/parametric-test.csv")
+1593020002379:wilcox_test(media~cenario, data = dat, alternative = "greater")
+1593020003359:wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+1593020013551:param_list <- list(list("dimensao1", "balanço desafio/habilidade")
+1593020013574:, list("dimensao2", "fusão ação e atenção")
+1593020013595:, list("dimensao3", "objetivos claros")
+1593020013615:, list("dimensao4", "feedback")
+1593020013634:, list("dimensao5", "concentração")
+1593020013656:, list("dimensao6", "controle")
+1593020013677:, list("dimensao7", "perda autoconsciência")
+1593020013694:, list("dimensao8", "transformação do tempo")
+1593020013713:, list("dimensao9", "experiência autotélica")
+1593020013731:, list("media", "média do fluxo"))
+1593020021788:non_param_test <- do.call(rbind, lapply(param_list, FUN = function(param) {
+1593020021809:formula <- as.formula(paste0(param[[1]],'~cenario'))
+1593020021832:cbind("fator latente" = param[[2]]
+1593020021853:, merge(wilcox_test(formula, data = dat, alternative="greater")
+1593020021869:, wilcox_effsize(formula, data = dat)))
+1593020021890:}))
+1593020022703:non_param_test
+1593020072514:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-parametric-test.csv")
+1593020090691:## Efetuar plot
+1593020090712:library(plotly)
+1593020091497:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593020091519:, x=~cenario, y=~media, color=~cenario, text=~email)
+1593020095659:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1593020096945:print(p)
+1593020107684:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593020107705:, x=~cenario, y=~media, color=~cenario, text=~UserID)
+1593020108568:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1593020110321:print(p)
+1593020154991:for (param in param_list) {
+1593020155020:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593020155045:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~email)
+1593020155072:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1593020155091:print(p)
+1593020155206:readline(prompt="Press [enter] to continue")
+1593020155225:}
+1593020166163:## Efetuar plot
+1593020166185:library(plotly)
+1593020166390:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593020166414:, x=~cenario, y=~media, color=~cenario, text=~UserID)
+1593020166667:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1593020167035:print(p)
+1593020169675:for (param in param_list) {
+1593020169695:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1593020169713:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~UserID)
+1593020169730:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1593020169749:print(p)
+1593020169774:readline(prompt="Press [enter] to continue")
+1593020169793:}

@@ -1,0 +1,512 @@
+#}
+))
+})
+, FUN = function(item) {
+cbind("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+})
+dfs_dat <- do.call(
+)
+, FUN = function(item) {
+cbind("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+})
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+library(jsonlite)
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+#, "genero" = item$gender
+#, "estado_civil" = item$martial_status
+#, "etinia" = item$ethnicity
+#, "familia" = item$family
+#, "orientacao_sexual" = item$sexual_orientation
+#, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+View(dat_dfs)
+View(dfs_dat)
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+#, "familia" = item$family
+#, "orientacao_sexual" = item$sexual_orientation
+#, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+#, "familia" = item$family
+#, "orientacao_sexual" = item$sexual_orientation
+#, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+item <- read_json("data/survey-0-dfs.json")[[1]]
+item$email
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$gender
+, "estado_civil" = item$martial_status
+, "etinia" = item$ethnicity
+#, "familia" = item$family
+#, "orientacao_sexual" = item$sexual_orientation
+#, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+#, "familia" = item$family
+#, "orientacao_sexual" = item$sexual_orientation
+#, "atividade" = item$activity
+#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+# df <- dataframe(item$summary[[i]])
+# colnames(df) <- paste0("dimensao", i)
+#}
+)
+}))
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+df <- dataframe(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+}
+)
+}))
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+df <- dataframe(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+}
+))
+}))
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+}))
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+)
+}))
+View(dfs_dat)
+do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+df <- dataframe(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+}
+))
+do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+df <- data.frame(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+}
+)
+)
+do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+df <- data.frame(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
+df <- data.frame(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+seq(1,length(item$summary))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+df <- data.frame(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+seq(1,length(item$results$summary))
+seq(1,length(item$results$answers
+))
+seq(1,length(item$results$answers[[1]]))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+df <- data.frame(item$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+df <- data.frame(item$results$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+#df <- data.frame(item$results$summary[[i]])
+#colnames(df) <- paste0("dimensao", i)
+#return(df)
+cbind(paste0("dimensao", i) = item$results$summary[[i]])
+}))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+#df <- data.frame(item$results$summary[[i]])
+#colnames(df) <- paste0("dimensao", i)
+#return(df)
+cbind(paste0("dimensao", i) = item$results$summary[[i]])
+}))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+df <- data.frame(item$results$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+#cbind(paste0("dimensao", i) = item$results$summary[[i]])
+}))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+df <- data.frame(paste0("dimensao", i) = item$results$summary[[i]])
+#colnames(df) <- paste0("dimensao", i)
+return(df)
+#cbind(paste0("dimensao", i) = item$results$summary[[i]])
+}))
+do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
+df <- data.frame(item$results$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+#cbind(paste0("dimensao", i) = item$results$summary[[i]])
+}))
+seq(1,length(item$results$answers[[1]]))
+library(readr)
+dat_dfs <- read_csv("data/survey-0-dfs.csv")
+colnames(dfs_dat)
+library(readr)
+dfs_dat <- read_csv("data/survey-0-dfs.csv")
+colnames(dfs_dat)
+library(jsonlite)
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+, do.call(cbind, lapply(seq(1,length(item$results$summary))
+, FUN = function(i) {
+df <- data.frame(item$results$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+, do.call(cbind, lapply(seq(1,length(item$results$answers[[1]]))
+, FUN = function(i) {
+df <- data.frame(item$results$answers[[1]][[i]])
+colnames(df) <- paste0("Q", i)
+return(df)
+}))
+)
+}))
+View(dfs_dat)
+library(jsonlite)
+dfs_dat <- do.call(
+rbind, lapply(
+read_json("data/survey-0-dfs.json")
+, FUN = function(item) {
+data.frame("nome" = item$name
+, "nascimento" = item$birth_date
+, "email" = item$email
+, "genero" = item$email
+, "estado_civil" = item$marital_status
+, "etinia" = item$ethnicity
+, "familia" = item$family
+, "orientacao_sexual" = item$sexual_orientation
+, "atividade" = item$activity
+, do.call(cbind, lapply(
+seq(1,length(item$results$summary))
+, FUN = function(i) {
+df <- data.frame(item$results$summary[[i]])
+colnames(df) <- paste0("dimensao", i)
+return(df)
+}))
+, do.call(cbind, lapply(
+seq(1,length(item$results$answers[[1]]))
+, FUN = function(i) {
+df <- data.frame(item$results$answers[[1]][[i]])
+colnames(df) <- paste0("Q", i)
+return(df)
+}))
+)
+}))
+library(readr)
+dfs_dat <- read_csv("data/survey-0-dfs.csv")
+library(readr)
+(dfs_dat <- read_csv("data/survey-0-dfs.csv"))
+wants <- c('car','dplyr','rstatix','readr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+library(readr)
+library(dplyr)
+install.packages(wants[!has])
+library(readr)
+library(dplyr)
+library(rstatix)
+## Leitura de dados
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+pre_dat <- merge(users, fss, by='email')
+dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+dat$cenario = factor(dat$cenario)
+(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
+?wilcox_test
+?wilcox_effsize
+wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+## Analises não paramétrica
+(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao1~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao2~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao3~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao4~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao5~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao6~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao7~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao8~cenario, data = dat, alternative = "greater"))
+(wt <- wilcox_test(dimensao9~cenario, data = dat, alternative = "greater"))
+?rbind
+## Analises não paramétrica
+(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+## Leitura de dados
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+pre_dat <- merge(users, fss, by='email')
+dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+dat$cenario = factor(dat$cenario)
+## Analises não paramétrica
+(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+View(fss)
+View(pre_dat)
+library(readr)
+library(dplyr)
+library(rstatix)
+## Leitura de dados
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+pre_dat <- merge(users, fss, by='email')
+dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
+dat$cenario = factor(dat$cenario)
+## Analises não paramétrica
+(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+?boxplot
+?car::Boxplot()
+car::Boxplot(media~cenario, data=dat)
+car::Boxplot(media~cenario, data=dat, outline = T)
+car::Boxplot(media~cenario, data=dat, notch=T)
+library(plotly)
+plot_ly(dat, media~cenario)
+plot_ly(dat, media~cenario, jitter = 0.3)
+plot_ly(dat, media~cenario, type = 'box', jitter = 0.3)
+plot_ly(dat, media~cenario, type = "box", boxpoints = "all", jitter = 0.3)
+plot_ly(dat, y=~media, type = "box", boxpoints = "all", jitter = 0.3)
+plot_ly(data=dat, x=~cenario, y=~media, type = "box", boxpoints = "all", jitter = 0.3)
+plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, type = "box", boxpoints = "all", jitter = 0.3)
+## Efetuar plot
+library(plotly)
+plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, type = "box", boxpoints = "all", jitter = 0.3)
+colnames(dat)
+pre_dat <- merge(users, fss, by='email')
+colnames(pre_dat)
+pre_dat <- merge(users, fss, by=c('email','name'))
+pre_dat <- merge(users, fss, by=c('email','nome'))
+colnames(pre_dat)
+## Leitura de dados
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+dat <- merge(users, fss, by=c('email','nome'))
+dat$cenario = factor(dat$cenario)
+## Analises não paramétrica
+(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
+(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
+## Efetuar plot
+library(plotly)
+plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, text=~nome, type = "box", boxpoints = "all", jitter = 0.3)
+get_summary_stats(dat)
+View(get_summary_stats(dat))
+pre_dat <- merge(users, fss, by=c('email','nome'))
+colnames(pre_dat)
+## Leitura de dados
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+pre_dat <- merge(users, fss, by=c("email","nome"))
+dat <- select(pre_dat, starts_with("email"), starts_with("nome"), starts_with("dimensao"), starts_with("media"))
+dat$cenario = factor(dat$cenario)
+## Leitura de dados
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+fss <- read_csv('data/fss.csv')
+users <- read_csv('data/user-distribution.csv')
+pre_dat <- merge(users, fss, by=c("email","nome"))
+dat <- select(pre_dat, starts_with("email"), starts_with("nome")
+, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
+dat$cenario = factor(dat$cenario)
+get_summary_stats(dat)
+## Efeituar estatistica descritiva
+get_summary_stats(dat)
+freq_table(dat)
+freq_table(dat)
+?freq_table
+freq_table(dat,cenario)
+?get_mode
+get_mode(dat$cenario)
+get_mode(dat$email)
+get_mode(dat$media)
+get_mode(dat$dimensao1)
+get_mode(dat$media)
+identify_outliers(dat)
+?identify_outliers
+identify_outliers(dat, media, dimensao1, dimensao2)
+identify_outliers(dat, media)
+identify_outliers(dat, "media")
+identify_outliers(dat, "dimension1")
+identify_outliers(dat, "dimension1")
+colnames(dat)
+identify_outliers(dat, "dimensao1")
+identify_outliers(dat, "dimensao1","media")
+identify_outliers(dat, c("dimensao1","media"))
+identify_outliers(dat, dimensao1)
