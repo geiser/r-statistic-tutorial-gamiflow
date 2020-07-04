@@ -1,6 +1,8 @@
 
 Makefile
 
+.rstudio
+
 # History files
 .Rhistory
 .Rapp.history

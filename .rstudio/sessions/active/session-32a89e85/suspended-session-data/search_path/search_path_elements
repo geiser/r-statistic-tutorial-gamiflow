@@ -1,4 +1,13 @@
 .GlobalEnv
+package:emmeans
+package:DT
+package:shiny
+package:ggpubr
+package:magrittr
+package:ggrepel
+package:car
+package:carData
+package:careless
 package:plotly
 package:ggplot2
 package:rstatix

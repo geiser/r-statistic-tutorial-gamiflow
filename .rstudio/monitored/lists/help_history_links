@@ -1,15 +1,15 @@
-help/library/base/html/Reserved.html,R: Reserved Words in R
-help/library/base/html/dots.html,"R: ..., '..1', etc used in Functions"
-help/library/base/html/stop.html,R: Stop Function Execution
-help/library/plotly/html/plotly.html,R: Main interface to plotly
-help/library/plotly/html/plot_ly.html,R: Initiate a plotly visualization
-help/library/base/html/print.html,R: Print Values
-help/library/rstatix/html/t_test.html,R: T-test
-help/library/rstatix/html/cohens_d.html,R: Compute Cohen's d Measure of Effect Size
-help/library/graphics/html/pairs.html,R: Scatterplot Matrices
-help/library/digest/html/digest.html,R: Create hash function digests for arbitrary R objects
-help/library/NULL/help/recode,recode
-help/library/base/html/switch.html,R: Select One of a List of Alternatives
-help/doc/html/Search?pattern=record&title=1&keyword=1&alias=1,R: Search Results
-help/library/dplyr/html/recode.html,R: Recode values
-help/library/MVN/html/mvn.html,R: Multivariate Normality Tests
+help/library/rstatix/html/wilcox_effsize.html,R: Wilcoxon Effect Size
+help/library/stats/html/median.html,R: Median Value
+help/library/NULL/help/wilcox_test,wilcox_test
+help/library/rstatix/html/wilcox_test.html,R: Wilcoxon Tests
+help/library/NULL/help/friedman_test,friedman_test
+help/library/rstatix/html/friedman_test.html,R: Friedman Rank Sum Test
+help/library/stats/html/friedman.test.html,R: Friedman Rank Sum Test
+help/library/NULL/help/kruskal_test,kruskal_test
+help/library/stats/html/kruskal.test.html,R: Kruskal-Wallis Rank Sum Test
+help/library/rstatix/html/kruskal_test.html,R: Kruskal-Wallis Test
+help/library/rstatix/html/kruskal_effsize.html,R: Kruskal-Wallis Effect Size
+help/library/rstatix/html/dunn_test.html,R: Dunn's Test of Multiple Comparisons
+help/library/rcompanion/html/scheirerRayHare.html,R: Scheirer Ray Hare test
+help/library/rstatix/html/get_test_label.html,R: Extract Label Information from Statistical Tests
+help/library/base/html/Round.html,R: Rounding of Numbers

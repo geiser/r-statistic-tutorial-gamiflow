@@ -1,512 +1,512 @@
-#}
-))
-})
-, FUN = function(item) {
-cbind("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
+i=2
+df <- subset_by_tbl(dat, freq_df[i,], ivs = ivs)
+df <- group_by_at(df, vars(ivs))
+df
+qqPlotly(df$UserID, df$media)
+dv='media'
+car::qqPlot(as.formula(paste('~', dv)), data = df)
+sfactors = paste0(ivs[1:(length(ivs)-1)], collapse = "*")
+sfactors = paste0(ivs, collapse = "*")
+sformula = paste0(dv," ~ ", sfactors," + Error(",wid,"/tempo)")
+sformula
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+#source(paste0(getwd(),'/modules/outliers.R'))
+#source(paste0(getwd(),'/modules/nonNormality.R'))
+#source(paste0(getwd(),'/modules/hypothesisAnova.R'))
+source(paste0(getwd(),'/modules/homogeneity.R'))
+source(paste0(getwd(),'/modules/descriptiveStatistics.R'))
+source(paste0(getwd(),'/modules/df2Table.R'))
+#source(paste0(getwd(),'/modules/outliers.R'))
+#source(paste0(getwd(),'/modules/nonNormality.R'))
+#source(paste0(getwd(),'/modules/hypothesisAnova.R'))
+source(paste0(getwd(),'/modules/homogeneity.R'))
+source(paste0(getwd(),'/modules/descriptiveStatistics.R'))
+factorialAnovaUI <- function(id, title=id) {
+ns <- NS(id)
+fluidPage(
+shinyjs::useShinyjs(),
+titlePanel(title),
+sidebarLayout(
+sidebarPanel(width = 3, uiOutput(ns("anovaParamsUI"))),
+mainPanel(width = 9, uiOutput(ns("anovaTabsetUI")))
 )
-})
-dfs_dat <- do.call(
 )
-, FUN = function(item) {
-cbind("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-})
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-library(jsonlite)
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-#, "genero" = item$gender
-#, "estado_civil" = item$martial_status
-#, "etinia" = item$ethnicity
-#, "familia" = item$family
-#, "orientacao_sexual" = item$sexual_orientation
-#, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-View(dat_dfs)
-View(dfs_dat)
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-#, "familia" = item$family
-#, "orientacao_sexual" = item$sexual_orientation
-#, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-#, "familia" = item$family
-#, "orientacao_sexual" = item$sexual_orientation
-#, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-item <- read_json("data/survey-0-dfs.json")[[1]]
-item$email
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$gender
-, "estado_civil" = item$martial_status
-, "etinia" = item$ethnicity
-#, "familia" = item$family
-#, "orientacao_sexual" = item$sexual_orientation
-#, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-#, "familia" = item$family
-#, "orientacao_sexual" = item$sexual_orientation
-#, "atividade" = item$activity
-#, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-# df <- dataframe(item$summary[[i]])
-# colnames(df) <- paste0("dimensao", i)
-#}
-)
-}))
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-df <- dataframe(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
 }
-)
-}))
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-, do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-df <- dataframe(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-}
-))
-}))
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-}))
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-)
-}))
-View(dfs_dat)
-do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-df <- dataframe(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-}
-))
-do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-df <- data.frame(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-}
-)
-)
-do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-df <- data.frame(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-do.call(cbind, lapply(seq(1,length(item$summary)), FUN = function(i) {
-df <- data.frame(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-seq(1,length(item$summary))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-df <- data.frame(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-seq(1,length(item$results$summary))
-seq(1,length(item$results$answers
-))
-seq(1,length(item$results$answers[[1]]))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-df <- data.frame(item$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-df <- data.frame(item$results$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-#df <- data.frame(item$results$summary[[i]])
-#colnames(df) <- paste0("dimensao", i)
-#return(df)
-cbind(paste0("dimensao", i) = item$results$summary[[i]])
-}))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-#df <- data.frame(item$results$summary[[i]])
-#colnames(df) <- paste0("dimensao", i)
-#return(df)
-cbind(paste0("dimensao", i) = item$results$summary[[i]])
-}))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-df <- data.frame(item$results$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-#cbind(paste0("dimensao", i) = item$results$summary[[i]])
-}))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-df <- data.frame(paste0("dimensao", i) = item$results$summary[[i]])
-#colnames(df) <- paste0("dimensao", i)
-return(df)
-#cbind(paste0("dimensao", i) = item$results$summary[[i]])
-}))
-do.call(cbind, lapply(seq(1,length(item$results$summary)), FUN = function(i) {
-df <- data.frame(item$results$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-#cbind(paste0("dimensao", i) = item$results$summary[[i]])
-}))
-seq(1,length(item$results$answers[[1]]))
-library(readr)
-dat_dfs <- read_csv("data/survey-0-dfs.csv")
-colnames(dfs_dat)
-library(readr)
-dfs_dat <- read_csv("data/survey-0-dfs.csv")
-colnames(dfs_dat)
-library(jsonlite)
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-, do.call(cbind, lapply(seq(1,length(item$results$summary))
-, FUN = function(i) {
-df <- data.frame(item$results$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-, do.call(cbind, lapply(seq(1,length(item$results$answers[[1]]))
-, FUN = function(i) {
-df <- data.frame(item$results$answers[[1]][[i]])
-colnames(df) <- paste0("Q", i)
-return(df)
-}))
-)
-}))
-View(dfs_dat)
-library(jsonlite)
-dfs_dat <- do.call(
-rbind, lapply(
-read_json("data/survey-0-dfs.json")
-, FUN = function(item) {
-data.frame("nome" = item$name
-, "nascimento" = item$birth_date
-, "email" = item$email
-, "genero" = item$email
-, "estado_civil" = item$marital_status
-, "etinia" = item$ethnicity
-, "familia" = item$family
-, "orientacao_sexual" = item$sexual_orientation
-, "atividade" = item$activity
-, do.call(cbind, lapply(
-seq(1,length(item$results$summary))
-, FUN = function(i) {
-df <- data.frame(item$results$summary[[i]])
-colnames(df) <- paste0("dimensao", i)
-return(df)
-}))
-, do.call(cbind, lapply(
-seq(1,length(item$results$answers[[1]]))
-, FUN = function(i) {
-df <- data.frame(item$results$answers[[1]][[i]])
-colnames(df) <- paste0("Q", i)
-return(df)
-}))
-)
-}))
-library(readr)
-dfs_dat <- read_csv("data/survey-0-dfs.csv")
-library(readr)
-(dfs_dat <- read_csv("data/survey-0-dfs.csv"))
-wants <- c('car','dplyr','rstatix','readr')
-has <- wants %in% rownames(installed.packages())
-if (any(!has)) install.packages(wants[!has])
-library(readr)
-library(dplyr)
-install.packages(wants[!has])
-library(readr)
-library(dplyr)
-library(rstatix)
-## Leitura de dados
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-pre_dat <- merge(users, fss, by='email')
-dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
-dat$cenario = factor(dat$cenario)
-(wt <- wilcox_test(media~cenario, data = dat, alternative="greater"))
-?wilcox_test
-?wilcox_effsize
-wilcox_effsize(media~cenario, data = dat, alternative = "greater")
-## Analises não paramétrica
-(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
-(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao1~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao2~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao3~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao4~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao5~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao6~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao7~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao8~cenario, data = dat, alternative = "greater"))
-(wt <- wilcox_test(dimensao9~cenario, data = dat, alternative = "greater"))
-?rbind
-## Analises não paramétrica
-(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
-(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
-## Leitura de dados
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-pre_dat <- merge(users, fss, by='email')
-dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
-dat$cenario = factor(dat$cenario)
-## Analises não paramétrica
-(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
-(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
-View(fss)
-View(pre_dat)
-library(readr)
-library(dplyr)
-library(rstatix)
-## Leitura de dados
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-pre_dat <- merge(users, fss, by='email')
-dat <- select(pre_dat, starts_with("cenario"), starts_with("dimensao"), starts_with('media'))
-dat$cenario = factor(dat$cenario)
-## Analises não paramétrica
-(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
-(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
-?boxplot
-?car::Boxplot()
-car::Boxplot(media~cenario, data=dat)
-car::Boxplot(media~cenario, data=dat, outline = T)
-car::Boxplot(media~cenario, data=dat, notch=T)
-library(plotly)
-plot_ly(dat, media~cenario)
-plot_ly(dat, media~cenario, jitter = 0.3)
-plot_ly(dat, media~cenario, type = 'box', jitter = 0.3)
-plot_ly(dat, media~cenario, type = "box", boxpoints = "all", jitter = 0.3)
-plot_ly(dat, y=~media, type = "box", boxpoints = "all", jitter = 0.3)
-plot_ly(data=dat, x=~cenario, y=~media, type = "box", boxpoints = "all", jitter = 0.3)
-plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, type = "box", boxpoints = "all", jitter = 0.3)
-## Efetuar plot
-library(plotly)
-plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, type = "box", boxpoints = "all", jitter = 0.3)
-colnames(dat)
-pre_dat <- merge(users, fss, by='email')
-colnames(pre_dat)
-pre_dat <- merge(users, fss, by=c('email','name'))
-pre_dat <- merge(users, fss, by=c('email','nome'))
-colnames(pre_dat)
-## Leitura de dados
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-dat <- merge(users, fss, by=c('email','nome'))
-dat$cenario = factor(dat$cenario)
-## Analises não paramétrica
-(wt <- wilcox_test(media~cenario, data = dat, alternative = "greater"))
-(ez <- wilcox_effsize(media~cenario, data = dat, alternative = "greater"))
-## Efetuar plot
-library(plotly)
-plot_ly(data=dat, x=~cenario, y=~media, color=~cenario, text=~nome, type = "box", boxpoints = "all", jitter = 0.3)
-get_summary_stats(dat)
-View(get_summary_stats(dat))
-pre_dat <- merge(users, fss, by=c('email','nome'))
-colnames(pre_dat)
-## Leitura de dados
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-pre_dat <- merge(users, fss, by=c("email","nome"))
-dat <- select(pre_dat, starts_with("email"), starts_with("nome"), starts_with("dimensao"), starts_with("media"))
-dat$cenario = factor(dat$cenario)
-## Leitura de dados
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-fss <- read_csv('data/fss.csv')
-users <- read_csv('data/user-distribution.csv')
-pre_dat <- merge(users, fss, by=c("email","nome"))
-dat <- select(pre_dat, starts_with("email"), starts_with("nome")
-, starts_with("cenario"), starts_with("dimensao"), starts_with("media"))
-dat$cenario = factor(dat$cenario)
-get_summary_stats(dat)
-## Efeituar estatistica descritiva
-get_summary_stats(dat)
-freq_table(dat)
-freq_table(dat)
+runApp()
+?tabPanel
+runApp()
+#source(paste0(getwd(),'/modules/hypothesisAnova.R'))
+source(paste0(getwd(),'/modules/outliers.R'))
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
 ?freq_table
-freq_table(dat,cenario)
-?get_mode
-get_mode(dat$cenario)
-get_mode(dat$email)
-get_mode(dat$media)
-get_mode(dat$dimensao1)
-get_mode(dat$media)
-identify_outliers(dat)
-?identify_outliers
-identify_outliers(dat, media, dimensao1, dimensao2)
-identify_outliers(dat, media)
-identify_outliers(dat, "media")
-identify_outliers(dat, "dimension1")
-identify_outliers(dat, "dimension1")
-colnames(dat)
-identify_outliers(dat, "dimensao1")
-identify_outliers(dat, "dimensao1","media")
-identify_outliers(dat, c("dimensao1","media"))
-identify_outliers(dat, dimensao1)
+runApp()
+dat <- read_csv('data/fss-qpj.csv')
+dat
+freq_table(dat, vars=group)
+freq_table(dat, vars=c('cenario'))
+source(paste0(getwd(),'/common/df2qqs.R'))
+df <- df2qqs(dat, c('imersao','social','cenario'))
+df
+freq_table(df, c('imersao','social','cenario'))
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?renderPlot
+?column
+?shapiro_test
+?shapiro.test()
+?shapiro_test
+dat
+data
+data <- read_csv('data/fss-qpj.csv')
+data
+data <- df2qqs(data, c("social","realizacao","cenario"))
+between <- c("social","realizacao","cenario")
+sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
+dv = 'media'
+sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
+sformula
+model <- lm(as.formula(sformula), data = data)
+shapiro.test(residuals(model))
+shapiro <- shapiro.test(residuals(model))
+shapiro
+as.data.frame(shapiro)
+shapiro$statistic
+as.data.frame(shapiro)
+shapiro_test
+as.list(shapiro)
+as.data.frame(as.list(shapiro))
+sumary(shapiro)
+shapiro$statistic
+shapiro$data.name
+?shapiro_test
+shapiro_test(data, vars = c("cenario"))
+shapiro_test(data, vars = "media")
+shapiro_test(data, vars = "media", detailed=T)
+shapiro_test(data, vars = "media")
+shapiro$data.name
+add_significance(data.frame(p=shapiro$p.value))
+library(dplyr)
+?shapiro.test
+source(paste0(getwd(),'/common/shapiro.R'))
+source(paste0(getwd(),'/common/df2qqs.R'))
+source(paste0(getwd(),'/common/qqPlotly.R'))
+source(paste0(getwd(),'/common/shapiro.R'))
+source(paste0(getwd(),'/common/identify_nonnormal.R'))
+source(paste0(getwd(),'/common/dealing_with_groups.R'))
+source(paste0(getwd(),'/modules/df2Table.R'))
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+return(as.data.frame(var = dv, add_significance(df)))
+}
+}))
+print(shapiro_df)
+return(shapiro_df)
+}
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+return(as.data.frame(var = dv, add_significance(df)))
+}
+}))
+print(shapiro_df)
+return(shapiro_df)
+}
+runApp()
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+print(shapiro_df)
+return(shapiro_df)
+}
+data <- read_csv('data/fss-qpj.csv')
+dvs = c('media', 'dimensao1', 'dimensao2')
+group = c('cenario','social','realizacao')
+data <- df2qqs(data, dvs, group)
+data <- df2qqs(data, group)
+data <- shapiro_per_group(data, dvs, group)
+data <-  df2qqs(read_csv('data/fss-qpj.csv'), group)
+data
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+print(shapiro_df)
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+print(dv)
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+print(shapiro_df)
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+print(dv)
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+group
+dv.var
+dv.var = NULL
+do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+print(dv)
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+print(df)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+print(shapiro_df)
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+data
+dv
+dv = 'media'
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- group_by_at(df2qqs(data, group), vars(group))
+dat
+shapiro_test(dat, vars=dv)
+source(paste0(getwd(),'/common/dealing_with_groups.R'))
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- remove_min_per_group(data, group)
+dat <- group_by_at(df2qqs(dat, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- remove_min_per_group(data, group)
+dat <- group_by_at(df2qqs(dat, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+freq <- freq_table(dat, vars = group)
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, merge(freq, df))
+return(df)
+}
+}))
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- remove_min_per_group(data, group)
+dat <- group_by_at(df2qqs(dat, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+freq <- freq_table(dat, vars = group)
+df <- as.data.frame(add_significance(df))
+if (!is.null(dv.var)) df <- cbind(var = dv, merge(freq, df))
+return(df)
+}
+}))
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+dv = 'media'
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- remove_min_per_group(data, group)
+dat <- group_by_at(df2qqs(dat, group), vars(group))
+dat
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+df
+freq <- freq_table(dat, vars = group)
+freq
+dat
+freq_table(dat, vars = group)
+freq <- freq_table(as.data.frame(dat), vars = group)
+freq
+freq <- freq_table(as.data.frame(dat), vars = group)
+df <- as.data.frame(add_significance(df))
+shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
+shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
+if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
+dat <- remove_min_per_group(data, group)
+dat <- group_by_at(df2qqs(dat, group), vars(group))
+df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
+if (!is.null(df)) {
+freq <- freq_table(as.data.frame(dat), vars = group)
+df <- merge(freq, as.data.frame(add_significance(df)))
+if (!is.null(dv.var)) df <- cbind(var = dv, df)
+return(df)
+}
+}))
+return(shapiro_df)
+}
+shapiro_per_group(data, dvs, group)
+runApp()
+runApp()
+?qqPlot
+?plotOutput
+?tabsetPanel
+?tabPanel
+?tabsetPanel
+?tabPanel
+library(DT)
+library(plotly)
+library(rstatix)
+source(paste0(getwd(),'/common/df2qqs.R'))
+source(paste0(getwd(),'/common/qqPlotly.R'))
+source(paste0(getwd(),'/common/identify_nonnormal.R'))
+source(paste0(getwd(),'/modules/df2Table.R'))
+qqPanelPlotsUI <- function(id, dv) {
+ns <- NS(id)
+tabPanel(
+dv, value = dv,
+br(), p(strong("Gráfico Q-Q do modelo residual")),
+plotOutput(ns("qqPlotResidual")), br(), hr(),
+uiOutput(ns("qqPlotGroups"))
+)
+}
+qqPanelPlotsMD <- function(id, data, dv, between = c(), within = c(), wid = 'UserID', dv.var = NULL, width = 400, height = 400) {
+moduleServer(
+id,
+function(input, output, session) {
+ns <- session$ns
+values <- reactiveValues()
+output$qqPlotResidual <- renderPlot({
+dat <- data
+if (!is.null(dv.var)) dat <- dat[which(dat[[dv.var]] == dv),]
+sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
+mdl <- lm(as.formula(sformula), data = dat)
+car::qqPlot(residuals(mdl))
+}, width = width, height = height)
+output$qqPlotGroups <- renderUI({
+group <- between
+dat <- data
+if (!is.null(dv.var)) dat <- dat[which(dat[[dv.var]] == dv),]
+freq_df <- subset(freq_table(dat, vars = group), n >= 3)
+do.call(verticalLayout, lapply(seq(1,nrow(freq_df)), FUN = function(i) {
+tbl <- freq_df[i,c(group)]
+df <- as.data.frame(subset_by_tbl(dat, tbl, group = group))
+df <- group_by_at(df, vars(group))
+ntitle <- paste(sapply(names(tbl), FUN = function(nc) paste0(nc,':', tbl[[nc]])), collapse = " - ")
+verticalLayout(
+br(), p(strong(paste("Gráfico Q-Q dos modelos por grupo, ", ntitle))),
+splitLayout(
+renderPlot({
+car::qqPlot(as.formula(paste('~', dv)), data = df)
+}, width = width, height = height),
+renderPlotly({
+plotly::layout(qqPlotly(df[[wid]], df[[dv]], width = width, height = height), title = 'Interative Q-Q')
+})
+)
+)
+}))
+})
+}
+)
+}
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?tabPanel
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?ggboxplot
+source(paste0(getwd(),'/modules/df2Table.R'))
+source(paste0(getwd(),'/common/anova_plots.R'))
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+dat <- read_csv('data/fss-qpj.csv')
+dat
+dat <- df2qqs(dat, c('cenario','imersao','realizacao','social'))
+iv = 'cenario'
+gdat <- group_by_at(as.data.frame(dat), vars(iv))
+gdat
+dv = "media"
+#print(gdat)
+emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T,
+p.adjust.method = input$pairwiseCompAdjustmethod)
+#print(gdat)
+emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T,
+p.adjust.method = input$pairwiseCompAdjustmethod)
+#print(gdat)
+(emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T))
+?emmeans_test
+gdat <- group_by_at(as.data.frame(dat), vars(iv))
+gdat
+#print(gdat)
+(emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T))
+gdat <- group_by_at(as.data.frame(dat), vars(c('imersao','realizacao')))
+gdat
+#print(gdat)
+(emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T))
+gdat <- group_by_at(as.data.frame(dat), vars(c('imersao','realizacao','cenario')))
+gdat
+#print(gdat)
+(emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T))
+gdat <- group_by_at(as.data.frame(dat), vars(c('')))
+gdat <- group_by_at(as.data.frame(dat), vars(c()))
+gdat
+#print(gdat)
+(emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T))
+setdiff(c('a'), 'a')
+group_by_at(dat, vars(setdiff(c('a'), 'a')))
+gdat <- group_by_at(as.data.frame(dat), vars(setdiff(names(livs), iv)))
+#print(gdat)
+(emm <- emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T))
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?navbarMenu
+ggplot()
+runApp()
+runApp()
+ggplot() + geom_text("adda")
