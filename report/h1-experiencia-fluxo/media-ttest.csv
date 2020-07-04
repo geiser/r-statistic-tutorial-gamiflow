@@ -1,0 +1,2 @@
+.y.,group1,group2,n1,n2,estimate,estimate1,estimate2,statistic,p,df,conf.low,conf.high,method,alternative,effsize,magnitude,p.signif
+media,gamificado,não gamificado,18,25,1.2010493827866666,3.579938271666667,2.37888888888,10.651909078246783,1.3e-12,33.61316179908593,1.0103288072372698,Inf,T-test,greater,3.3676171232747363,large,****

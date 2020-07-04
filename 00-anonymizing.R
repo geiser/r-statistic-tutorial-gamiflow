@@ -10,9 +10,6 @@ library(dplyr)      # biblioteca para manipular data.frames
 
 participants <- read_csv("raw-data/participants.csv")
 
-participants[["UserID"]] <- sapply(participants$nome, FUN = function(x) { # anonimizando por nome
-  digest(x, algo = "crc32")
-})
 participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
   digest(x, algo = "crc32")
 })
