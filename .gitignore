@@ -2,6 +2,7 @@
 Makefile
 
 .rstudio
+shiny_logs
 
 # History files
 .Rhistory

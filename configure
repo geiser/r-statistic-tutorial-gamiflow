@@ -38,6 +38,8 @@ for arg in "$@"; do
     esac
 done
 
+mkdir shiny_logs
+
 echo 'generating makefile ...'
 parse_yaml docker-compose.yml > Makefile
 echo "" >> Makefile
@@ -49,3 +51,26 @@ echo "DC = \"$(which docker-compose)\"" >> Makefile
 echo "" >> Makefile
 cat Makefile.in >> Makefile
 echo 'configuration complete, type make to build.'
+
+echo 'generating file docker-compose.service'
+echo "[Unit]" > docker-compose.service
+echo "Description=%i service of $app with docker-compose" >> docker-compose.service
+#echo "Requires=docker.service" >> docker-compose.service
+#echo "After=docker.service" >> docker-compose.service
+echo "" >> docker-compose.service
+echo "[Service]" >> docker-compose.service
+echo "Restart=always" >> docker-compose.service
+echo "WorkingDirectory=$prefix" >> docker-compose.service
+echo "# Remove old containers, pull images and build containers" >> docker-compose.service
+echo "ExecStartPre=$(which docker-compose) -p $app down -v" >> docker-compose.service
+echo "ExecStartPre=$(which docker-compose) -p $app pull %i" >> docker-compose.service
+echo "ExecStartPre=$(which docker-compose) -p $app build --force-rm %i" >> docker-compose.service
+echo "# Compose up" >> docker-compose.service
+echo "ExecStart=$(which docker-compose) -p $app up --no-build %i" >> docker-compose.service
+echo "# Compose down and restart" >> docker-compose.service
+echo "ExecStop=$(which docker-compose) -p $app down -v"  >> docker-compose.service
+echo "ExecReload=$(which docker-compose) -p $app restart %i"  >> docker-compose.service
+echo ""  >> docker-compose.service
+echo "[Install]" >> docker-compose.service
+echo "WantedBy=multi-user.target" >> docker-compose.service
+echo "" >> docker-compose.service
