@@ -1,2 +1,6 @@
 .y.,group1,group2,n1,n2,estimate,estimate1,estimate2,statistic,p,df,conf.low,conf.high,method,alternative,effsize,magnitude,p.signif
+<<<<<<< HEAD
 media,gamificado,não gamificado,28,26,1.234996947524725,3.5811507936785714,2.3461538461538463,10.41742557708764,2.17e-14,49.65477207680365,1.0362905354067067,Inf,T-test,greater,2.8063340501323704,large,****
+=======
+media,gamificado,não gamificado,18,25,1.2010493827866666,3.579938271666667,2.37888888888,10.651909078246783,1.3e-12,33.61316179908593,1.0103288072372698,Inf,T-test,greater,3.3676171232747363,large,****
+>>>>>>> d6e18042f644ae6d08db0e97f1ba06b9a56c5bd8

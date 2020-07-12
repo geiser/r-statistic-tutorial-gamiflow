@@ -144,3 +144,4 @@ engagement <- select(engagement,
                      starts_with("escolhas"))               #selecionando dados não sensiveis
 
 write_csv(engagement, "data/engagement.csv")
+
