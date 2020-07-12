@@ -1,407 +1,3 @@
-i=2
-df <- subset_by_tbl(dat, freq_df[i,], ivs = ivs)
-df <- group_by_at(df, vars(ivs))
-df
-qqPlotly(df$UserID, df$media)
-dv='media'
-car::qqPlot(as.formula(paste('~', dv)), data = df)
-sfactors = paste0(ivs[1:(length(ivs)-1)], collapse = "*")
-sfactors = paste0(ivs, collapse = "*")
-sformula = paste0(dv," ~ ", sfactors," + Error(",wid,"/tempo)")
-sformula
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-#source(paste0(getwd(),'/modules/outliers.R'))
-#source(paste0(getwd(),'/modules/nonNormality.R'))
-#source(paste0(getwd(),'/modules/hypothesisAnova.R'))
-source(paste0(getwd(),'/modules/homogeneity.R'))
-source(paste0(getwd(),'/modules/descriptiveStatistics.R'))
-source(paste0(getwd(),'/modules/df2Table.R'))
-#source(paste0(getwd(),'/modules/outliers.R'))
-#source(paste0(getwd(),'/modules/nonNormality.R'))
-#source(paste0(getwd(),'/modules/hypothesisAnova.R'))
-source(paste0(getwd(),'/modules/homogeneity.R'))
-source(paste0(getwd(),'/modules/descriptiveStatistics.R'))
-factorialAnovaUI <- function(id, title=id) {
-ns <- NS(id)
-fluidPage(
-shinyjs::useShinyjs(),
-titlePanel(title),
-sidebarLayout(
-sidebarPanel(width = 3, uiOutput(ns("anovaParamsUI"))),
-mainPanel(width = 9, uiOutput(ns("anovaTabsetUI")))
-)
-)
-}
-runApp()
-?tabPanel
-runApp()
-#source(paste0(getwd(),'/modules/hypothesisAnova.R'))
-source(paste0(getwd(),'/modules/outliers.R'))
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-?freq_table
-runApp()
-dat <- read_csv('data/fss-qpj.csv')
-dat
-freq_table(dat, vars=group)
-freq_table(dat, vars=c('cenario'))
-source(paste0(getwd(),'/common/df2qqs.R'))
-df <- df2qqs(dat, c('imersao','social','cenario'))
-df
-freq_table(df, c('imersao','social','cenario'))
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-?renderPlot
-?column
-?shapiro_test
-?shapiro.test()
-?shapiro_test
-dat
-data
-data <- read_csv('data/fss-qpj.csv')
-data
-data <- df2qqs(data, c("social","realizacao","cenario"))
-between <- c("social","realizacao","cenario")
-sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
-dv = 'media'
-sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
-sformula
-model <- lm(as.formula(sformula), data = data)
-shapiro.test(residuals(model))
-shapiro <- shapiro.test(residuals(model))
-shapiro
-as.data.frame(shapiro)
-shapiro$statistic
-as.data.frame(shapiro)
-shapiro_test
-as.list(shapiro)
-as.data.frame(as.list(shapiro))
-sumary(shapiro)
-shapiro$statistic
-shapiro$data.name
-?shapiro_test
-shapiro_test(data, vars = c("cenario"))
-shapiro_test(data, vars = "media")
-shapiro_test(data, vars = "media", detailed=T)
-shapiro_test(data, vars = "media")
-shapiro$data.name
-add_significance(data.frame(p=shapiro$p.value))
-library(dplyr)
-?shapiro.test
-source(paste0(getwd(),'/common/shapiro.R'))
-source(paste0(getwd(),'/common/df2qqs.R'))
-source(paste0(getwd(),'/common/qqPlotly.R'))
-source(paste0(getwd(),'/common/shapiro.R'))
-source(paste0(getwd(),'/common/identify_nonnormal.R'))
-source(paste0(getwd(),'/common/dealing_with_groups.R'))
-source(paste0(getwd(),'/modules/df2Table.R'))
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-runApp()
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-return(as.data.frame(var = dv, add_significance(df)))
-}
-}))
-print(shapiro_df)
-return(shapiro_df)
-}
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-return(as.data.frame(var = dv, add_significance(df)))
-}
-}))
-print(shapiro_df)
-return(shapiro_df)
-}
-runApp()
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-print(shapiro_df)
-return(shapiro_df)
-}
-data <- read_csv('data/fss-qpj.csv')
-dvs = c('media', 'dimensao1', 'dimensao2')
-group = c('cenario','social','realizacao')
-data <- df2qqs(data, dvs, group)
-data <- df2qqs(data, group)
-data <- shapiro_per_group(data, dvs, group)
-data <-  df2qqs(read_csv('data/fss-qpj.csv'), group)
-data
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-print(shapiro_df)
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-print(dv)
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-print(shapiro_df)
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-print(dv)
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-group
-dv.var
-dv.var = NULL
-do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-print(dv)
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-print(df)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-print(shapiro_df)
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-data
-dv
-dv = 'media'
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- group_by_at(df2qqs(data, group), vars(group))
-dat
-shapiro_test(dat, vars=dv)
-source(paste0(getwd(),'/common/dealing_with_groups.R'))
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- remove_min_per_group(data, group)
-dat <- group_by_at(df2qqs(dat, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- remove_min_per_group(data, group)
-dat <- group_by_at(df2qqs(dat, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-freq <- freq_table(dat, vars = group)
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, merge(freq, df))
-return(df)
-}
-}))
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- remove_min_per_group(data, group)
-dat <- group_by_at(df2qqs(dat, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-freq <- freq_table(dat, vars = group)
-df <- as.data.frame(add_significance(df))
-if (!is.null(dv.var)) df <- cbind(var = dv, merge(freq, df))
-return(df)
-}
-}))
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-dv = 'media'
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- remove_min_per_group(data, group)
-dat <- group_by_at(df2qqs(dat, group), vars(group))
-dat
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-df
-freq <- freq_table(dat, vars = group)
-freq
-dat
-freq_table(dat, vars = group)
-freq <- freq_table(as.data.frame(dat), vars = group)
-freq
-freq <- freq_table(as.data.frame(dat), vars = group)
-df <- as.data.frame(add_significance(df))
-shapiro_per_group <- function(data, dvs, group, dv.var = NULL) {
-shapiro_df <- do.call(rbind, lapply(dvs, FUN = function(dv) {
-if (!is.null(dv.var)) data <- data[which(data[[dv.var]] == dv),]
-dat <- remove_min_per_group(data, group)
-dat <- group_by_at(df2qqs(dat, group), vars(group))
-df <- tryCatch(shapiro_test(dat, vars=dv), error = function(e) NULL)
-if (!is.null(df)) {
-freq <- freq_table(as.data.frame(dat), vars = group)
-df <- merge(freq, as.data.frame(add_significance(df)))
-if (!is.null(dv.var)) df <- cbind(var = dv, df)
-return(df)
-}
-}))
-return(shapiro_df)
-}
-shapiro_per_group(data, dvs, group)
-runApp()
-runApp()
-?qqPlot
-?plotOutput
-?tabsetPanel
-?tabPanel
-?tabsetPanel
-?tabPanel
-library(DT)
-library(plotly)
-library(rstatix)
-source(paste0(getwd(),'/common/df2qqs.R'))
-source(paste0(getwd(),'/common/qqPlotly.R'))
-source(paste0(getwd(),'/common/identify_nonnormal.R'))
-source(paste0(getwd(),'/modules/df2Table.R'))
-qqPanelPlotsUI <- function(id, dv) {
-ns <- NS(id)
-tabPanel(
-dv, value = dv,
-br(), p(strong("Gráfico Q-Q do modelo residual")),
-plotOutput(ns("qqPlotResidual")), br(), hr(),
-uiOutput(ns("qqPlotGroups"))
-)
-}
-qqPanelPlotsMD <- function(id, data, dv, between = c(), within = c(), wid = 'UserID', dv.var = NULL, width = 400, height = 400) {
-moduleServer(
-id,
-function(input, output, session) {
-ns <- session$ns
-values <- reactiveValues()
-output$qqPlotResidual <- renderPlot({
-dat <- data
-if (!is.null(dv.var)) dat <- dat[which(dat[[dv.var]] == dv),]
-sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
-mdl <- lm(as.formula(sformula), data = dat)
-car::qqPlot(residuals(mdl))
-}, width = width, height = height)
 output$qqPlotGroups <- renderUI({
 group <- between
 dat <- data
@@ -510,3 +106,407 @@ ggplot()
 runApp()
 runApp()
 ggplot() + geom_text("adda")
+wants <- c('digest', 'readr', 'dplyr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+library(readr)      # biblioteca para leitura de arquivos CVS
+library(digest)     # biblioteca para anonimizar dados
+library(dplyr)      # biblioteca para manipular data.frames
+participants <- read_csv("raw-data/participants.csv")
+participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+digest(x, algo = "crc32")
+})
+pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+(fss <- merge(participants, pre_fss, by='email'))
+fss <- select(fss, starts_with("UserID"), starts_with("cenario")
+, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+fss
+fss
+library(readr)
+survey_0_fss <- read_csv("raw-data/survey-0-fss.csv")
+View(survey_0_fss)
+library(readr)
+participants <- read_csv("raw-data/participants.csv")
+View(participants)
+library(readr)
+survey_0_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+View(survey_0_qpj)
+wants <- c('digest', 'readr', 'dplyr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+library(readr)      # biblioteca para leitura de arquivos CVS
+library(digest)     # biblioteca para anonimizar dados
+library(digest)     # biblioteca para anonimizar dados
+library(dplyr)      # biblioteca para manipular data.frames
+participants <- read_csv("raw-data/participants.csv")
+sapply(participants$email, FUN = function(x) { # anonimizando por email
+digest(x, algo = "crc32")
+})
+participants <- read_csv("raw-data/participants.csv")
+participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+digest(x, algo = "crc32")
+})
+View(participants)
+write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+dfs <- merge(participants, pre_dfs, by='email')
+dfs <- select(dfs,
+starts_with("UserID"),
+starts_with("cenario"),
+starts_with("media"),
+starts_with("dimensao"),
+starts_with("Q"))
+dfs
+write_csv(dfs, "data/survey-dfs.csv")
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+library(readr)      # biblioteca para leitura de arquivos CVS
+library(careless)   # biblioteca para tratamento de respostas descuidadas
+library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+library(dplyr)      # biblioteca para manipular data.frames
+qpj_dat <- read_csv("data/survey-qpj.csv")
+qpj_dat
+View(qpj_dat)
+resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+(careless_qpj_long <- longstring(resp_qpj_dat))
+Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+wants <- c('readr', 'careless', 'car','dplyr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+library(readr)      # biblioteca para leitura de arquivos CVS
+library(careless)   # biblioteca para tratamento de respostas descuidadas
+library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+library(dplyr)      # biblioteca para manipular data.frames
+dfs_dat <- read_csv("data/survey-dfs.csv")
+resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+(careless_dfs_long <- longstring(resp_dfs_dat))
+Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 3,20
+View(dfs_dat)
+careless_qpj_irv <- irv(resp_qpj_dat)
+(careless_qpj_long <- longstring(resp_qpj_dat))
+wants <- c('readr', 'careless', 'car','dplyr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+library(readr)      # biblioteca para leitura de arquivos CVS
+library(careless)   # biblioteca para tratamento de respostas descuidadas
+library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+library(dplyr)      # biblioteca para manipular data.frames
+(careless_qpj_long <- longstring(resp_qpj_dat))
+qpj_dat <- read_csv("data/survey-qpj.csv")
+resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+dfs_dat <- read_csv("data/survey-dfs.csv")
+resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+(careless_dfs_long <- longstring(resp_dfs_dat))
+Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 3,20
+careless_dfs_irv <- irv(resp_dfs_dat)
+careless_dfs_irv_idx <- order(careless_dfs_irv)
+careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+, resp_dfs_dat[careless_dfs_irv_idx,])
+head(careless_irv_df) # careless 3, 20, 6
+wants <- c('plotly','dplyr','rstatix','readr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+options(scipen = 999)
+library(plotly)
+library(readr)
+library(dplyr)
+library(rstatix)
+fss <- read_csv("data/fss.csv")
+participants <- read_csv("data/participants.csv")
+dat <- merge(participants, fss, by="UserID")
+dat$cenario <- factor(dat$cenario)
+fss <- read_csv("data/fss.csv")
+participants <- read_csv("data/participants.csv")
+dat <- merge(participants, fss, by="UserID")
+p <- plot_ly(data=dat, type = "box", boxpoints = "outliers"#, jitter = 0.3
+, x=as.formula("~cenario"), y=~media, color=~cenario, text=~UserID)
+p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+print(p)
+p <- p + geom_boxplot()
+p <- ggplot(dat, aes_string("cenario", "media", colour = "cenario"))
+p <- p + geom_boxplot(outlier.colour = "red", outlier.size = 1.5)
+p <- p + geom_text(aes_string(label="UserID"), position = "dodge")
+ggplotly(p)
+print(p)
+fss <- read_csv("data/fss.csv")
+participants <- read_csv("data/participants.csv")
+dat <- merge(participants, fss, by="UserID")
+dat$cenario <- factor(dat$cenario)
+runApp()
+dfs <- read_csv('data/qpj-dfs.csv')
+qpj_fss <- read_csv('data/qpj-fss.csv')
+qpj_fss <- read_csv('data/fss-qpj.csv')
+qpj_fss <- read_csv('data/fss-qpj.csv')
+write(qpj_fss, 'data/qpj-fss.csv')
+qpj_fss <- read_csv('data/fss-qpj.csv')
+write_csv(qpj_fss, 'data/qpj-fss.csv')
+qpj <- select(qpj_fss, -starts_with("dimensao"), -starts_with("media"))
+colnames(qpj)
+write_csv(qpj, 'data/qpj.csv')
+library(readr)
+dfs <- read_csv("data/dfs.csv")
+colnames(dfs)
+library(readr)
+dfs <- read_csv("data/dfs.csv")
+colnames(dfs)
+dfs <- select(dfs, -starts_with("Q"))
+colnames(dfs)
+write_csv(dfs, 'data/dfs.csv')
+library(readr)
+qpj <- read_csv("data/qpj.csv")
+View(qpj)
+qpj <- select(qpj, -starts_with("cenario"))
+colnames(qpj)
+write_csv(qpj, 'data/qpj.csv')
+library(readr)
+fss <- read_csv("data/fss.csv")
+View(fss)
+library(readr)
+qpj <- read_csv("data/qpj.csv")
+View(qpj)
+library(readr)
+dfs <- read_csv("data/dfs.csv")
+View(dfs)
+dat <- merge(dfs, fss)
+colnames(dat)
+colnames(dfs)
+colnames(fss)
+dfs <- read_csv('data/dfs.csv')
+fss <- read_csv('data/fss.csv')
+dat <- merge(dfs, fss, by=c('UserID','cenario'))
+View(dat)
+?merge
+dat <- merge(dfs, fss, by=c('UserID','cenario'), suffixes = c(".dfs",".fss"))
+View(dat)
+dfs <- read_csv('data/dfs.csv')
+fss <- read_csv('data/fss.csv')
+dat <- merge(dfs, fss, by=c('UserID','cenario'), suffixes = c(".dfs",".fss"))
+dfs <- read_csv('data/dfs.csv')
+fss <- read_csv('data/fss.csv')
+dat <- merge(dfs, fss, by=c('UserID','cenario'), suffixes = c(".dfs",".fss"))
+View(dat)
+write_csv(dat, "data/dfs-fss.csv")
+View(dat)
+dfs_fss <- read_csv('data/dfs-fss.csv')
+qpj <- read_csv('data/qpj.csv')
+colnames(dfs_fss)
+colnames(qpj)
+dat <- merge(qpj, dfs_fss)
+View(dat)
+dat <- merge(qpj, dfs_fss)
+data <- select(dat, starts_with("UserID"), starts_with("cenario"))
+dat <- merge(data, dat)
+View(dat)
+write_csv(dat, "data/qpj-dfs-fss.csv")
+data
+norm(12)
+?norm
+?Random
+runif(30)
+?runif
+runif(30, 1, 100)
+integer(runif(30, 1, 100))
+floor(runif(30, 1, 100))
+data$pontos <- floor(runif(nrow(data), 100, 500))
+data
+data[["tempo.permanencia"]] <- floor(runif(nrow(data), 1000, 5000))
+data[["tentativas"]] <- floor(runif(nrow(data), 300, 500))
+data[["submissoes"]] <- floor(runif(nrow(data), 200, 400))
+data[["rep.erradas"]] <- floor(runif(nrow(data), 10, 40))
+data[["escolhas"]] <- floor(runif(nrow(data), 1, 20))
+write_csv(data, 'data/engagement.csv')
+View(data)
+View(data)
+merge(qpj, data)
+qpj_eng <- merge(qpj, data)
+data <- select(dat, starts_with("UserID"), starts_with("cenario"))
+merge(data, qpj_eng)
+dat <- merge(data, qpj_eng)
+View(dat)
+write_csv(dat, 'data/qpj-engagement.csv')
+engagement <- read_csv('data/engagement.csv')
+dat2 <- merge(dfs, engagement)
+View(dat2)
+View(dat2)
+View(dat2)
+write_csv(dat2, 'data/dfs-engagement.csv')
+dat3 <- merge(qpj, dfs)
+View(dat3)
+colnames(qpj)
+qpj <- select(qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"))
+dat3 <- merge(dfs[,c("UserID","cenario")], qpj)
+dat3 <- merge(dat3, dfs)
+dat3 <- merge(dat3, engagement)
+View(dat3)
+View(dat3)
+write_csv(dat3, 'data/qpj-dfs-engagament.csv')
+data <- select(dat3, starts_with("UserID"), starts_with("cenario"))
+data
+data[["pos.nota"]] <- runif(nrow(data), 5, 10)
+data
+data[["pre.nota"]] <- runif(nrow(data), 1, 5)
+data[["dif.nota"]] <- data$pos.nota - data$pre.nota
+data
+write_csv(data, "data/prepos.csv")
+dat <- select(dat3, starts_with("UserID"), starts_with("cenario"))
+dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+dat <- merge(dat, qpj)
+dat <- merge(dat, data)
+View(dat)
+write(dat, 'data/qpj-prepos.csv')
+write_csv(dat, 'data/qpj-prepos.csv')
+dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+dat <- merge(dat, qpj)
+dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+dat <- merge(dat, dfs)
+dat <- merge(dat, data)
+write_csv(dat, 'data/dfs-prepos.csv')
+colnames(dat)
+dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+dat <- merge(dat, qpj)
+dat <- merge(dat, dfs)
+dat <- merge(dat, data)
+dat
+colnames(dat)
+write_csv(dat, 'data/qpj-dfs-prepos.csv')
+View(dat)
+library(readr)
+participants <- read_csv("raw-data/participants.csv")
+View(participants)
+library(readr)
+qpj <- read_csv("data/qpj.csv")
+View(qpj)
+library(readr)
+qpj_prepos <- read_csv("data/qpj-prepos.csv")
+View(qpj_prepos)
+dat <- merge(qpj, qpj_prepos)
+View(dat)
+library(readr)
+participants <- read_csv("data/participants.csv")
+View(participants)
+par <- dat[,c("UserID","cenario")]
+par
+write_csv(par, "data/participants.csv")
+library(readr)
+participants <- read_csv("raw-data/participants.csv")
+View(participants)
+library(readr)
+participants <- read_csv("raw-data/participants.csv")
+View(participants)
+dat <- merge(participants, par)
+View(dat)
+par
+participants
+dat <- cbind(participants, par)
+nrow(participants)
+nrow(par)
+library(readr)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+View(dfs_careless)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+View(dfs_careless)
+library(readr)
+survey_dfs <- read_csv("data/survey-dfs.csv")
+View(survey_dfs)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+survey_dfs <- read_csv("data/survey-dfs.csv")
+View(dfs_careless)
+View(survey_dfs)
+library(readr)
+dfs <- read_csv("data/dfs.csv")
+View(dfs)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+survey_dfs <- read_csv("data/survey-dfs.csv")
+dfs <- read_csv("data/dfs.csv")
+View(dfs)
+dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+dat
+?merge
+dat <- merge(dfs, dat, by="UserID", all.x = T, all.y = F)
+View(dat)
+dfs_careless
+View(dat)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+survey_dfs <- read_csv("data/survey-dfs.csv")
+dfs <- read_csv("data/dfs.csv")
+dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+dat <- merge(dat, dfs, by="UserID", all.x = T, all.y = F)
+View(dat)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+survey_dfs <- read_csv("data/survey-dfs.csv")
+dfs <- read_csv("data/dfs.csv")
+dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+dat <- merge(dfs, dat, by="UserID", all.x = F, all.y = T)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+survey_dfs <- read_csv("data/survey-dfs.csv")
+dfs <- read_csv("data/dfs.csv")
+dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+tmp <- rbind(dfs, dfs_careless)
+colnames(dfs)
+colnames(dfs_careless)
+dfs_careless <- read_csv("data/dfs-careless.csv")
+survey_dfs <- read_csv("data/survey-dfs.csv")
+dfs <- read_csv("data/dfs.csv")
+dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+tmp <- rbind(dfs, select(dfs_careless, starts_with("UserID"), starts_with("cenario"), starts_with("media"), starts_with("dimensao")))
+dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+write_csv(dat, "data/survey-dfs.csv")
+fss_careless <- read_csv("data/fss-careless.csv")
+survey_fss <- read_csv("data/survey-fss.csv")
+fss <- read_csv("data/fss.csv")
+dat <- select(survey_fss, starts_with("UserID"), starts_with("Q"))
+tmp <- rbind(fss, select(fss_careless, starts_with("UserID"), starts_with("cenario"), starts_with("media"), starts_with("dimensao")))
+View(tmp)
+dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+View(dat)
+dat <- dat[which(is.na(dat$cenario)),]
+dat <- select(survey_fss, starts_with("UserID"), starts_with("Q"))
+tmp <- rbind(fss, select(fss_careless, starts_with("UserID"), starts_with("cenario"), starts_with("media"), starts_with("dimensao")))
+dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+dat <- dat[which(!is.na(dat$cenario)),]
+write_csv(dat, "data/survey-fss.csv")
+qpj_careless <- read_csv("data/qpj-careless.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")
+qpj <- read_csv("data/qpj.csv")
+dat <- select(survey_qpj, starts_with("UserID"), starts_with("Item"))
+qpj_careless
+qpj_careless <- read_csv("data/qpj-careless.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")
+qpj <- read_csv("data/qpj.csv")
+dat <- select(survey_qpj, starts_with("UserID"), starts_with("Item"))
+tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("cenario"), starts_with("Item")))
+qpj
+qpj_careless <- read_csv("data/qpj-careless.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")
+qpj <- read_csv("data/qpj.csv")
+survey_qpj
+qpj_careless <- read_csv("data/qpj-careless.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")
+qpj <- read_csv("data/qpj.csv")
+dat <- select(survey_qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"), starts_with("Item"))
+qpj_careless
+qpj
+tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao")))
+tmp
+dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+qpj_careless <- read_csv("data/qpj-careless.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")
+qpj <- read_csv("data/qpj.csv")
+dat <- select(survey_qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"), starts_with("Item"))
+tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao")))
+tmp
+dat <- merge(select(tmp, starts_with("UserID")), dat, by="UserID", all.x = F, all.y = T)
+dat <- dat[which(!is.na(dat$cenario)),]
+qpj_careless <- read_csv("data/qpj-careless.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")
+qpj <- read_csv("data/qpj.csv")
+dat <- select(survey_qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"), starts_with("Item"))
+tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao")))
+dat <- merge(select(tmp, starts_with("UserID")), dat, by="UserID", all.x = F, all.y = T)
+write_csv(dat, "data/survey-qpj.csv")
+library(readr)
+survey_dfs <- read_csv("data/survey-dfs.csv")
+survey_fss <- read_csv("data/survey-fss.csv")
+survey_qpj <- read_csv("data/survey-qpj.csv")

@@ -13048,3 +13048,1469 @@
 1593905752186:runApp()
 1593905859349:runApp()
 1593906034030:runApp()
+1593960768285:wants <- c('digest', 'readr', 'dplyr')
+1593960768497:has <- wants %in% rownames(installed.packages())
+1593960768669:if (any(!has)) install.packages(wants[!has])
+1593960768851:library(readr)      # biblioteca para leitura de arquivos CVS
+1593960768998:library(digest)     # biblioteca para anonimizar dados
+1593960769536:library(dplyr)      # biblioteca para manipular data.frames
+1593960770578:participants <- read_csv("raw-data/participants.csv")
+1593960770925:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1593960770940:digest(x, algo = "crc32")
+1593960770958:})
+1593960792701:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1593960806597:(fss <- merge(participants, pre_fss, by='email'))
+1593960866489:fss <- select(fss, starts_with("UserID"), starts_with("cenario")
+1593960866507:, starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1593960869339:fss
+1593960885133:fss
+1594406073904:library(readr)
+1594406073985:survey_0_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594406074016:View(survey_0_fss)
+1594406098037:library(readr)
+1594406098056:participants <- read_csv("raw-data/participants.csv")
+1594406098081:View(participants)
+1594406112506:library(readr)
+1594406112529:survey_0_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594406112560:View(survey_0_qpj)
+1594406124204:wants <- c('digest', 'readr', 'dplyr')
+1594406124754:has <- wants %in% rownames(installed.packages())
+1594406129050:if (any(!has)) install.packages(wants[!has])
+1594406129063:library(readr)      # biblioteca para leitura de arquivos CVS
+1594406129081:library(digest)     # biblioteca para anonimizar dados
+1594406145231:library(digest)     # biblioteca para anonimizar dados
+1594406151288:library(dplyr)      # biblioteca para manipular data.frames
+1594406154275:participants <- read_csv("raw-data/participants.csv")
+1594406165108:sapply(participants$email, FUN = function(x) { # anonimizando por email
+1594406165127:digest(x, algo = "crc32")
+1594406165145:})
+1594406177650:participants <- read_csv("raw-data/participants.csv")
+1594406188537:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1594406188558:digest(x, algo = "crc32")
+1594406188588:})
+1594406193670:View(participants)
+1594406203113:write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+1594406242212:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594406250994:dfs <- merge(participants, pre_dfs, by='email')
+1594406252460:dfs <- select(dfs,
+1594406252482:starts_with("UserID"),
+1594406252504:starts_with("cenario"),
+1594406252525:starts_with("media"),
+1594406252544:starts_with("dimensao"),
+1594406252561:starts_with("Q"))
+1594406256104:dfs
+1594406269129:write_csv(dfs, "data/survey-dfs.csv")
+1594406455957:has <- wants %in% rownames(installed.packages())
+1594406456171:if (any(!has)) install.packages(wants[!has])
+1594406456877:library(readr)      # biblioteca para leitura de arquivos CVS
+1594406456907:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594406456929:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594406457337:library(dplyr)      # biblioteca para manipular data.frames
+1594406457791:qpj_dat <- read_csv("data/survey-qpj.csv")
+1594406463753:qpj_dat
+1594406472503:View(qpj_dat)
+1594406481290:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1594406488079:(careless_qpj_long <- longstring(resp_qpj_dat))
+1594406508929:Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+1594406651850:wants <- c('readr', 'careless', 'car','dplyr')
+1594406652242:has <- wants %in% rownames(installed.packages())
+1594406652941:if (any(!has)) install.packages(wants[!has])
+1594406653491:library(readr)      # biblioteca para leitura de arquivos CVS
+1594406653773:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594406653974:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594406654345:library(dplyr)      # biblioteca para manipular data.frames
+1594406654726:dfs_dat <- read_csv("data/survey-dfs.csv")
+1594406655360:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1594406655779:(careless_dfs_long <- longstring(resp_dfs_dat))
+1594406656837:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 3,20
+1594406694934:View(dfs_dat)
+1594406811106:careless_qpj_irv <- irv(resp_qpj_dat)
+1594406815313:(careless_qpj_long <- longstring(resp_qpj_dat))
+1594406817763:wants <- c('readr', 'careless', 'car','dplyr')
+1594406817928:has <- wants %in% rownames(installed.packages())
+1594406818075:if (any(!has)) install.packages(wants[!has])
+1594406818266:library(readr)      # biblioteca para leitura de arquivos CVS
+1594406818426:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594406818600:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594406819259:library(dplyr)      # biblioteca para manipular data.frames
+1594406821141:(careless_qpj_long <- longstring(resp_qpj_dat))
+1594406824360:qpj_dat <- read_csv("data/survey-qpj.csv")
+1594406824561:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1594406833354:dfs_dat <- read_csv("data/survey-dfs.csv")
+1594406833588:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1594406833942:(careless_dfs_long <- longstring(resp_dfs_dat))
+1594406835112:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 3,20
+1594406836405:careless_dfs_irv <- irv(resp_dfs_dat)
+1594406839447:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1594406840442:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1594406840466:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1594406840489:, resp_dfs_dat[careless_dfs_irv_idx,])
+1594406841448:head(careless_irv_df) # careless 3, 20, 6
+1594406962859:wants <- c('plotly','dplyr','rstatix','readr')
+1594406963100:has <- wants %in% rownames(installed.packages())
+1594406963272:if (any(!has)) install.packages(wants[!has])
+1594406963447:options(scipen = 999)
+1594406963631:library(plotly)
+1594406963814:library(readr)
+1594406964020:library(dplyr)
+1594406964305:library(rstatix)
+1594406964632:fss <- read_csv("data/fss.csv")
+1594406966585:participants <- read_csv("data/participants.csv")
+1594406967256:dat <- merge(participants, fss, by="UserID")
+1594406968276:dat$cenario <- factor(dat$cenario)
+1594406971423:fss <- read_csv("data/fss.csv")
+1594406971959:participants <- read_csv("data/participants.csv")
+1594406972525:dat <- merge(participants, fss, by="UserID")
+1594406984553:p <- plot_ly(data=dat, type = "box", boxpoints = "outliers"#, jitter = 0.3
+1594406984583:, x=as.formula("~cenario"), y=~media, color=~cenario, text=~UserID)
+1594406985829:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1594406986874:print(p)
+1594406987824:p <- p + geom_boxplot()
+1594406988023:p <- ggplot(dat, aes_string("cenario", "media", colour = "cenario"))
+1594406988525:p <- p + geom_boxplot(outlier.colour = "red", outlier.size = 1.5)
+1594406989032:p <- p + geom_text(aes_string(label="UserID"), position = "dodge")
+1594406989918:ggplotly(p)
+1594406990784:print(p)
+1594407003584:fss <- read_csv("data/fss.csv")
+1594407003870:participants <- read_csv("data/participants.csv")
+1594407004411:dat <- merge(participants, fss, by="UserID")
+1594407005077:dat$cenario <- factor(dat$cenario)
+1594408682259:runApp()
+1594496070426:dfs <- read_csv('data/qpj-dfs.csv')
+1594496082676:qpj_fss <- read_csv('data/qpj-fss.csv')
+1594496111908:qpj_fss <- read_csv('data/fss-qpj.csv')
+1594496452620:qpj_fss <- read_csv('data/fss-qpj.csv')
+1594496504345:write(qpj_fss, 'data/qpj-fss.csv')
+1594496513676:qpj_fss <- read_csv('data/fss-qpj.csv')
+1594496514492:write_csv(qpj_fss, 'data/qpj-fss.csv')
+1594496558652:qpj <- select(qpj_fss, -starts_with("dimensao"), -starts_with("media"))
+1594496565881:colnames(qpj)
+1594496587658:write_csv(qpj, 'data/qpj.csv')
+1594496703197:library(readr)
+1594496704136:dfs <- read_csv("data/dfs.csv")
+1594496712559:colnames(dfs)
+1594497173950:library(readr)
+1594497174279:dfs <- read_csv("data/dfs.csv")
+1594497186248:colnames(dfs)
+1594497222478:dfs <- select(dfs, -starts_with("Q"))
+1594497230060:colnames(dfs)
+1594497249323:write_csv(dfs, 'data/dfs.csv')
+1594497289064:library(readr)
+1594497289085:qpj <- read_csv("data/qpj.csv")
+1594497289111:View(qpj)
+1594497339319:qpj <- select(qpj, -starts_with("cenario"))
+1594497344786:colnames(qpj)
+1594497365237:write_csv(qpj, 'data/qpj.csv')
+1594497403534:library(readr)
+1594497403565:fss <- read_csv("data/fss.csv")
+1594497403594:View(fss)
+1594497416989:library(readr)
+1594497417012:qpj <- read_csv("data/qpj.csv")
+1594497417034:View(qpj)
+1594497436515:library(readr)
+1594497436543:dfs <- read_csv("data/dfs.csv")
+1594497436581:View(dfs)
+1594497484044:dat <- merge(dfs, fss)
+1594497490355:colnames(dat)
+1594497501328:colnames(dfs)
+1594497507137:colnames(fss)
+1594497535487:dfs <- read_csv('data/dfs.csv')
+1594497536296:fss <- read_csv('data/fss.csv')
+1594497572519:dat <- merge(dfs, fss, by=c('UserID','cenario'))
+1594497576454:View(dat)
+1594497605567:?merge
+1594497644378:dat <- merge(dfs, fss, by=c('UserID','cenario'), suffixes = c(".dfs",".fss"))
+1594497651671:View(dat)
+1594497966604:dfs <- read_csv('data/dfs.csv')
+1594497966870:fss <- read_csv('data/fss.csv')
+1594497969405:dat <- merge(dfs, fss, by=c('UserID','cenario'), suffixes = c(".dfs",".fss"))
+1594497995834:dfs <- read_csv('data/dfs.csv')
+1594497996108:fss <- read_csv('data/fss.csv')
+1594497996727:dat <- merge(dfs, fss, by=c('UserID','cenario'), suffixes = c(".dfs",".fss"))
+1594498000698:View(dat)
+1594498017374:write_csv(dat, "data/dfs-fss.csv")
+1594499014439:View(dat)
+1594499169917:dfs_fss <- read_csv('data/dfs-fss.csv')
+1594499191645:qpj <- read_csv('data/qpj.csv')
+1594499200050:colnames(dfs_fss)
+1594499207242:colnames(qpj)
+1594499241926:dat <- merge(qpj, dfs_fss)
+1594499245002:View(dat)
+1594499377790:dat <- merge(qpj, dfs_fss)
+1594499391385:data <- select(dat, starts_with("UserID"), starts_with("cenario"))
+1594499406578:dat <- merge(data, dat)
+1594499409730:View(dat)
+1594499443551:write_csv(dat, "data/qpj-dfs-fss.csv")
+1594500238056:data
+1594500264362:norm(12)
+1594500269020:?norm
+1594500372360:?Random
+1594500950641:runif(30)
+1594501153710:?runif
+1594501176596:runif(30, 1, 100)
+1594501191175:integer(runif(30, 1, 100))
+1594501205132:floor(runif(30, 1, 100))
+1594501252196:data$pontos <- floor(runif(nrow(data), 100, 500))
+1594501255069:data
+1594501293649:data[["tempo.permanencia"]] <- floor(runif(nrow(data), 1000, 5000))
+1594501313144:data[["tentativas"]] <- floor(runif(nrow(data), 300, 500))
+1594501544159:data[["submissoes"]] <- floor(runif(nrow(data), 200, 400))
+1594501865191:data[["rep.erradas"]] <- floor(runif(nrow(data), 10, 40))
+1594501886739:data[["escolhas"]] <- floor(runif(nrow(data), 1, 20))
+1594501906321:write_csv(data, 'data/engagement.csv')
+1594501940543:View(data)
+1594501947389:View(data)
+1594503631741:merge(qpj, data)
+1594503676054:qpj_eng <- merge(qpj, data)
+1594503688093:data <- select(dat, starts_with("UserID"), starts_with("cenario"))
+1594503703026:merge(data, qpj_eng)
+1594503707583:dat <- merge(data, qpj_eng)
+1594503710192:View(dat)
+1594503736829:write_csv(dat, 'data/qpj-engagement.csv')
+1594503818386:engagement <- read_csv('data/engagement.csv')
+1594503824091:dat2 <- merge(dfs, engagement)
+1594503826672:View(dat2)
+1594503830617:View(dat2)
+1594503830637:View(dat2)
+1594503854815:write_csv(dat2, 'data/dfs-engagement.csv')
+1594503877003:dat3 <- merge(qpj, dfs)
+1594503880445:View(dat3)
+1594503949797:colnames(qpj)
+1594503981534:qpj <- select(qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"))
+1594504009116:dat3 <- merge(dfs[,c("UserID","cenario")], qpj)
+1594504026466:dat3 <- merge(dat3, dfs)
+1594504037185:dat3 <- merge(dat3, engagement)
+1594504041046:View(dat3)
+1594504067412:View(dat3)
+1594504084358:write_csv(dat3, 'data/qpj-dfs-engagament.csv')
+1594510576357:data <- select(dat3, starts_with("UserID"), starts_with("cenario"))
+1594510579330:data
+1594510647803:data[["pos.nota"]] <- runif(nrow(data), 5, 10)
+1594510650622:data
+1594510667627:data[["pre.nota"]] <- runif(nrow(data), 1, 5)
+1594510693560:data[["dif.nota"]] <- data$pos.nota - data$pre.nota
+1594510695678:data
+1594510806695:write_csv(data, "data/prepos.csv")
+1594510834100:dat <- select(dat3, starts_with("UserID"), starts_with("cenario"))
+1594510838351:dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+1594521134650:dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+1594521135195:dat <- merge(dat, qpj)
+1594521135770:dat <- merge(dat, data)
+1594521156493:View(dat)
+1594521187144:write(dat, 'data/qpj-prepos.csv')
+1594521194966:write_csv(dat, 'data/qpj-prepos.csv')
+1594521274540:dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+1594521286965:dat <- merge(dat, qpj)
+1594521290525:dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+1594521294797:dat <- merge(dat, dfs)
+1594521303709:dat <- merge(dat, data)
+1594521310302:write_csv(dat, 'data/dfs-prepos.csv')
+1594521319791:colnames(dat)
+1594521336893:dat <- select(data, starts_with("UserID"), starts_with("cenario"))
+1594521338017:dat <- merge(dat, qpj)
+1594521342457:dat <- merge(dat, dfs)
+1594521344882:dat <- merge(dat, data)
+1594521348943:dat
+1594521354370:colnames(dat)
+1594521370374:write_csv(dat, 'data/qpj-dfs-prepos.csv')
+1594521377626:View(dat)
+1594521852320:library(readr)
+1594521852340:participants <- read_csv("raw-data/participants.csv")
+1594521852361:View(participants)
+1594529513858:library(readr)
+1594529514385:qpj <- read_csv("data/qpj.csv")
+1594529514432:View(qpj)
+1594529541778:library(readr)
+1594529541800:qpj_prepos <- read_csv("data/qpj-prepos.csv")
+1594529541838:View(qpj_prepos)
+1594529588527:dat <- merge(qpj, qpj_prepos)
+1594529592144:View(dat)
+1594529620886:library(readr)
+1594529620907:participants <- read_csv("data/participants.csv")
+1594529620931:View(participants)
+1594529653141:par <- dat[,c("UserID","cenario")]
+1594529655277:par
+1594529681108:write_csv(par, "data/participants.csv")
+1594530194312:library(readr)
+1594530194332:participants <- read_csv("raw-data/participants.csv")
+1594530194355:View(participants)
+1594530202241:library(readr)
+1594530202494:participants <- read_csv("raw-data/participants.csv")
+1594530203388:View(participants)
+1594530235039:dat <- merge(participants, par)
+1594530239148:View(dat)
+1594530263445:par
+1594530268203:participants
+1594530301838:dat <- cbind(participants, par)
+1594531743973:nrow(participants)
+1594531749489:nrow(par)
+1594531938583:library(readr)
+1594531938604:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594531938629:View(dfs_careless)
+1594531950060:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594532015638:View(dfs_careless)
+1594532048580:library(readr)
+1594532048601:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594532048629:View(survey_dfs)
+1594532060672:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594532061224:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594532064378:View(dfs_careless)
+1594532066474:View(survey_dfs)
+1594532096701:library(readr)
+1594532096731:dfs <- read_csv("data/dfs.csv")
+1594532096764:View(dfs)
+1594532108303:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594532108496:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594532108684:dfs <- read_csv("data/dfs.csv")
+1594532111941:View(dfs)
+1594532288461:dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+1594532290099:dat
+1594532348421:?merge
+1594532378207:dat <- merge(dfs, dat, by="UserID", all.x = T, all.y = F)
+1594532382424:View(dat)
+1594532443483:dfs_careless
+1594532617141:View(dat)
+1594532645336:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594532645669:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594532647471:dfs <- read_csv("data/dfs.csv")
+1594532657592:dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+1594532679637:dat <- merge(dat, dfs, by="UserID", all.x = T, all.y = F)
+1594532683038:View(dat)
+1594532755724:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594532755910:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594532756079:dfs <- read_csv("data/dfs.csv")
+1594532756233:dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+1594532756927:dat <- merge(dfs, dat, by="UserID", all.x = F, all.y = T)
+1594532922928:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594532923242:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594532923951:dfs <- read_csv("data/dfs.csv")
+1594532927809:dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+1594533114799:tmp <- rbind(dfs, dfs_careless)
+1594533123936:colnames(dfs)
+1594533127903:colnames(dfs_careless)
+1594533197540:dfs_careless <- read_csv("data/dfs-careless.csv")
+1594533197697:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594533197867:dfs <- read_csv("data/dfs.csv")
+1594533198019:dat <- select(survey_dfs, starts_with("UserID"), starts_with("Q"))
+1594533199534:tmp <- rbind(dfs, select(dfs_careless, starts_with("UserID"), starts_with("cenario"), starts_with("media"), starts_with("dimensao")))
+1594533222088:dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+1594533272986:write_csv(dat, "data/survey-dfs.csv")
+1594535060852:fss_careless <- read_csv("data/fss-careless.csv")
+1594535068475:survey_fss <- read_csv("data/survey-fss.csv")
+1594535075602:fss <- read_csv("data/fss.csv")
+1594535084270:dat <- select(survey_fss, starts_with("UserID"), starts_with("Q"))
+1594535105521:tmp <- rbind(fss, select(fss_careless, starts_with("UserID"), starts_with("cenario"), starts_with("media"), starts_with("dimensao")))
+1594535109239:View(tmp)
+1594535129207:dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+1594535134062:View(dat)
+1594535714648:dat <- dat[which(is.na(dat$cenario)),]
+1594535723936:dat <- select(survey_fss, starts_with("UserID"), starts_with("Q"))
+1594535724236:tmp <- rbind(fss, select(fss_careless, starts_with("UserID"), starts_with("cenario"), starts_with("media"), starts_with("dimensao")))
+1594535724493:dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+1594535725322:dat <- dat[which(!is.na(dat$cenario)),]
+1594535736990:write_csv(dat, "data/survey-fss.csv")
+1594536205715:qpj_careless <- read_csv("data/qpj-careless.csv")
+1594536216682:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594536224299:qpj <- read_csv("data/qpj.csv")
+1594536252843:dat <- select(survey_qpj, starts_with("UserID"), starts_with("Item"))
+1594536536106:qpj_careless
+1594536557988:qpj_careless <- read_csv("data/qpj-careless.csv")
+1594536558196:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594536558359:qpj <- read_csv("data/qpj.csv")
+1594536558880:dat <- select(survey_qpj, starts_with("UserID"), starts_with("Item"))
+1594536559605:tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("cenario"), starts_with("Item")))
+1594536565931:qpj
+1594536615737:qpj_careless <- read_csv("data/qpj-careless.csv")
+1594536615953:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594536616128:qpj <- read_csv("data/qpj.csv")
+1594536618912:survey_qpj
+1594536664083:qpj_careless <- read_csv("data/qpj-careless.csv")
+1594536664296:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594536664436:qpj <- read_csv("data/qpj.csv")
+1594536664621:dat <- select(survey_qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"), starts_with("Item"))
+1594536738480:qpj_careless
+1594536743641:qpj
+1594536768304:tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao")))
+1594536773109:tmp
+1594536791975:dat <- merge(tmp, dat, by="UserID", all.x = F, all.y = T)
+1594537735837:qpj_careless <- read_csv("data/qpj-careless.csv")
+1594537736123:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594537736430:qpj <- read_csv("data/qpj.csv")
+1594537738485:dat <- select(survey_qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"), starts_with("Item"))
+1594537740693:tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao")))
+1594537743821:tmp
+1594537765319:dat <- merge(select(tmp, starts_with("UserID")), dat, by="UserID", all.x = F, all.y = T)
+1594537767392:dat <- dat[which(!is.na(dat$cenario)),]
+1594537775663:qpj_careless <- read_csv("data/qpj-careless.csv")
+1594537775874:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594537776036:qpj <- read_csv("data/qpj.csv")
+1594537776187:dat <- select(survey_qpj, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao"), starts_with("Item"))
+1594537776660:tmp <- rbind(qpj, select(qpj_careless, starts_with("UserID"), starts_with("realizacao"), starts_with("social"), starts_with("imersao")))
+1594537777510:dat <- merge(select(tmp, starts_with("UserID")), dat, by="UserID", all.x = F, all.y = T)
+1594537799787:write_csv(dat, "data/survey-qpj.csv")
+1594538304828:library(readr)
+1594538305080:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594538305387:survey_fss <- read_csv("data/survey-fss.csv")
+1594538306937:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594572242706:library(readr)
+1594572242726:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594572242778:survey_fss <- read_csv("data/survey-fss.csv")
+1594572242851:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594572262684:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594572262911:survey_fss <- read_csv("data/survey-fss.csv")
+1594572263076:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594572263267:raw_survey_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594572264321:raw_survey_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594572264720:raw_survey_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594572285584:View(survey_fss)
+1594572292679:View(raw_survey_fss)
+1594572433198:View(survey_qpj)
+1594572438511:View(raw_survey_qpj)
+1594572533802:dat <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594572536442:dat
+1594572550747:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594572564088:colnames(qpj)
+1594572573560:colnames(survey_qpj)
+1594572618438:colnames(raw_survey_qpj)
+1594573072731:bemail <- cbind(select(survey_dfs, starts_with("UserID")), select(raw_survey_dfs, starts_with("email")))
+1594573074952:bemail
+1594573089368:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594573178413:library(readr)
+1594573178433:dataset <- read_csv(NULL)
+1594573179243:View(dataset)
+1594573205399:participants <- read_csv("raw-data/participants.csv")
+1594573213521:colnames(participants)
+1594573229926:participants
+1594573362075:bemail <- merge(bemail, participants)
+1594573364324:bemail
+1594573387821:colnames(survey_dfs)
+1594573393724:colnames(raw_survey_dfs)
+1594573436254:merge(bemail, raw_survey_dfs, by="email")
+1594573478414:colnames(raw_survey_dfs)
+1594573489351:raw_survey_dfs
+1594573528676:bemail
+1594573580272:select(survey_dfs, -starts_with('media'), -starts_with('dimensao'))
+1594573608820:select(raw_survey_dfs, -starts_with('media'), -starts_with('dimensao'), starts_with('Q'))
+1594573621728:select(raw_survey_dfs, -starts_with('media'), -starts_with('dimensao'), -starts_with('Q'))
+1594573637756:pre_dfs <- select(raw_survey_dfs, -starts_with('media'), -starts_with('dimensao'), -starts_with('Q'))
+1594573652077:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594573653162:bemail
+1594573671557:dat <- merge(bemail, pre_dfs)
+1594573674763:dat
+1594573718701:dat <- merge(merge(pre_dfs, bemail), survey_dfs)
+1594573720183:dat
+1594573767834:colnames(raw_survey_dfs)
+1594573946853:participants <- read_csv("raw-data/participants.csv")
+1594573947057:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594573947217:survey_fss <- read_csv("data/survey-fss.csv")
+1594573947361:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594573947492:raw_survey_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594573947792:raw_survey_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594573947965:raw_survey_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594573950382:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594573954758:participants <- read_csv("raw-data/participants.csv")
+1594573954906:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594573955051:survey_fss <- read_csv("data/survey-fss.csv")
+1594573955219:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594573955421:raw_survey_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594573955815:raw_survey_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594573956240:raw_survey_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594573958902:library(readr)
+1594573959090:participants <- read_csv("raw-data/participants.csv")
+1594573960368:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594573960934:survey_fss <- read_csv("data/survey-fss.csv")
+1594573961442:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594573962008:raw_survey_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594573963047:raw_survey_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594573964001:raw_survey_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594573979272:raw_survey_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594573979441:raw_survey_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594573979638:raw_survey_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594573986694:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594574008970:survey_dfs
+1594574013803:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594574015093:pre_dfs <- select(raw_survey_dfs, -starts_with('media'), -starts_with('dimensao'), -starts_with('Q'))
+1594574016995:pre_dfs
+1594574027990:dat <- merge(merge(pre_dfs, bemail), survey_dfs)
+1594574030215:sdat <- select(dat, starts_with("nome"), starts_with("nome"), starts_with("nascimento"), starts_with("email"), starts_with("genero"), starts_with("estado_civil"), starts_with("etinia"), starts_with("familia"), starts_with("orientacao_sexual"), starts_with("atividade"), starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1594574032057:sdat
+1594574074220:write_csv(sdat, 'raw-data/survey-0-dfs.csv')
+1594574094378:bemail <- cbind(select(survey_qpj, starts_with("UserID")), select(raw_survey_qpj, starts_with("email")))
+1594574095117:pre_fss <- select(raw_survey_fss, -starts_with('media'), -starts_with('dimensao'), -starts_with('Q'))
+1594574102691:dat <- merge(merge(pre_fss, bemail), survey_fss)
+1594574105511:dat
+1594574109826:sdat <- select(dat, starts_with("nome"), starts_with("nome"), starts_with("nascimento"), starts_with("email"), starts_with("genero"), starts_with("estado_civil"), starts_with("etinia"), starts_with("familia"), starts_with("orientacao_sexual"), starts_with("atividade"), starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+1594574113601:sdat
+1594574127017:write_csv(sdat, 'raw-data/survey-0-fss.csv')
+1594574210092:View(pre_fss)
+1594574226732:View(survey_fss)
+1594574240995:participants <- read_csv("raw-data/participants.csv")
+1594574268738:bemail <- cbind(select(survey_fss, starts_with("UserID"), starts_with("cenario")), select(raw_survey_qpj, starts_with("email")))
+1594574284260:bemail <- cbind(select(survey_fss, starts_with("UserID"), starts_with("cenario")), select(raw_survey_fss, starts_with("email")))
+1594574291893:raw_survey_fss
+1594574297893:participants <- read_csv("raw-data/participants.csv")
+1594574298089:survey_dfs <- read_csv("data/survey-dfs.csv")
+1594574298244:survey_fss <- read_csv("data/survey-fss.csv")
+1594574298382:survey_qpj <- read_csv("data/survey-qpj.csv")
+1594574298530:raw_survey_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594574298700:raw_survey_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594574299175:raw_survey_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594574299968:bemail <- cbind(select(survey_fss, starts_with("UserID"), starts_with("cenario")), select(raw_survey_fss, starts_with("email")))
+1594574302785:bemail
+1594574310687:participants <- read_csv("raw-data/participants.csv")
+1594574408507:par <- merge(select(participants, starts_with("email")), bemail, all.x = T, all.y = F)
+1594574410244:par
+1594574445020:participants
+1594574467785:View(par)
+1594574551824:par$UserID[1] <- digest::digest(par$email[1], algo='crc32')
+1594574570890:par$cenario[1] <- 'gamificado'
+1594574645114:select(par, starts_with("UserID"), starts_with("cenario"))
+1594574659670:write_csv(select(par, starts_with("UserID"), starts_with("cenario")), 'data/participants.csv')
+1594574674532:participants <- read_csv("raw-data/participants.csv")
+1594574703303:dat <- merge(participants, par, by='email')
+1594574706631:View(dat)
+1594574744654:colnames(participants)
+1594574760174:dat <- merge(select(participants, -starts_with("cenario")), par, by='email')
+1594574762547:dat
+1594574830640:select(dat, starts_with("nome"), starts_with("email"), starts_with("cenario"))
+1594574842488:write_csv(select(dat, starts_with("nome"), starts_with("email"), starts_with("cenario")), "raw-data/participants.csv")
+1594574890088:library(readr)
+1594574890116:prepos <- read_csv("data/prepos.csv")
+1594574890143:View(prepos)
+1594575921578:library(readr)
+1594575921602:participants <- read_csv("data/participants.csv")
+1594575921626:View(participants)
+1594575947952:library(readr)
+1594575947979:participants <- read_csv("raw-data/participants.csv")
+1594575948005:View(participants)
+1594576004997:pretest <- participants
+1594576042703:pretest$nota <- runif(nrow(pretest), 1, 7)
+1594576044370:pretest
+1594576070326:write_csv('raw-data/pre-test.csv')
+1594576077382:write_csv(pretest, 'raw-data/pre-test.csv')
+1594576088225:postest <- participants
+1594576099372:postest$nota <- runif(nrow(pretest), 4, 10)
+1594576107997:write_csv(postest, 'raw-data/pos-test.csv')
+1594576114341:postest
+1594576205593:wants <- c('digest', 'readr', 'dplyr')
+1594576205920:has <- wants %in% rownames(installed.packages())
+1594576206223:if (any(!has)) install.packages(wants[!has])
+1594576207043:library(readr)      # biblioteca para leitura de arquivos CVS
+1594576207314:library(digest)     # biblioteca para anonimizar dados
+1594576207599:library(dplyr)      # biblioteca para manipular data.frames
+1594576208135:participants <- read_csv("raw-data/participants.csv")
+1594576213616:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1594576213636:digest(x, algo = "crc32")
+1594576213651:})
+1594576225314:write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+1594576230216:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594576256287:dfs <- merge(participants, pre_dfs, by='email') # combinando tabelas pelo emails
+1594576261680:dfs <- select(dfs,
+1594576261701:starts_with("UserID"),
+1594576261720:starts_with("cenario"),
+1594576261739:starts_with("media"),
+1594576261753:starts_with("dimensao"),
+1594576261766:starts_with("Q"))
+1594576267418:dfs
+1594576275039:write_csv(dfs, "data/survey-dfs.csv")
+1594576278334:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594576284021:fss <- merge(participants, pre_fss, by='email')
+1594576320906:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594576322078:fss <- merge(participants, pre_fss, by='email')
+1594576323523:(fss <- select(fss,
+1594576323542:starts_with("UserID"),     # identificado único
+1594576323556:starts_with("cenario"),    # distribuição do participante entre cenário gamificado e não gamificado
+1594576323571:starts_with("media"),      # score da media de fluxo
+1594576323584:starts_with("dimensao"),   # score da dimensao 1 até 9
+1594576323598:starts_with("Q")))         # resposta no item Q1 até Q36
+1594576331666:write_csv(fss, "data/survey-fss.csv")
+1594576337922:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594576341021:pre_qpj <- data.frame(
+1594576341037:nome = pre_qpj$`Nome completo`
+1594576341056:, email = pre_qpj$email
+1594576341073:# componente 1 - realização
+1594576341089:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1594576341103:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1594576341118:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1594576341130:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1594576341145:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1594576341159:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1594576341173:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1594576341186:# componente 2 - imersão
+1594576341202:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1594576341216:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1594576341229:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1594576341244:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1594576341260:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1594576341274:# componente 3 - social
+1594576341293:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1594576341305:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1594576341317:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1594576341330:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1594576341343:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1594576341357:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1594576341371:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1594576341385:)
+1594576344622:pre_qpj[["ItemIcus9"]] <- sapply(pre_qpj$ItemIcus9, FUN = function(x) {
+1594576344641:if (x == 'Sempre') return(5)
+1594576344661:if (x == 'Frequentemente') return(4)
+1594576344676:if (x == 'Não sei ao certo') return(3)
+1594576344689:if (x == 'Pouco tempo') return(2)
+1594576344708:if (x == 'Pouquíssimo tempo') return(1)
+1594576344721:})
+1594576347799:pre_qpj <- mutate(
+1594576347817:pre_qpj
+1594576347833:, "realizacao" = (ItemAcom0+ItemAcom3+ItemAcom5+ItemAcom6+ItemAcom8+ItemAcom9+ItemAAva2)/7
+1594576347849:, "imersao" = (ItemIcus0+ItemIcus1+ItemIcus3+ItemIcus9+ItemIrol8)/5
+1594576347863:, "social" = (ItemSrel0+ItemSrel1+ItemSrel9+ItemSsoc7+ItemSsoc8+ItemSsoc9+ItemStra2)/7
+1594576347879:)
+1594576351020:qpj <- merge(participants, pre_qpj, by='email')
+1594576354087:qpj <- select(qpj,
+1594576354105:starts_with("UserID"),
+1594576354120:starts_with("cenario"),
+1594576354133:starts_with("Item"),
+1594576354151:starts_with("realizacao"),
+1594576354164:starts_with("imersao"),
+1594576354177:starts_with("social"))
+1594576356811:write_csv(qpj, "data/survey-qpj.csv")
+1594576427034:View(qpj)
+1594577344785:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577350304:dfs <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577357184:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577360430:pre
+1594577433607:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577435118:pre_pre
+1594577468356:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577468891:write_csv(select(pre_pre, -starts_with('cenario')),'pre-test.csv')
+1594577484267:write_csv(select(pos_pre, -starts_with('cenario')),'pos-test.csv')
+1594577493212:pre_pre <- read_csv("raw-data/pos-test.csv")
+1594577493988:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577503742:pre <- select(pre,
+1594577503761:starts_with("UserID"),
+1594577503774:starts_with("cenario"),
+1594577503789:starts_with("nota"))               #selecionando dados não sensiveis
+1594577521073:pre_pre <- read_csv("raw-data/pos-test.csv")
+1594577521239:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577521405:pre <- select(pre,
+1594577521441:starts_with("UserID"),
+1594577521462:starts_with("cenario"),
+1594577521480:starts_with("nota"))               #selecionando dados não sensiveis
+1594577522491:write_csv(pre, "data/pre-test.csv")
+1594577525644:View(pre)
+1594577532739:pre_pre <- read_csv("raw-data/pos-test.csv")
+1594577534240:pre_pre
+1594577568659:pre_pre <- read_csv("raw-data/pos-test.csv")
+1594577568922:write_csv(select(pre_pre, -starts_with("cenario")), 'raw-data/pos-test.csv')
+1594577571344:pre_pre <- read_csv("raw-data/pos-test.csv")
+1594577572827:pre_pre
+1594577587478:write_csv(select(pos_pre, -starts_with("cenario")), 'raw-data/pos-test.csv')
+1594577592514:pos_pre <- read_csv("raw-data/pos-test.csv")
+1594577599132:write_csv(select(pos_pre, -starts_with("cenario")), 'raw-data/pos-test.csv')
+1594577607518:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577608823:pre_pre
+1594577615608:View(pre)
+1594577619182:View(pre)
+1594577634126:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577674799:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577675298:pre_pre$nota <- runif(nrow(pre_pre), 1, 4)
+1594577681177:write_csv(select(pre_pre, -starts_with("cenario")), 'raw-data/pre-test.csv')
+1594577685400:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577686936:pre_pre
+1594577698558:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577700251:pre <- select(pre,
+1594577700268:starts_with("UserID"),
+1594577700290:starts_with("cenario"),
+1594577700304:starts_with("nota"))               #selecionando dados não sensiveis
+1594577707241:write_csv(pre, "data/pre-test.csv")
+1594577717873:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577718141:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577719058:pre <- select(pre,
+1594577719077:starts_with("UserID"),
+1594577719095:starts_with("cenario"),
+1594577719108:starts_with("nota"))               #selecionando dados não sensiveis
+1594577721618:pre
+1594577728819:write_csv(pre, "data/pre-test.csv")
+1594577765573:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594577765732:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594577765888:pre <- select(pre,
+1594577765913:starts_with("UserID"),
+1594577765930:starts_with("cenario"),
+1594577765948:starts_with("nota"))               #selecionando dados não sensiveis
+1594577766042:write_csv(pre, "data/pre-test.csv")
+1594577766445:pos_pre <- read_csv("raw-data/pos-test.csv")
+1594577766814:pos <- merge(participants, pos_pre, by='email') # combinando tabelas pelo emails
+1594577767255:pos <- select(pos,
+1594577767274:starts_with("UserID"),
+1594577767294:starts_with("cenario"),
+1594577767308:starts_with("nota"))               #selecionando dados não sensiveis
+1594577768094:write_csv(pos, "data/pos-test.csv")
+1594577800303:wants <- c('readr', 'careless', 'car','dplyr')
+1594577800456:has <- wants %in% rownames(installed.packages())
+1594577800835:if (any(!has)) install.packages(wants[!has])
+1594577801006:library(readr)      # biblioteca para leitura de arquivos CVS
+1594577801224:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594577801357:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594577801520:library(dplyr)      # biblioteca para manipular data.frames
+1594577802668:dfs_dat <- read_csv("data/survey-dfs.csv")
+1594577804423:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1594577805174:(careless_dfs_long <- longstring(resp_dfs_dat))
+1594577809495:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 3,20
+1594577819211:careless_dfs_irv <- irv(resp_dfs_dat)
+1594577821633:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1594577846605:# .. metodo irv
+1594577846624:careless_dfs_irv <- irv(resp_dfs_dat)
+1594577847124:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1594577849226:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1594577849244:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1594577849265:, resp_dfs_dat[careless_dfs_irv_idx,])
+1594577852955:head(careless_irv_df)
+1594577917433:# .. metodo irv
+1594577917454:careless_dfs_irv <- irv(resp_dfs_dat)
+1594577917621:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1594577917804:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1594577917822:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1594577917841:, resp_dfs_dat[careless_dfs_irv_idx,])
+1594577917965:head(careless_irv_df) # careless 2, 54, 59
+1594577931163:write_csv(dfs_dat[c(2,54,59),], 'data/dfs-careless.csv')
+1594577933654:write_csv(dfs_dat[-c(2,54,59),], 'data/dfs.csv')
+1594577939728:dfs_dat[c(2,54,59),]
+1594577953616:dfs_dat[-c(2,54,59),]
+1594577994086:library(readr)
+1594577994111:dfs <- read_csv("data/dfs.csv")
+1594577994137:View(dfs)
+1594578056567:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594578056755:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594578056967:library(dplyr)      # biblioteca para manipular data.frames
+1594578057483:## Leitura do questionario DFS usando arquivo CSV
+1594578057503:fss_dat <- read_csv("data/survey-fss.csv")
+1594578057690:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1594578058322:## Tratamento de respostas descuidadas (careless response)
+1594578058340:(careless_fss_long <- longstring(resp_fss_dat))
+1594578058668:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 3,20,38 respostas a ser eliminada
+1594578080497:## Leitura do questionario DFS usando arquivo CSV
+1594578080514:fss_dat <- read_csv("data/survey-fss.csv")
+1594578080678:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1594578080892:## Tratamento de respostas descuidadas (careless response)
+1594578080919:(careless_fss_long <- longstring(resp_fss_dat))
+1594578081460:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 49,3,38 respostas a ser eliminada
+1594578082393:careless_fss_irv <- irv(resp_fss_dat)
+1594578082767:careless_fss_irv_idx <- order(careless_fss_irv)
+1594578083694:careless_irv_df <- cbind(resp = careless_fss_irv_idx
+1594578083710:, IRV=careless_fss_irv[careless_fss_irv_idx]
+1594578083729:, resp_fss_dat[careless_fss_irv_idx,])
+1594578084965:head(careless_irv_df) # 3,20,5,6
+1594578104678:head(careless_irv_df) # 49,3,27,13
+1594578143223:fss_dat[c(49,3,27,13),]
+1594578147834:View(fss_dat[c(49,3,27,13),])
+1594578158483:write_csv(fss_dat[c(49,3,27,13),], 'data/fss-careless.csv')
+1594578159304:write_csv(fss_dat[-c(49,3,27,13),], 'data/fss.csv')
+1594578289587:wants <- c('readr', 'careless', 'car','dplyr')
+1594578289767:has <- wants %in% rownames(installed.packages())
+1594578289906:if (any(!has)) install.packages(wants[!has])
+1594578290043:library(readr)      # biblioteca para leitura de arquivos CVS
+1594578290184:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594578290334:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594578290481:library(dplyr)      # biblioteca para manipular data.frames
+1594578290616:qpj_dat <- read_csv("data/survey-qpj.csv")
+1594578290776:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1594578292392:(careless_qpj_long <- longstring(resp_qpj_dat))
+1594578292952:Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+1594578295018:careless_qpj_irv <- irv(resp_qpj_dat)
+1594578295277:careless_qpj_irv_idx <- order(careless_qpj_irv)
+1594578298587:careless_irv_df <- cbind(resp = careless_qpj_irv_idx
+1594578298604:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1594578298620:, resp_qpj_dat[careless_qpj_irv_idx,])
+1594578299223:head(careless_irv_df) # careless 40
+1594578311357:write_csv(qpj_dat[c(40),], 'data/qpj-careless.csv')
+1594578313016:write_csv(qpj_dat[-c(40),], 'data/qpj.csv')
+1594578634016:wants <- c('readr', 'careless', 'car','dplyr')
+1594578634151:has <- wants %in% rownames(installed.packages())
+1594578634304:if (any(!has)) install.packages(wants[!has])
+1594578634539:library(readr)      # biblioteca para leitura de arquivos CVS
+1594578634651:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594578634775:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594578634904:library(dplyr)      # biblioteca para manipular data.frames
+1594578635033:qpj_dat <- read_csv("data/survey-qpj.csv")
+1594578635163:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1594578635300:(careless_qpj_long <- longstring(resp_qpj_dat))
+1594578635418:Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+1594578635562:careless_qpj_irv <- irv(resp_qpj_dat)
+1594578635797:careless_qpj_irv_idx <- order(careless_qpj_irv)
+1594578636257:careless_irv_df <- cbind(resp = careless_qpj_irv_idx
+1594578636273:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1594578636295:, resp_qpj_dat[careless_qpj_irv_idx,])
+1594578636522:head(careless_irv_df) # careless 40
+1594578637102:write_csv(qpj_dat[c(40),], 'data/qpj-careless.csv')
+1594578637541:write_csv(qpj_dat[-c(40),], 'data/qpj.csv')
+1594579216484:library(readr)
+1594579216661:fss <- read_csv("data/fss.csv")
+1594579216815:dfs <- read_csv("data/dfs.csv")
+1594579217091:qpj <- read_csv("data/qpj.csv")
+1594579217855:participants <- read_csv("data/participants.csv")
+1594579226085:colnames(fss)
+1594579258661:colnames(qpj)
+1594579269216:qpj_fss <- merge(qpj, fss)
+1594579272191:View(qpj_fss)
+1594579381745:fss <- read_csv("data/fss.csv")
+1594579381902:dfs <- read_csv("data/dfs.csv")
+1594579382032:qpj <- read_csv("data/qpj.csv")
+1594579382161:participants <- read_csv("data/participants.csv")
+1594579382304:qpj_fss <- merge(qpj, fss)
+1594579382539:qpj_fss <- select(qpj_fss,
+1594579382553:starts_with("UserID"), starts_with("cenario"),
+1594579382571:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594579382584:starts_with("media"), starts_with("dimensao"))
+1594579385739:View(qpj_fss)
+1594579428662:qpj_fss <- merge(qpj, fss)
+1594579428863:qpj_fss <- select(qpj_fss,
+1594579428888:starts_with("UserID"), starts_with("cenario"),
+1594579428908:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594579428930:starts_with("media"), starts_with("dimensao"))
+1594579429070:write_csv(qpj_fss, 'data/qpj-fss.csv')
+1594579434945:qpj_fss
+1594579443829:fss
+1594579534987:dfs_fss <- merge(dfs, fss, sufixes = c(".dfs",".fss"))
+1594579538674:View(dfs_fss)
+1594579559088:dfs_fss <- merge(dfs, fss, by="UserID", sufixes = c(".dfs",".fss"))
+1594579563041:View(dfs_fss)
+1594579628807:library(readr)
+1594579629672:fss <- select(read_csv("data/fss.csv")
+1594579629688:, starts_with("UserID"), starts_with("cenario")
+1594579629708:, starts_with("media"), starts_with("dimensao"))
+1594579665978:library(readr)
+1594579666183:fss <- read_csv("data/fss.csv")
+1594579666361:dfs <- read_csv("data/dfs.csv")
+1594579667773:qpj <- read_csv("data/qpj.csv")
+1594579668845:participants <- read_csv("data/participants.csv")
+1594579718495:## generate tabelas para testes estatisticos das médias em referência à experiencia de fluxo
+1594579718513:fss <- select(fss,
+1594579718534:starts_with("UserID"), starts_with("cenario"),
+1594579718548:starts_with("media"), starts_with("dimensao"))
+1594579735049:library(readr)
+1594579735183:fss <- read_csv("data/fss.csv")
+1594579735443:dfs <- read_csv("data/dfs.csv")
+1594579735656:qpj <- read_csv("data/qpj.csv")
+1594579735862:participants <- read_csv("data/participants.csv")
+1594579736256:## generate tabelas para testes estatisticos das médias em referência à experiencia de fluxo
+1594579736270:fss <- select(fss,
+1594579736297:starts_with("UserID"), starts_with("cenario"),
+1594579736313:starts_with("media"), starts_with("dimensao"))
+1594579737742:write_csv(fss, "data/fss.csv")
+1594579740029:View(fss)
+1594579793160:# .. qpj + fss
+1594579793178:qpj_fss <- merge(qpj, fss)
+1594579796969:qpj_fss <- select(qpj_fss,
+1594579796988:starts_with("UserID"), starts_with("cenario"),
+1594579797004:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594579797019:starts_with("media"), starts_with("dimensao"))
+1594579799808:qpj_fss
+1594579810949:write_csv(qpj_fss, 'data/qpj-fss.csv')
+1594579827190:# .. dfs + fss
+1594579827208:dfs_fss <- merge(dfs, fss, by=c("UserID","cenario"), sufixes = c(".dfs",".fss"))
+1594579835344:View(dfs_fss)
+1594579858096:?merge
+1594579866496:# .. dfs + fss
+1594579866514:dfs_fss <- merge(dfs, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594579869534:View(dfs_fss)
+1594579887151:# .. dfs + fss
+1594579887170:dfs_fss <- merge(dfs, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594579924512:# .. dfs + fss
+1594579924528:dfs_fss <- merge(dfs, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594579924811:dfs_fss <- select(dfs_fss,
+1594579924827:starts_with("UserID"), starts_with("cenario"),
+1594579924844:starts_with("media"), starts_with("dimensao"))
+1594579929374:View(dfs_fss)
+1594579969500:# .. dfs + fss
+1594579969516:dfs_fss <- merge(dfs, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594579969710:dfs_fss <- select(dfs_fss,
+1594579969729:starts_with("UserID"), starts_with("cenario"),
+1594579969745:ends_with(".dfs"), ends_with(".fss"))
+1594579972665:View(dfs_fss)
+1594579993277:write_csv(dfs_fss, 'data/dfs-fss.csv')
+1594580039737:# .. qpj+ dfs + fss
+1594580039758:qpj_dfs_fss <- merge(qpj, dfs)
+1594580043365:View(qpj_dfs_fss)
+1594580073049:qpj_dfs_fss <- merge(qpj_dfs_fss, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594580079079:View(qpj_dfs_fss)
+1594580122138:# .. qpj+ dfs + fss
+1594580122163:qpj_dfs_fss <- merge(qpj, dfs)
+1594580122356:qpj_dfs_fss <- merge(qpj_dfs_fss, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594580124009:qpj_dfs_fss <- select(qpj_dfs_fss,
+1594580124030:starts_with("UserID"), starts_with("cenario"),
+1594580124044:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594580124061:ends_with(".dfs"), ends_with(".fss"))
+1594580127019:View(qpj_dfs_fss)
+1594580156032:write_csv(qpj_dfs_fss, 'data/qpj-dfs-fss.csv')
+1594580325652:engagement <- read_csv("data/engagement.csv")
+1594580442409:dat <- read_csv('data/engagement.csv')
+1594580466393:participants <- read_csv('data/participants.csv')
+1594580469015:participants
+1594580482621:participants <- read_csv('raw-data/participants.csv')
+1594580484977:dat <- read_csv('data/engagement.csv')
+1594580503554:cbind(participants, dat)
+1594580523923:dat <- cbind(participants[1:50,], dat)
+1594580525416:dat
+1594580628350:write_csv(select(dat, starts_with("nome"), starts_with("email"), starts_with("pontos"), starts_with("tempo"), starts_with("tentativas"), starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas")))
+1594580644991:dat2 <- select(dat, starts_with("nome"), starts_with("email"), starts_with("pontos"), starts_with("tempo"), starts_with("tentativas"), starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas"))
+1594580649127:dat
+1594580656172:dat2 <- select(dat, starts_with("nome"), starts_with("email"), starts_with("pontos"), starts_with("tempo"), starts_with("tentativas"), starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas"))
+1594580702071:dat2 <- select(dat
+1594580702088:, starts_with("nome")
+1594580702104:#, starts_with("email"),
+1594580702118:#starts_with("pontos"), starts_with("tempo"), starts_with("tentativas"),
+1594580702131:#starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas")
+1594580702144:)
+1594580707255:dat
+1594580760545:dat2 <- dat[,c("nome","email","pontos","tempo.permanencia","tentativas")]
+1594580766744:dat2
+1594580796810:dat <- cbind(participants[1:50,], dat)
+1594580797063:dat2 <- dat[,c("nome","email","pontos","tempo.permanencia","tentativas", "submissoes","rep.erradas","escolhas")]
+1594580810102:write_csv(dat2, 'raw-data/engagement.csv')
+1594580905774:wants <- c('digest', 'readr', 'dplyr')
+1594580905970:has <- wants %in% rownames(installed.packages())
+1594580906137:if (any(!has)) install.packages(wants[!has])
+1594580906301:library(readr)      # biblioteca para leitura de arquivos CVS
+1594580906438:library(digest)     # biblioteca para anonimizar dados
+1594580906585:library(dplyr)      # biblioteca para manipular data.frames
+1594580906743:participants <- read_csv("raw-data/participants.csv")
+1594580906923:participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
+1594580906943:digest(x, algo = "crc32")
+1594580906962:})
+1594580907235:write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+1594580907462:pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+1594580907980:dfs <- merge(participants, pre_dfs, by='email') # combinando tabelas pelo emails
+1594580908096:dfs <- select(dfs,
+1594580908119:starts_with("UserID"),
+1594580908141:starts_with("cenario"),
+1594580908161:starts_with("media"),
+1594580908178:starts_with("dimensao"),
+1594580908196:starts_with("Q"))               #selecionando dados não sensiveis
+1594580908350:write_csv(dfs, "data/survey-dfs.csv")
+1594580908735:pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+1594580908965:fss <- merge(participants, pre_fss, by='email')
+1594580909185:(fss <- select(fss,
+1594580909204:starts_with("UserID"),     # identificado único
+1594580909224:starts_with("cenario"),    # distribuição do participante entre cenário gamificado e não gamificado
+1594580909239:starts_with("media"),      # score da media de fluxo
+1594580909280:starts_with("dimensao"),   # score da dimensao 1 até 9
+1594580909306:starts_with("Q")))         # resposta no item Q1 até Q36
+1594580909398:write_csv(fss, "data/survey-fss.csv")
+1594580909747:pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+1594580910102:pre_qpj <- data.frame(
+1594580910119:nome = pre_qpj$`Nome completo`
+1594580910139:, email = pre_qpj$email
+1594580910153:# componente 1 - realização
+1594580910168:, ItemAcom0 = pre_qpj$`...estar em vantagem em relação aos outros jogadores?`
+1594580910183:, ItemAcom3 = pre_qpj$`... observar seu desempenho em relação a outros jogadores?`
+1594580910198:, ItemAcom5 = pre_qpj$`... derrotar outros jogadores?`
+1594580910215:, ItemAcom6 = pre_qpj$`... tenta provocar ou irritar de propósito outros jogadores?`
+1594580910230:, ItemAcom8 = pre_qpj$`... fazer coisas que incomodam outros jogadores?`
+1594580910244:, ItemAcom9 = pre_qpj$`... competir com outros jogadores?`
+1594580910263:, ItemAAva2 = pre_qpj$`... tornar-se muito bom em um jogo?`
+1594580910282:# componente 2 - imersão
+1594580910307:, ItemIcus0 = pre_qpj$`... pensa em itens ou características que poderiam ser mudadas para customizar a aparência do seu personagem ou o jogo em si?`
+1594580910323:, ItemIcus1 = pre_qpj$`... que estejam combinando em cor e estilo as armadura ou roupas de seu personagem ou que as peças do jogo tenham uma aparência interessante?`
+1594580910340:, ItemIcus3 = pre_qpj$`... que a aparência do seu personagem seja diferente da aparência de outros personagens?`
+1594580910354:, ItemIcus9 = pre_qpj$`4 - Quanto tempo você passa customizando seu personagem durante a criação dele?`
+1594580910368:, ItemIrol8 = pre_qpj$`... estar imerso em um mundo de fantasia?`
+1594580910382:# componente 3 - social
+1594580910401:, ItemSrel0 = pre_qpj$`... conversa com outros jogadores (on-line) sobre seus problemas/questões pessoais?`
+1594580910417:, ItemSrel1 = pre_qpj$`... outros jogadores (on-line) te ofereceram ajuda quando você teve um problema na vida real?`
+1594580910438:, ItemSrel9 = pre_qpj$`... tem conversas significativas com outros jogadores?`
+1594580910454:, ItemSsoc7 = pre_qpj$`... ajudar outros jogadores?`
+1594580910475:, ItemSsoc8 = pre_qpj$`... conhecer outros jogadores?`
+1594580910490:, ItemSsoc9 = pre_qpj$`... conversar com outros jogadores?`
+1594580910506:, ItemStra2 = pre_qpj$`... procura fazer parte de um grupo em jogos?`
+1594580910519:)
+1594580910533:pre_qpj[["ItemIcus9"]] <- sapply(pre_qpj$ItemIcus9, FUN = function(x) {
+1594580910566:if (x == 'Sempre') return(5)
+1594580910589:if (x == 'Frequentemente') return(4)
+1594580910608:if (x == 'Não sei ao certo') return(3)
+1594580910624:if (x == 'Pouco tempo') return(2)
+1594580910639:if (x == 'Pouquíssimo tempo') return(1)
+1594580910693:})
+1594580911315:pre_qpj <- mutate(
+1594580911334:pre_qpj
+1594580911350:, "realizacao" = (ItemAcom0+ItemAcom3+ItemAcom5+ItemAcom6+ItemAcom8+ItemAcom9+ItemAAva2)/7
+1594580911364:, "imersao" = (ItemIcus0+ItemIcus1+ItemIcus3+ItemIcus9+ItemIrol8)/5
+1594580911380:, "social" = (ItemSrel0+ItemSrel1+ItemSrel9+ItemSsoc7+ItemSsoc8+ItemSsoc9+ItemStra2)/7
+1594580911394:)
+1594580911718:qpj <- merge(participants, pre_qpj, by='email')
+1594580912025:qpj <- select(qpj,
+1594580912046:starts_with("UserID"),
+1594580912063:starts_with("cenario"),
+1594580912077:starts_with("Item"),
+1594580912091:starts_with("realizacao"),
+1594580912104:starts_with("imersao"),
+1594580912118:starts_with("social"))
+1594580912546:write_csv(qpj, "data/survey-qpj.csv")
+1594580913112:pre_pre <- read_csv("raw-data/pre-test.csv")
+1594580913519:pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+1594580913989:pre <- select(pre,
+1594580914009:starts_with("UserID"),
+1594580914023:starts_with("cenario"),
+1594580914037:starts_with("nota"))               #selecionando dados não sensiveis
+1594580916567:write_csv(pre, "data/pre-test.csv")
+1594580917157:pos_pre <- read_csv("raw-data/pos-test.csv")
+1594580917460:pos <- merge(participants, pos_pre, by='email') # combinando tabelas pelo emails
+1594580917730:pos <- select(pos,
+1594580917747:starts_with("UserID"),
+1594580917764:starts_with("cenario"),
+1594580917777:starts_with("nota"))               #selecionando dados não sensiveis
+1594580918517:write_csv(pos, "data/pos-test.csv")
+1594580920372:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594580923484:engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+1594580925560:engagement
+1594580944738:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594580946521:engagement_pre
+1594580957789:engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+1594580959050:engagement
+1594580975549:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594580978272:View(engagement_pre)
+1594580985655:participants
+1594580999495:pos
+1594581016387:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594581018186:engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+1594581020560:engagement
+1594581057388:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594581057603:engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+1594581058149:engagement <- select(engagement,
+1594581058169:starts_with("UserID"),
+1594581058185:starts_with("cenario"),
+1594581058199:-starts_with("nome"), -starts_with("email"))               #selecionando dados não sensiveis
+1594581061005:View(engagement)
+1594581069360:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594581069562:engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+1594581079081:colnames(engagement)
+1594581190290:engagement_pre <- read_csv("raw-data/engagement.csv")
+1594581190462:engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+1594581190635:engagement <- select(engagement,
+1594581190657:starts_with("UserID"),
+1594581190672:starts_with("cenario"),
+1594581190687:starts_with("pontos"),
+1594581190730:starts_with("tempo.permanencia"),
+1594581190745:starts_with("tentativas"),
+1594581190769:starts_with("submissoes"),
+1594581190788:starts_with("rep.erradas"),
+1594581190805:starts_with("escolhas"))               #selecionando dados não sensiveis
+1594581191542:write_csv(engagement, "data/engagement.csv")
+1594581202146:wants <- c('readr', 'careless', 'car','dplyr')
+1594581202342:has <- wants %in% rownames(installed.packages())
+1594581202483:if (any(!has)) install.packages(wants[!has])
+1594581202625:library(readr)      # biblioteca para leitura de arquivos CVS
+1594581202797:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594581203034:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594581203201:library(dplyr)      # biblioteca para manipular data.frames
+1594581203368:dfs_dat <- read_csv("data/survey-dfs.csv")
+1594581203549:resp_dfs_dat <- select(dfs_dat, starts_with("Q")) # selecionar apenas respostas das questões "Q"
+1594581203807:# .. metodo longstring
+1594581203824:(careless_dfs_long <- longstring(resp_dfs_dat))
+1594581204023:Boxplot(careless_dfs_long, main = "Boxplot do Longstring para o DFS") # careless 2,54
+1594581204200:# .. metodo irv
+1594581204221:careless_dfs_irv <- irv(resp_dfs_dat)
+1594581204401:careless_dfs_irv_idx <- order(careless_dfs_irv)
+1594581205646:careless_irv_df <- cbind(resp = careless_dfs_irv_idx
+1594581205666:, IRV=careless_dfs_irv[careless_dfs_irv_idx]
+1594581205683:, resp_dfs_dat[careless_dfs_irv_idx,])
+1594581206395:head(careless_irv_df) # careless 2, 54, 59
+1594581206751:write_csv(dfs_dat[c(2,54,59),], 'data/dfs-careless.csv')
+1594581207229:write_csv(dfs_dat[-c(2,54,59),], 'data/dfs.csv')
+1594581223432:wants <- c('readr', 'careless', 'car','dplyr')
+1594581223614:has <- wants %in% rownames(installed.packages())
+1594581223741:if (any(!has)) install.packages(wants[!has])
+1594581223887:library(readr)      # biblioteca para leitura de arquivos CVS
+1594581224022:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594581224167:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594581224297:library(dplyr)      # biblioteca para manipular data.frames
+1594581224430:## Leitura do questionario DFS usando arquivo CSV
+1594581224451:fss_dat <- read_csv("data/survey-fss.csv")
+1594581224576:resp_fss_dat <- select(fss_dat, starts_with("Q"))
+1594581224664:## Tratamento de respostas descuidadas (careless response)
+1594581224684:(careless_fss_long <- longstring(resp_fss_dat))
+1594581224820:Boxplot(careless_fss_long, main = "Boxplot do Longstring para o FSS") # 49,3,38 respostas a ser eliminada
+1594581224966:careless_fss_irv <- irv(resp_fss_dat)
+1594581225078:careless_fss_irv_idx <- order(careless_fss_irv)
+1594581225228:careless_irv_df <- cbind(resp = careless_fss_irv_idx
+1594581225250:, IRV=careless_fss_irv[careless_fss_irv_idx]
+1594581225290:, resp_fss_dat[careless_fss_irv_idx,])
+1594581225373:head(careless_irv_df) # 49, 3, 27 e 13 < 0.5
+1594581225516:write_csv(fss_dat[c(49,3,27,13),], 'data/fss-careless.csv')
+1594581225627:write_csv(fss_dat[-c(49,3,27,13),], 'data/fss.csv')
+1594581232977:wants <- c('readr', 'careless', 'car','dplyr')
+1594581233467:has <- wants %in% rownames(installed.packages())
+1594581233498:if (any(!has)) install.packages(wants[!has])
+1594581233527:library(readr)      # biblioteca para leitura de arquivos CVS
+1594581233563:library(careless)   # biblioteca para tratamento de respostas descuidadas
+1594581233622:library(car)        # biblioteca para graficar Boxplots com identificação de pontos
+1594581233654:library(dplyr)      # biblioteca para manipular data.frames
+1594581233683:qpj_dat <- read_csv("data/survey-qpj.csv")
+1594581233751:resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
+1594581233790:(careless_qpj_long <- longstring(resp_qpj_dat))
+1594581233826:Boxplot(careless_qpj_long, main = "Boxplot do Longstring para o QPJ") # nemhum > 12 => não há careless
+1594581233919:careless_qpj_irv <- irv(resp_qpj_dat)
+1594581233972:careless_qpj_irv_idx <- order(careless_qpj_irv)
+1594581234012:careless_irv_df <- cbind(resp = careless_qpj_irv_idx
+1594581234038:, IRV=careless_qpj_irv[careless_qpj_irv_idx]
+1594581234056:, resp_qpj_dat[careless_qpj_irv_idx,])
+1594581234075:head(careless_irv_df) # careless 40
+1594581234126:write_csv(qpj_dat[c(40),], 'data/qpj-careless.csv')
+1594581234170:write_csv(qpj_dat[-c(40),], 'data/qpj.csv')
+1594581253116:library(readr)
+1594581253294:fss <- read_csv("data/fss.csv")
+1594581253456:dfs <- read_csv("data/dfs.csv")
+1594581253603:qpj <- read_csv("data/qpj.csv")
+1594581253737:engagement <- read_csv("data/engagement.csv")
+1594581253922:participants <- read_csv("data/participants.csv")
+1594581254351:fss <- select(fss,
+1594581254370:starts_with("UserID"), starts_with("cenario"),
+1594581254388:starts_with("media"), starts_with("dimensao"))
+1594581254593:write_csv(fss, "data/fss.csv")
+1594581254928:# .. qpj + fss
+1594581254950:qpj_fss <- merge(qpj, fss)
+1594581255258:qpj_fss <- select(qpj_fss,
+1594581255275:starts_with("UserID"), starts_with("cenario"),
+1594581255298:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594581255313:starts_with("media"), starts_with("dimensao"))
+1594581255560:write_csv(qpj_fss, 'data/qpj-fss.csv')
+1594581255976:# .. dfs + fss
+1594581256001:dfs_fss <- merge(dfs, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594581256318:dfs_fss <- select(dfs_fss,
+1594581256335:starts_with("UserID"), starts_with("cenario"),
+1594581256353:ends_with(".dfs"), ends_with(".fss"))
+1594581256865:write_csv(dfs_fss, 'data/dfs-fss.csv')
+1594581258072:# .. qpj+ dfs + fss
+1594581258087:qpj_dfs_fss <- merge(qpj, dfs)
+1594581258762:qpj_dfs_fss <- merge(qpj_dfs_fss, fss, by=c("UserID","cenario"), suffixes = c(".dfs",".fss"))
+1594581258959:qpj_dfs_fss <- select(qpj_dfs_fss,
+1594581258976:starts_with("UserID"), starts_with("cenario"),
+1594581258995:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594581259009:ends_with(".dfs"), ends_with(".fss"))
+1594581259802:write_csv(qpj_dfs_fss, 'data/qpj-dfs-fss.csv')
+1594581271712:View(engagement)
+1594581335372:# .. qpj + engagement
+1594581335390:qpj_engagement <- merge(qpj, engagement)
+1594581338490:qpj_engagement
+1594581367149:colnames(engagement)
+1594581419351:# .. qpj + engagement
+1594581419371:qpj_engagement <- merge(qpj, engagement)
+1594581420262:qpj_engagement <- select(qpj_engagement,
+1594581420279:starts_with("UserID"), starts_with("cenario"),
+1594581420297:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594581420311:starts_with("pontos"), starts_with("tempo.permanencia"), starts_with("tentativas"),
+1594581420323:starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas"))
+1594581422883:qpj_engagement
+1594581442230:write_csv(qpj_engagement, 'data/qpj-engagement.csv')
+1594581479507:# .. dfs + engagement
+1594581479527:dfs_engagement <- merge(dfs, engagement, by=c("UserID","cenario"))
+1594581480846:dfs_engagement
+1594581540095:# .. dfs + engagement
+1594581540128:dfs_engagement <- merge(dfs, engagement, by=c("UserID","cenario"))
+1594581540338:dfs_engagement <- select(dfs_engagement,
+1594581540358:starts_with("UserID"), starts_with("cenario"),
+1594581540374:starts_with("media"), starts_with("dimensao"),
+1594581540393:starts_with("pontos"), starts_with("tempo.permanencia"), starts_with("tentativas"),
+1594581540407:starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas"))
+1594581543461:dfs_engagement
+1594581563909:write_csv(dfs_engagement, 'data/dfs-engagement.csv')
+1594581600652:# .. qpj+ dfs + engagement
+1594581600670:qpj_dfs_engagement <- merge(qpj, dfs)
+1594581618176:qpj_dfs_engagement <- merge(qpj_dfs_engagement, engagement, by=c("UserID","cenario"))
+1594581619814:qpj_dfs_engagement
+1594581656310:# .. qpj+ dfs + engagement
+1594581656328:qpj_dfs_engagement <- merge(qpj, dfs)
+1594581656516:qpj_dfs_engagement <- merge(qpj_dfs_engagement, engagement, by=c("UserID","cenario"))
+1594581657154:qpj_dfs_engagement <- select(qpj_dfs_engagement,
+1594581657170:starts_with("UserID"), starts_with("cenario"),
+1594581657189:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594581657202:starts_with("media"), starts_with("dimensao"),
+1594581657217:starts_with("pontos"), starts_with("tempo.permanencia"), starts_with("tentativas"),
+1594581657235:starts_with("submissoes"), starts_with("rep.erradas"), starts_with("escolhas"))
+1594581659701:qpj_dfs_engagement
+1594581669430:write_csv(qpj_dfs_engagement, 'data/qpj-dfs-engagement.csv')
+1594581742762:pre <- read_csv('data/pre-test.csv')
+1594581742990:pos <- read_csv('data/pos-test.csv')
+1594581781995:gain_score <- merge(pos, pre)
+1594581783605:gain_score
+1594581786536:pre <- read_csv('data/pre-test.csv')
+1594581786789:pos <- read_csv('data/pos-test.csv')
+1594581788186:pre
+1594581789578:pos
+1594581827802:pre <- read_csv('data/pre-test.csv')
+1594581828065:pos <- read_csv('data/pos-test.csv')
+1594581828442:gain_score <- merge(pos, pre, by=c("UserID", "cenario"), suffixes = c(".pos",".pre"))
+1594581830634:gain_score
+1594581849148:pre <- read_csv('data/pre-test.csv')
+1594581849376:pos <- read_csv('data/pos-test.csv')
+1594581870577:prepos <- merge(pos, pre, by=c("UserID", "cenario"), suffixes = c(".pos",".pre"))
+1594581955948:pre <- read_csv('data/pre-test.csv')
+1594581956171:pos <- read_csv('data/pos-test.csv')
+1594581956424:prepos <- merge(pos, pre, by=c("UserID", "cenario"), suffixes = c(".pos",".pre"))
+1594581958408:prepos[["dif.nota"]] <- prepos$nota.pos - prepos$nota.pre
+1594581980133:prepos
+1594582002774:pre <- read_csv('data/pre-test.csv')
+1594582002953:pos <- read_csv('data/pos-test.csv')
+1594582003203:prepos <- merge(pos, pre, by=c("UserID", "cenario"), suffixes = c(".pos",".pre"))
+1594582003891:prepos[["dif.nota"]] <- prepos$nota.pos - prepos$nota.pre
+1594582004681:write_csv(prepos, 'data/prepos.csv')
+1594582047886:prepos <- merge(pos, pre, by=c("UserID", "cenario"), suffixes = c(".pos",".pre"))
+1594582048060:prepos[["dif.nota"]] <- prepos$nota.pos - prepos$nota.pre
+1594582048244:write_csv(prepos, 'data/prepos.csv')
+1594582049918:# .. qpj + prepos
+1594582049938:qpj_prepos <- merge(qpj, prepos)
+1594582051071:qpj_prepos
+1594582088242:# .. qpj + prepos
+1594582088261:qpj_prepos <- merge(qpj, prepos)
+1594582088606:qpj_prepos <- select(qpj_prepos,
+1594582088620:starts_with("UserID"), starts_with("cenario"),
+1594582088636:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594582088650:starts_with("nota"), starts_with("dif.nota"))
+1594582091343:qpj_prepos
+1594582113230:# .. qpj + prepos
+1594582113248:qpj_prepos <- merge(qpj, prepos)
+1594582114635:qpj_prepos <- select(qpj_prepos,
+1594582114653:starts_with("UserID"), starts_with("cenario"),
+1594582114668:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594582114683:starts_with("nota"), starts_with("dif.nota"))
+1594582131136:# .. qpj + prepos
+1594582131153:qpj_prepos <- merge(qpj, prepos)
+1594582131329:qpj_prepos <- select(qpj_prepos,
+1594582131346:starts_with("UserID"), starts_with("cenario"),
+1594582131361:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594582131375:starts_with("nota"), starts_with("dif.nota"))
+1594582132224:write_csv(qpj_prepos, 'data/qpj-prepos.csv')
+1594582135761:qpj_prepos
+1594582178786:# .. dfs + prepos
+1594582178804:dfs_prepos <- merge(dfs, prepos, by=c("UserID","cenario"))
+1594582180194:dfs_prepos <- select(dfs_prepos,
+1594582180215:starts_with("UserID"), starts_with("cenario"),
+1594582180228:starts_with("media"), starts_with("dimensao"),
+1594582180243:starts_with("nota"), starts_with("dif.nota"))
+1594582182491:dfs_prepos
+1594582204648:# .. dfs + prepos
+1594582204667:dfs_prepos <- merge(dfs, prepos, by=c("UserID","cenario"))
+1594582204828:dfs_prepos <- select(dfs_prepos,
+1594582204846:starts_with("UserID"), starts_with("cenario"),
+1594582204863:starts_with("media"), starts_with("dimensao"),
+1594582204880:starts_with("nota"), starts_with("dif.nota"))
+1594582205005:write_csv(dfs_prepos, 'data/dfs-prepos.csv')
+1594582272606:# .. qpj+ dfs + prepos
+1594582272626:qpj_dfs_prepos <- merge(qpj, dfs)
+1594582272908:qpj_dfs_prepos <- merge(qpj_dfs_prepos, prepos, by=c("UserID","cenario"))
+1594582273658:qpj_dfs_prepos <- select(qpj_dfs_prepos,
+1594582273680:starts_with("UserID"), starts_with("cenario"),
+1594582273698:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594582273713:starts_with("media"), starts_with("dimensao"),
+1594582273729:starts_with("nota"), starts_with("dif.nota"))
+1594582275940:qpj_dfs_prepos
+1594582303594:# .. qpj+ dfs + prepos
+1594582303614:qpj_dfs_prepos <- merge(qpj, dfs)
+1594582303788:qpj_dfs_prepos <- merge(qpj_dfs_prepos, prepos, by=c("UserID","cenario"))
+1594582304267:qpj_dfs_prepos <- select(qpj_dfs_prepos,
+1594582304283:starts_with("UserID"), starts_with("cenario"),
+1594582304301:starts_with("realizacao"), starts_with("social"), starts_with("imersao"),
+1594582304317:starts_with("media"), starts_with("dimensao"),
+1594582304329:starts_with("nota"), starts_with("dif.nota"))
+1594582305729:write_csv(qpj_dfs_prepos, 'data/qpj-dfs-prepos.csv')
+1594582355862:wants <- c('plotly','dplyr','rstatix','readr')
+1594582356044:has <- wants %in% rownames(installed.packages())
+1594582356199:if (any(!has)) install.packages(wants[!has])
+1594582356333:options(scipen = 999)
+1594582356566:library(plotly)
+1594582356789:library(readr)
+1594582356964:library(dplyr)
+1594582357298:library(rstatix)
+1594582357509:dat <- read_csv("data/fss.csv")
+1594582358542:(frequency <- freq_table(dat, cenario))
+1594582359460:(summary <- get_summary_stats(group_by(dat, cenario)))
+1594582360793:write_csv(frequency, 'report/h1-experiencia-fluxo/frequency.csv')
+1594582361113:write_csv(summary, 'report/h1-experiencia-fluxo/summary.csv')
+1594582361617:p <- plot_ly(data=dat, type = "box", boxpoints = "outliers"#, jitter = 0.3
+1594582361635:, x=as.formula("~cenario"), y=~media, color=~cenario, text=~UserID)
+1594582362795:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1594582363060:print(p)
+1594582365198:p <- p + geom_boxplot()
+1594582365584:p <- ggplot(dat, aes_string("cenario", "media", colour = "cenario"))
+1594582365857:p <- p + geom_boxplot(outlier.colour = "red", outlier.size = 1.5)
+1594582366754:p <- p + geom_text(aes_string(label="UserID"), position = "dodge")
+1594582367473:ggplotly(p)
+1594582367720:print(p)
+1594582370391:for (param in list(list("dimensao1", "balanço desafio/habilidade")
+1594582370411:, list("dimensao2", "fusão ação e atenção")
+1594582370427:, list("dimensao3", "objetivos claros")
+1594582370440:, list("dimensao4", "feedback")
+1594582370456:, list("dimensao5", "concentração")
+1594582370472:, list("dimensao6", "controle")
+1594582370489:, list("dimensao7", "perda autoconsciência")
+1594582370503:, list("dimensao8", "transformação do tempo")
+1594582370518:, list("dimensao9", "experiência autotélica")
+1594582370532:, list("media", "média do fluxo"))) {
+1594582370547:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1594582370563:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~UserID)
+1594582370580:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1594582370594:print(p)
+1594582370616:readline(prompt=paste0("Current graph: ",param[[1]]," >> Press [enter] to continue"))
+1594582370631:}
+1594582382092:(shapiro <- shapiro_test(group_by(media_dat, cenario), media))
+1594582382820:write_csv(media_dat, 'report/h1-experiencia-fluxo/media-data.csv')
+1594582383111:write_csv(shapiro, 'report/h1-experiencia-fluxo/media-shapiro.csv')
+1594582383595:(levene <- levene_test(media ~ cenario, data = media_dat))
+1594582383990:write_csv(levene, 'report/h1-experiencia-fluxo/media-shapiro.csv')
+1594582384381:(tt <- t_test(media ~ cenario, data = media_dat))
+1594582384793:(tt <- t_test(media ~ cenario, data = media_dat, alternative = "greater", detailed = T))
+1594582385239:add_significance(tt)
+1594582385606:(ez <- cohens_d(media ~ cenario, data = media_dat, var.equal = T))
+1594582385962:(t_test <- add_significance(merge(tt, ez)))
+1594582386339:write_csv(t_test, 'report/h1-experiencia-fluxo/media-ttest.csv')
+1594582386711:## ... criamos novamente a gráfica do boxplot para a média do fluxo (porque foram removidos dados)
+1594582386730:p <- plot_ly(data=media_dat, type = "box", boxpoints = "all", jitter = 0.3
+1594582386744:, x=~cenario, y=~media, color=~cenario, text=~UserID)
+1594582387032:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1594582387399:print(p)
+1594582387784:## ... criamos novamente a estatistica descritiva da média do fluxo
+1594582387805:(media_summary <- get_summary_stats(media_dat, media))
+1594582388210:wilcox_test(media~cenario, data = dat, alternative = "greater")
+1594582388442:wilcox_effsize(media~cenario, data = dat, alternative = "greater")
+1594582388935:non_param_test <- do.call(rbind, lapply(param_list, FUN = function(param) {
+1594582388953:formula <- as.formula(paste0(param[[1]],'~cenario'))
+1594582388970:cbind("fator latente" = param[[2]]
+1594582388988:, merge(wilcox_test(formula, data = dat, alternative="greater")
+1594582389001:, wilcox_effsize(formula, data = dat)))
+1594582389017:}))
+1594582389243:non_param_test
+1594582389565:write_csv(non_param_test, "report/h1-experiencia-fluxo/non-parametric-test.csv")
+1594582389919:## Efetuar plot
+1594582389941:library(plotly)
+1594582422521:## ... criamos novamente a estatistica descritiva da média do fluxo
+1594582422542:(media_summary <- get_summary_stats(media_dat, media))
+1594582428648:wants <- c('plotly','dplyr','rstatix','readr')
+1594582428845:has <- wants %in% rownames(installed.packages())
+1594582428974:if (any(!has)) install.packages(wants[!has])
+1594582429111:options(scipen = 999)
+1594582429248:library(plotly)
+1594582429618:library(readr)
+1594582429711:library(dplyr)
+1594582429878:library(rstatix)
+1594582430110:dat <- read_csv("data/fss.csv")
+1594582430150:(frequency <- freq_table(dat, cenario))
+1594582430283:(summary <- get_summary_stats(group_by(dat, cenario)))
+1594582430456:write_csv(frequency, 'report/h1-experiencia-fluxo/frequency.csv')
+1594582430575:write_csv(summary, 'report/h1-experiencia-fluxo/summary.csv')
+1594582430727:p <- plot_ly(data=dat, type = "box", boxpoints = "outliers"#, jitter = 0.3
+1594582430746:, x=as.formula("~cenario"), y=~media, color=~cenario, text=~UserID)
+1594582430900:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1594582431047:print(p)
+1594582431409:p <- p + geom_boxplot()
+1594582432005:p <- ggplot(dat, aes_string("cenario", "media", colour = "cenario"))
+1594582432094:p <- p + geom_boxplot(outlier.colour = "red", outlier.size = 1.5)
+1594582432311:p <- p + geom_text(aes_string(label="UserID"), position = "dodge")
+1594582432529:ggplotly(p)
+1594582433692:print(p)
+1594582434819:for (param in list(list("dimensao1", "balanço desafio/habilidade")
+1594582434832:, list("dimensao2", "fusão ação e atenção")
+1594582434845:, list("dimensao3", "objetivos claros")
+1594582434859:, list("dimensao4", "feedback")
+1594582434873:, list("dimensao5", "concentração")
+1594582434887:, list("dimensao6", "controle")
+1594582434903:, list("dimensao7", "perda autoconsciência")
+1594582434923:, list("dimensao8", "transformação do tempo")
+1594582434944:, list("dimensao9", "experiência autotélica")
+1594582434962:, list("media", "média do fluxo"))) {
+1594582434978:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1594582434996:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~UserID)
+1594582435012:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1594582435031:print(p)
+1594582435053:readline(prompt=paste0("Current graph: ",param[[1]]," >> Press [enter] to continue"))
+1594582435067:}
+1594582537431:shapiro_test(group_by(media_dat, cenario), media)
+1594582540887:shapiro_test(group_by(media_dat, cenario), media)
+1594582541156:rownames(media_dat) <- media_dat$UserID
+1594582541372:car::qqPlot(~media, subset(media_dat, cenario == "gamificado"))
+1594582551587:wants <- c('plotly','dplyr','rstatix','readr')
+1594582551762:has <- wants %in% rownames(installed.packages())
+1594582551900:if (any(!has)) install.packages(wants[!has])
+1594582552023:options(scipen = 999)
+1594582552175:library(plotly)
+1594582552543:library(readr)
+1594582552702:library(dplyr)
+1594582552849:library(rstatix)
+1594582553056:dat <- read_csv("data/fss.csv")
+1594582553283:(frequency <- freq_table(dat, cenario))
+1594582553820:(summary <- get_summary_stats(group_by(dat, cenario)))
+1594582554128:write_csv(frequency, 'report/h1-experiencia-fluxo/frequency.csv')
+1594582554391:write_csv(summary, 'report/h1-experiencia-fluxo/summary.csv')
+1594582554772:p <- plot_ly(data=dat, type = "box", boxpoints = "outliers"#, jitter = 0.3
+1594582554793:, x=as.formula("~cenario"), y=~media, color=~cenario, text=~UserID)
+1594582555191:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1594582555513:print(p)
+1594582556277:p <- p + geom_boxplot()
+1594582556846:p <- ggplot(dat, aes_string("cenario", "media", colour = "cenario"))
+1594582557053:p <- p + geom_boxplot(outlier.colour = "red", outlier.size = 1.5)
+1594582557218:p <- p + geom_text(aes_string(label="UserID"), position = "dodge")
+1594582557656:ggplotly(p)
+1594582558012:print(p)
+1594582559167:for (param in list(list("dimensao1", "balanço desafio/habilidade")
+1594582559180:, list("dimensao2", "fusão ação e atenção")
+1594582559193:, list("dimensao3", "objetivos claros")
+1594582559206:, list("dimensao4", "feedback")
+1594582559219:, list("dimensao5", "concentração")
+1594582559233:, list("dimensao6", "controle")
+1594582559246:, list("dimensao7", "perda autoconsciência")
+1594582559260:, list("dimensao8", "transformação do tempo")
+1594582559273:, list("dimensao9", "experiência autotélica")
+1594582559292:, list("media", "média do fluxo"))) {
+1594582559309:p <- plot_ly(data=dat, type = "box", boxpoints = "all", jitter = 0.3
+1594582559323:, x=~cenario, y=as.formula(paste0("~", param[[1]])), color=~cenario, text=~UserID)
+1594582559336:p <- layout(p, yaxis = list(title=param[[2]]), showlegend = F)
+1594582559349:print(p)
+1594582559367:readline(prompt=paste0("Current graph: ",param[[1]]," >> Press [enter] to continue"))
+1594582559383:}
+1594582574696:(media_outliers <- identify_outliers(group_by(dat, cenario), media))
+1594582575240:media_dat <- dat[!dat$UserID %in% media_outliers$UserID,]
+1594582576332:shapiro_test(group_by(media_dat, cenario), media)
+1594582577100:rownames(media_dat) <- media_dat$UserID
+1594582578300:car::qqPlot(~media, subset(media_dat, cenario == "gamificado"))
+1594582579799:media_dat <- media_dat[!media_dat$UserID %in% c("60099c38","cc15d10e"),]
+1594582581063:shapiro_test(group_by(media_dat, cenario), media)
+1594582581848:source('common/identify_nonnormal.R')
+1594582583307:(non_normal_ids <- identify_nonnormal(subset(media_dat, cenario == "gamificado"), "media", wid = "UserID"))
+1594582588782:Q
+1594582592107:identify_nonnormal_by_groups <- function(data, dv, ivs, wid = "row.pos", to_remove = c()) {
+1594582592126:gdat <- df2qqs(data[,c(wid,dv,ivs)], ivs)
+1594582592145:to_remove <- c(get_ids_of_min_per_groups(gdat, ivs, wid), to_remove)
+1594582592162:repeat{
+1594582592176:gdat <- group_by_at(gdat[which(!gdat[[wid]] %in% to_remove),], vars(ivs))
+1594582592190:to_remove <- c(get_ids_of_min_per_groups(gdat, ivs, wid), to_remove)
+1594582592203:gdat <- group_by_at(gdat[which(!gdat[[wid]] %in% to_remove),], vars(ivs))
+1594582592223:shapiro <- subset(shapiro_test(gdat, vars = dv), p < 0.05)
+1594582592236:if (nrow(shapiro) == 0) break()
+1594582592251:for (i in seq(1:nrow(shapiro))) {
+1594582592264:df <- subset_by_tbl(gdat, shapiro[i,], ivs = ivs)
+1594582592279:rownames(df) <- df[[wid]]
+1594582592296:nonNormalityIds <- names(car::qqPlot(as.formula(paste('~', dv)), data = df))
+1594582592310:to_remove <- c(nonNormalityIds, to_remove)
+1594582592322:}
+1594582592335:}
+1594582592349:return(setdiff(unique(to_remove), NA))
+1594582592366:}
+1594582592600:identify_nonnormal <- function(data, dv, ivs, wid = "row.pos", to_remove = c()) {
+1594582592615:nonNormalityIds <- identify_nonnormal_by_residuals(data, dv, ivs, wid, to_remove)
+1594582592633:nonNormalityIds <- c(identify_nonnormal_by_groups(data, dv, ivs, wid, nonNormalityIds), nonNormalityIds)
+1594582592652:return(unique(nonNormalityIds))
+1594582592669:}
+1594582635787:(levene <- levene_test(media ~ cenario, data = media_dat))
+1594582635977:write_csv(levene, 'report/h1-experiencia-fluxo/media-shapiro.csv')
+1594582636552:(tt <- t_test(media ~ cenario, data = media_dat))
+1594582637513:(tt <- t_test(media ~ cenario, data = media_dat, alternative = "greater", detailed = T))
+1594582638363:add_significance(tt)
+1594582638847:(ez <- cohens_d(media ~ cenario, data = media_dat, var.equal = T))
+1594582639332:(t_test <- add_significance(merge(tt, ez)))
+1594582639633:write_csv(t_test, 'report/h1-experiencia-fluxo/media-ttest.csv')
+1594582640240:## ... criamos novamente a gráfica do boxplot para a média do fluxo (porque foram removidos dados)
+1594582640259:p <- plot_ly(data=media_dat, type = "box", boxpoints = "all", jitter = 0.3
+1594582640280:, x=~cenario, y=~media, color=~cenario, text=~UserID)
+1594582640654:p <- layout(p, yaxis = list(title="média do fluxo"), showlegend = F)
+1594582641082:print(p)
+1594582642614:## ... criamos novamente a estatistica descritiva da média do fluxo
+1594582642632:(media_summary <- get_summary_stats(media_dat, media))
+1594582643327:wilcox_test(media~cenario, data = dat, alternative = "greater")
+1594582643873:wilcox_effsize(media~cenario, data = dat, alternative = "greater")

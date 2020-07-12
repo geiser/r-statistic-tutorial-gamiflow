@@ -1,4 +1,6 @@
 .GlobalEnv
+package:rcompanion
+package:digest
 package:emmeans
 package:DT
 package:shiny

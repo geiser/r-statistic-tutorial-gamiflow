@@ -20,9 +20,13 @@ write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escre
 
 pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
 
-dfs <- merge(participants, pre_dfs, by='email')
-dfs <- select(dfs, starts_with("UserID"), starts_with("cenario")
-              , starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+dfs <- merge(participants, pre_dfs, by='email') # combinando tabelas pelo emails
+dfs <- select(dfs,
+              starts_with("UserID"),
+              starts_with("cenario"),
+              starts_with("media"),
+              starts_with("dimensao"),
+              starts_with("Q"))               #selecionando dados não sensiveis
 
 write_csv(dfs, "data/survey-dfs.csv")
 
@@ -31,8 +35,12 @@ write_csv(dfs, "data/survey-dfs.csv")
 pre_fss <- read_csv("raw-data/survey-0-fss.csv")
 
 fss <- merge(participants, pre_fss, by='email')
-fss <- select(fss, starts_with("UserID"), starts_with("cenario")
-              , starts_with("media"), starts_with("dimensao"), starts_with("Q"))
+(fss <- select(fss,
+              starts_with("UserID"),     # identificado único
+              starts_with("cenario"),    # distribuição do participante entre cenário gamificado e não gamificado
+              starts_with("media"),      # score da media de fluxo
+              starts_with("dimensao"),   # score da dimensao 1 até 9 
+              starts_with("Q")))         # resposta no item Q1 até Q36
 
 write_csv(fss, "data/survey-fss.csv")
 
@@ -82,8 +90,57 @@ pre_qpj <- mutate(
 
 
 qpj <- merge(participants, pre_qpj, by='email')
-qpj <- select(qpj, starts_with("UserID"), starts_with("cenario"), starts_with("Item")
-              , starts_with("realizacao"), starts_with("imersao"), starts_with("social"))
+qpj <- select(qpj,
+              starts_with("UserID"),
+              starts_with("cenario"),
+              starts_with("Item"),
+              starts_with("realizacao"),
+              starts_with("imersao"),
+              starts_with("social"))
 
 write_csv(qpj, "data/survey-qpj.csv")
 
+
+## Anonimizando tabela de notas da provinha durante pré-teste
+
+pre_pre <- read_csv("raw-data/pre-test.csv")
+
+pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
+pre <- select(pre,
+              starts_with("UserID"),
+              starts_with("cenario"),
+              starts_with("nota"))               #selecionando dados não sensiveis
+
+write_csv(pre, "data/pre-test.csv")
+
+
+
+## Anonimizando tabela das notas da provinha durante pós-teste
+
+pos_pre <- read_csv("raw-data/pos-test.csv")
+
+pos <- merge(participants, pos_pre, by='email') # combinando tabelas pelo emails
+pos <- select(pos,
+              starts_with("UserID"),
+              starts_with("cenario"),
+              starts_with("nota"))               #selecionando dados não sensiveis
+
+write_csv(pos, "data/pos-test.csv")
+
+
+## Anonimizando dados coletados do engajamento dos participantes
+
+engagement_pre <- read_csv("raw-data/engagement.csv")
+
+engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
+engagement <- select(engagement,
+                     starts_with("UserID"),
+                     starts_with("cenario"),
+                     starts_with("pontos"),
+                     starts_with("tempo.permanencia"),
+                     starts_with("tentativas"),
+                     starts_with("submissoes"),
+                     starts_with("rep.erradas"),
+                     starts_with("escolhas"))               #selecionando dados não sensiveis
+
+write_csv(engagement, "data/engagement.csv")
