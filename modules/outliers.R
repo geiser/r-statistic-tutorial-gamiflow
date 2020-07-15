@@ -23,10 +23,10 @@ outliersUI <- function(id) {
   verticalLayout(
     br(), strong("Deteção de outliers"),
     HTML("<p>A tabela a seguir apresenta a lista de todos os outliers</p>"), br(),
-    df2TableUI(ns("outliersTable")), br(), hr(),
     checkboxInput(ns("showOutliersBoxPlot"), "Apresentar gráficos de boxplots para identificação de outliers"),
     uiOutput(ns("dataBoxPlotsParams")),
-    uiOutput(ns("dataBoxPlotsTabset"))
+    uiOutput(ns("dataBoxPlotsTabset")), br(), hr(),
+    df2TableUI(ns("outliersTable"))
   )
 }
 

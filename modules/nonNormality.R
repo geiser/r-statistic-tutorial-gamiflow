@@ -53,12 +53,11 @@ nonNormalityUI <- function(id) {
     div(HTML(normalityTest)), br(),
     br(), p(strong("Teste Shapiro-Wilk no modelo residual")),
     df2TableUI(ns("shapiroResTable")),
-    br(), checkboxInput(ns("showQQPlot"), "Apresentar gráficos Q-Q"),
-    uiOutput(ns("qqPlotUI")), br(),
-    #uiOutput(ns("parameterPlotUI")), uiOutput(ns("qqPlotTabset")), br(),
     br(), p(strong("Teste Shapiro-Wilk para todos os grupos")),
     df2TableUI(ns("shapiroGroupTable")), br(),
-    checkboxInput(ns("showInadequate"), paste("Apresentar grupos nos quais não foir efetuado teste",
+    br(), checkboxInput(ns("showQQPlot"), "Apresentar gráficos Q-Q"),
+    uiOutput(ns("qqPlotUI")), br(),
+    checkboxInput(ns("showInadequate"), paste("Apresentar grupos nos quais não foi efetuado o teste",
                                               "de normalidade pelo tamanho da amostra"), width = "100%"), br(),
     uiOutput(ns("sampleSizeGroupUI"))
   )

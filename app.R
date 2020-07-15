@@ -1,5 +1,11 @@
-#install.packages("remotes")
-#remotes::install_github("rstudio/shiny")
+wants <- c('ggpubr', 'stats', 'DT', 'shiny', 'rcompanion', 'emmeans', 'rstatix', 'plotly', 'readr', 'careless', 'car', 'dplyr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+if (packageVersion("shiny") < "1.5.0") {
+  install.packages("remotes")
+  remotes::install_github("rstudio/shiny")
+}
+
 library(readr)
 library(shiny)
 library(plotly)

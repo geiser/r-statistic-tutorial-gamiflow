@@ -16,10 +16,10 @@ qqPlotly <- function(x, y, width = 400, height = 400) {
   slope <- as.numeric(diff(y)) / diff(x)
   int <- y[1] - slope * x[1]
   
-  x0=floor(as.numeric(min(plot_df$x)))-0.5
-  x1=floor(as.numeric(max(plot_df$x)))+0.5
-  y0=(slope*x0)+as.numeric(int)-0.5
-  y1=(slope*x1)+as.numeric(int)+0.5
+  x0=floor(as.numeric(min(plot_df$x)))-1.5
+  x1=floor(as.numeric(max(plot_df$x)))+1.5
+  y0=(slope*x0)+as.numeric(int)-1.5
+  y1=(slope*x1)+as.numeric(int)+1.5
   
   p <- plot_ly(width = width, height = height)
   p <- add_trace(p, x=seq(x0,x1, by=(x1-x0)/(nrow(plot_df)-1))
