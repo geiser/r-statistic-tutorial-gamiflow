@@ -1,0 +1,4 @@
+tutorial/** filter=lfs diff=lfs merge=lfs -text
+tutorial/anova-shiny-app/anova-shiny-app.approj filter=lfs diff=lfs merge=lfs -text
+tutorial/executing-shiny-app/executing-shiny-app filter=lfs diff=lfs merge=lfs -text
+tutorial/executing-shiny-app/executing-shiny-app.approj filter=lfs diff=lfs merge=lfs -text
