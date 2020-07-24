@@ -21,12 +21,11 @@ scheirerRayHareUI <- function(id) {
 
 scheirerRayHareMD <- function(id, initData) {
   
-  get_choices <- function(df, type = "id") {
+  get_choices <- function(df, type = "id", wid = c()) {
     ids <- colnames(df)[sapply(colnames(df), function (x) { anyDuplicated(df[[x]]) == 0 })]
-    between <- colnames(df)[sapply(colnames(df), function (x) { anyDuplicated(df[[x]]) != 0 })]
-    between <- setdiff(between, ids)
+    between <- setdiff(colnames(df), c(wid, "row.pos"))
     
-    dvs <- setdiff(colnames(df), c(ids, "row.pos"))
+    dvs <- setdiff(colnames(df), c(wid, "row.pos"))
     dvs <- dvs[sapply(dvs, FUN = function(x) is.numeric(df[[x]]))]
     
     if (type == "id") return(ids)
@@ -61,7 +60,7 @@ scheirerRayHareMD <- function(id, initData) {
       })
       
       output$betweenUI <- renderUI({
-        choices <- get_choices(initData, "between")
+        choices <- get_choices(initData, "between", input$wid)
         selectInput(ns('between'), 'Variável independente (between-subject)', choices = choices, multiple = T)
       })
       
@@ -77,7 +76,7 @@ scheirerRayHareMD <- function(id, initData) {
       })
       
       output$dvsUI <- renderUI({
-        choices <- setdiff(get_choices(initData, "dv"), input$between)
+        choices <- setdiff(get_choices(initData, "dv", c(input$wid, input$between)), input$between)
         selectInput(ns('dvs'), 'Variáveis dependentes', choices = choices, multiple = T)
       })
       
