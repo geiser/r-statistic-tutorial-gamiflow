@@ -1,51 +1,51 @@
-UserID,cenario,pontos,tempo.permanencia,tentativas,submissoes,rep.erradas,escolhas
-7b3f904c,gamificado,247,3673,310,354,13,11
-c0ec43e5,gamificado,493,3472,379,347,11,19
-edc27f35,não gamificado,161,2488,395,394,39,15
-3054a6b0,gamificado,136,3119,412,293,11,4
-8d9eca7e,gamificado,156,4498,439,214,20,6
-500813fb,gamificado,376,3327,483,329,37,19
-2d7b15a3,não gamificado,347,4359,423,351,28,12
-f0edcc26,não gamificado,456,2249,385,227,18,15
-4d27a0e8,gamificado,369,3833,408,279,32,8
-90b1796d,não gamificado,394,2060,311,244,35,15
-b7c1ac58,não gamificado,308,3377,352,211,19,11
-6a5775dd,gamificado,363,2925,379,279,24,18
-7d262f2b,gamificado,428,2060,339,212,30,4
-91a35aee,não gamificado,414,3258,466,245,29,6
-4c35836b,gamificado,491,4652,330,210,29,2
-f1ffefa5,gamificado,275,4607,460,334,39,4
-2c693620,não gamificado,224,2096,409,259,22,19
-511a3078,gamificado,263,2285,432,220,13,6
-8c8ce9fd,não gamificado,104,4942,334,214,25,14
-31468533,gamificado,173,3479,426,376,16,15
-ecd05cb6,não gamificado,437,4749,362,350,24,3
-cba08983,não gamificado,192,2866,444,363,21,5
-16365006,gamificado,195,2627,379,396,39,6
-a0b0f6ae,gamificado,130,3636,493,220,21,2
-0cacbb98,gamificado,198,1609,493,219,16,3
-d13a621d,não gamificado,392,3291,445,359,28,19
-6cf00ed3,não gamificado,438,1954,351,356,14,19
-b166d756,gamificado,299,4849,344,201,39,3
-cc15d10e,não gamificado,255,3405,418,355,25,18
-dc9e6a2e,gamificado,198,3060,353,345,14,11
-1183088b,gamificado,144,2610,406,326,28,8
-ac496445,gamificado,255,4520,457,296,39,9
-71dfbdc0,não gamificado,328,2456,333,231,30,14
-56af68f5,não gamificado,186,2152,380,201,22,2
-8b39b170,gamificado,277,1682,394,290,19,7
-ddc3f0f6,não gamificado,187,1688,473,298,35,13
-69611158,gamificado,300,2928,485,277,14,7
-b4f7c8dd,não gamificado,241,2011,476,292,15,16
-093da413,não gamificado,359,1865,434,342,36,5
-d4ab7d96,gamificado,249,3697,490,211,19,10
-a9d87bce,gamificado,242,1190,403,270,20,6
-744ea24b,gamificado,313,3803,415,360,33,4
-c984ce85,não gamificado,396,2407,367,367,15,19
-14121700,gamificado,188,2635,369,247,10,7
-3362c235,gamificado,265,4283,304,270,22,10
-eef41bb0,gamificado,206,4675,400,371,24,1
-00552973,não gamificado,351,2130,474,370,22,11
-f46ef02e,não gamificado,173,4844,301,259,20,13
-29f829ab,não gamificado,445,3913,314,229,35,12
-0ec7e6c2,gamificado,398,3745,332,340,23,7
+"","UserID","cenario","pontos","tempo.permanencia","tentativas","submissoes","rep.erradas","escolhas"
+"1","7b3f904c","gamificado",247,3673,310,354,13,11
+"2","c0ec43e5","gamificado",493,3472,379,347,11,19
+"3","edc27f35","não gamificado",161,2488,395,394,39,15
+"4","3054a6b0","gamificado",136,3119,412,293,11,4
+"5","8d9eca7e","gamificado",156,4498,439,214,20,6
+"6","500813fb","gamificado",376,3327,483,329,37,19
+"7","2d7b15a3","não gamificado",347,4359,423,351,28,12
+"8","f0edcc26","não gamificado",456,2249,385,227,18,15
+"9","4d27a0e8","gamificado",369,3833,408,279,32,8
+"10","90b1796d","não gamificado",394,2060,311,244,35,15
+"11","b7c1ac58","não gamificado",308,3377,352,211,19,11
+"12","6a5775dd","gamificado",363,2925,379,279,24,18
+"13","7d262f2b","gamificado",428,2060,339,212,30,4
+"14","91a35aee","não gamificado",414,3258,466,245,29,6
+"15","4c35836b","gamificado",491,4652,330,210,29,2
+"16","f1ffefa5","gamificado",275,4607,460,334,39,4
+"17","2c693620","não gamificado",224,2096,409,259,22,19
+"18","511a3078","gamificado",263,2285,432,220,13,6
+"19","8c8ce9fd","não gamificado",104,4942,334,214,25,14
+"20","31468533","gamificado",173,3479,426,376,16,15
+"21","ecd05cb6","não gamificado",437,4749,362,350,24,3
+"22","cba08983","não gamificado",192,2866,444,363,21,5
+"23","16365006","gamificado",195,2627,379,396,39,6
+"24","a0b0f6ae","gamificado",130,3636,493,220,21,2
+"25","0cacbb98","gamificado",198,1609,493,219,16,3
+"26","d13a621d","não gamificado",392,3291,445,359,28,19
+"27","6cf00ed3","não gamificado",438,1954,351,356,14,19
+"28","b166d756","gamificado",299,4849,344,201,39,3
+"29","cc15d10e","não gamificado",255,3405,418,355,25,18
+"30","dc9e6a2e","gamificado",198,3060,353,345,14,11
+"31","1183088b","gamificado",144,2610,406,326,28,8
+"32","ac496445","gamificado",255,4520,457,296,39,9
+"33","71dfbdc0","não gamificado",328,2456,333,231,30,14
+"34","56af68f5","não gamificado",186,2152,380,201,22,2
+"35","8b39b170","gamificado",277,1682,394,290,19,7
+"36","ddc3f0f6","não gamificado",187,1688,473,298,35,13
+"37","69611158","gamificado",300,2928,485,277,14,7
+"38","b4f7c8dd","não gamificado",241,2011,476,292,15,16
+"39","093da413","não gamificado",359,1865,434,342,36,5
+"40","d4ab7d96","gamificado",249,3697,490,211,19,10
+"41","a9d87bce","gamificado",242,1190,403,270,20,6
+"42","744ea24b","gamificado",313,3803,415,360,33,4
+"43","c984ce85","não gamificado",396,2407,367,367,15,19
+"44","14121700","gamificado",188,2635,369,247,10,7
+"45","3362c235","gamificado",265,4283,304,270,22,10
+"46","eef41bb0","gamificado",206,4675,400,371,24,1
+"47","00552973","não gamificado",351,2130,474,370,22,11
+"48","f46ef02e","não gamificado",173,4844,301,259,20,13
+"49","29f829ab","não gamificado",445,3913,314,229,35,12
+"50","0ec7e6c2","gamificado",398,3745,332,340,23,7

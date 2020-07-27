@@ -2,6 +2,7 @@ wants <- c('readr', 'careless', 'car','dplyr')
 has <- wants %in% rownames(installed.packages())
 if (any(!has)) install.packages(wants[!has])
 
+library(utils)
 library(readr)      # biblioteca para leitura de arquivos CVS
 library(careless)   # biblioteca para tratamento de respostas descuidadas
 library(car)        # biblioteca para graficar Boxplots com identificação de pontos
@@ -9,7 +10,7 @@ library(dplyr)      # biblioteca para manipular data.frames
 
 ## Leitura do questionario DFS usando arquivo CSV
 
-qpj_dat <- read_csv("data/survey-qpj.csv")
+qpj_dat <- read.csv("data/survey-qpj.csv")
 resp_qpj_dat <- select(qpj_dat, starts_with("Item")) # selecionar apenas respostas das questões "Item"
 
 ## Tratamento de respostas descuidadas (careless response)
@@ -28,6 +29,6 @@ head(careless_irv_df) # careless 40
 ## Salvar respostas descuidadas no arquivo <../data/qpj-careless.csv> e
 ## Salvar respostas do DFS sem respostas descuidadas no arquivo <../data/qpj.csv>
 
-write_csv(qpj_dat[c(40),], 'data/qpj-careless.csv')
-write_csv(qpj_dat[-c(40),], 'data/qpj.csv')
+write.csv(qpj_dat[c(40),], 'data/qpj-careless.csv')
+write.csv(qpj_dat[-c(40),], 'data/qpj.csv')
 

@@ -1,24 +1,37 @@
-wants <- c('digest', 'readr', 'dplyr')
+wants <- c('digest', 'readr', 'dplyr','utils')
 has <- wants %in% rownames(installed.packages())
 if (any(!has)) install.packages(wants[!has])
 
+library(utils)
 library(readr)      # biblioteca para leitura de arquivos CVS
 library(digest)     # biblioteca para anonimizar dados
 library(dplyr)      # biblioteca para manipular data.frames
 
 ## Anonimizando dados dos participantes
 
-participants <- read_csv("raw-data/participants.csv")
+participants <- read.csv(
+  "raw-data/participants.csv",   # nome do arquivo
+  sep = ",",                     # c(",", ";", "\t")  <- alternatives
+  quote = '"',                   # c('"', "'", "")    <- alternatives
+  fileEncoding = "",             # encoding do arquivo
+  encoding = "unknown"           # encoding do texto
+)
+
+# alternativas possiveis para o encoding do arquivo ou texto
+# c("UTF-8", "latin1", "WINDOWS-1252", "ASCII", "BIG5", 
+#   "GB18030","GB2312", "ISO-2022-JP", "ISO-2022-KR",
+#   "ISO-8859-1", "ISO-8859-2", "ISO-8859-7", "SHIFT-JIS")
+
 
 participants[["UserID"]] <- sapply(participants$email, FUN = function(x) { # anonimizando por email
   digest(x, algo = "crc32")
 })
 
-write_csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
+write.csv(participants[,c("UserID","cenario")], "data/participants.csv") # escrevendo resultados anonimizados
 
 ## Anonimizando questionario de predispocição de fluxo (DFS)
 
-pre_dfs <- read_csv("raw-data/survey-0-dfs.csv")
+pre_dfs <- read.csv("raw-data/survey-0-dfs.csv")
 
 dfs <- merge(participants, pre_dfs, by='email') # combinando tabelas pelo emails
 dfs <- select(dfs,
@@ -28,11 +41,11 @@ dfs <- select(dfs,
               starts_with("dimensao"),
               starts_with("Q"))               #selecionando dados não sensiveis
 
-write_csv(dfs, "data/survey-dfs.csv")
+write.csv(dfs, "data/survey-dfs.csv")
 
 ## Anonimizando questionario da experiência de fluxo (FSS)
 
-pre_fss <- read_csv("raw-data/survey-0-fss.csv")
+pre_fss <- read.csv("raw-data/survey-0-fss.csv")
 
 fss <- merge(participants, pre_fss, by='email')
 (fss <- select(fss,
@@ -42,11 +55,11 @@ fss <- merge(participants, pre_fss, by='email')
               starts_with("dimensao"),   # score da dimensao 1 até 9 
               starts_with("Q")))         # resposta no item Q1 até Q36
 
-write_csv(fss, "data/survey-fss.csv")
+write.csv(fss, "data/survey-fss.csv")
 
 ## Anonimizando e calculando média dos componentes no questionario QPJ-Br
 
-pre_qpj <- read_csv("raw-data/survey-0-qpj.csv")
+pre_qpj <- read.csv("raw-data/survey-0-qpj.csv")
 pre_qpj <- data.frame(
   nome = pre_qpj$`Nome completo`
   , email = pre_qpj$email
@@ -98,12 +111,12 @@ qpj <- select(qpj,
               starts_with("imersao"),
               starts_with("social"))
 
-write_csv(qpj, "data/survey-qpj.csv")
+write.csv(qpj, "data/survey-qpj.csv")
 
 
 ## Anonimizando tabela de notas da provinha durante pré-teste
 
-pre_pre <- read_csv("raw-data/pre-test.csv")
+pre_pre <- read.csv("raw-data/pre-test.csv")
 
 pre <- merge(participants, pre_pre, by='email') # combinando tabelas pelo emails
 pre <- select(pre,
@@ -111,13 +124,13 @@ pre <- select(pre,
               starts_with("cenario"),
               starts_with("nota"))               #selecionando dados não sensiveis
 
-write_csv(pre, "data/pre-test.csv")
+write.csv(pre, "data/pre-test.csv")
 
 
 
 ## Anonimizando tabela das notas da provinha durante pós-teste
 
-pos_pre <- read_csv("raw-data/pos-test.csv")
+pos_pre <- read.csv("raw-data/pos-test.csv")
 
 pos <- merge(participants, pos_pre, by='email') # combinando tabelas pelo emails
 pos <- select(pos,
@@ -125,12 +138,12 @@ pos <- select(pos,
               starts_with("cenario"),
               starts_with("nota"))               #selecionando dados não sensiveis
 
-write_csv(pos, "data/pos-test.csv")
+write.csv(pos, "data/pos-test.csv")
 
 
 ## Anonimizando dados coletados do engajamento dos participantes
 
-engagement_pre <- read_csv("raw-data/engagement.csv")
+engagement_pre <- read.csv("raw-data/engagement.csv")
 
 engagement <- merge(participants, engagement_pre, by='email') # combinando tabelas pelo emails
 engagement <- select(engagement,
@@ -143,5 +156,5 @@ engagement <- select(engagement,
                      starts_with("rep.erradas"),
                      starts_with("escolhas"))               #selecionando dados não sensiveis
 
-write_csv(engagement, "data/engagement.csv")
+write.csv(engagement, "data/engagement.csv")
 
