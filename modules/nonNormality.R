@@ -16,9 +16,11 @@ source(paste0(getwd(),'/modules/df2Table.R'))
 
 normalityTest <- "
 <p><b>Teste de normalidade</b>:
-Para efetuar testes paramétricos, se a amostra é suficientemente grande (pelo menos 30 observações), a distribuição da média
-precissa apenas ter uma distribuição <i>aproximadamente</i> normal, não estritamente normal. Em amostras de tamanho pequeno,
-a abordagem para seleção de dados deve ser proveniente de uma distribuição normal através dos gráficos Q-Q.
+Para efetuar testes paramétricos, se a amostra é suficientemente grande (> 30 observações per grupo), a distribuição da média
+precissa apenas ter uma distribuição <i>aproximadamente</i> normal (Teste Shapiro-Wilk no modelo residual). Em amostras de
+tamanho pequeno (< 30 observações per grupo), a normalidade deve ser satisfeita em todos os grupos (Teste Shapiro-Wilk para todos
+os grupos). 
+A seleção de dados para satisfazer a normalidade pode ser realizada através gráficos Q-Q.
 </p>
 <ul>
 <li> Hipótese nula
@@ -71,10 +73,12 @@ nonNormalityMD <- function(id, data, dvs, between = c(), within = c(), wid = 'Us
       
       values <- reactiveValues(
         sample.size.problem = do.call(rbind, lapply(dvs, FUN = function(dv) {
-          group <- between
-          dat <- data_with_min_per_group(subset(data, var == dv), group)
-          dat <- dat[!is.na(dat[[wid]]),]
-          if (nrow(dat) > 0) return(cbind(var = dv, freq_table(dat, vars = group)))
+          if (length(between) > 0) {
+            group <- between
+            dat <- data_with_min_per_group(subset(data, var == dv), group)
+            dat <- dat[!is.na(dat[[wid]]),]
+            if (nrow(dat) > 0) return(cbind(var = dv, freq_table(dat, vars = group)))
+          }
         })),
         shapiro.res = shapiro_by_res(data, dvs, between, within, dv.var),
         shapiro.group = shapiro_per_group(data, dvs, between, dv.var)
@@ -109,8 +113,8 @@ nonNormalityMD <- function(id, data, dvs, between = c(), within = c(), wid = 'Us
       
       observeEvent(input$qqPanelSet, {
         dv <- input$qqPanelSet
-        qqPanelPlotsMD(paste0("qqPanel", dv), data, dv,
-                       between = between, wid = wid, dv.var = 'var', width = input$width, height = input$height)
+        qqPanelPlotsMD(paste0("qqPanel", dv), data, dv, between = between, wid = wid, dv.var = 'var',
+                       width = input$width, height = input$height)
       })
       
       

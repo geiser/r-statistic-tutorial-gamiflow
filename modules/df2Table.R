@@ -41,10 +41,7 @@ df2TableMD <- function(id, df, columns = NULL) {
             df[[cname]] <- round(df[[cname]], digits = input$digits)
           }
         }
-        if (!is.null(columns)) 
-          df2DT(df[, unique(columns, input$colnames)])
-        else
-          df2DT(df[, input$colnames])
+        df2DT(df[, input$colnames])
       })
     }
   )

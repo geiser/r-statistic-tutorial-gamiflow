@@ -7,8 +7,11 @@ library(ggplot2)
 source(paste0(getwd(),'/common/df2qqs.R'))
 source(paste0(getwd(),'/modules/df2Table.R'))
 
-getOutliers <- function (data, dvs, ivs) {
-  dat <- group_by_at(df2qqs(data, ivs), vars(ivs))
+getOutliers <- function (data, dvs, ivs = c()) {
+  dat <- data
+  if (length(ivs) > 0) {
+    dat <- group_by_at(df2qqs(data, ivs), vars(ivs))
+  }
   do.call(rbind, lapply(dvs, FUN = function(dv) {
     outliers <- identify_outliers(dat, variable = dv)
     if (nrow(outliers) > 0) {
@@ -30,7 +33,7 @@ outliersUI <- function(id) {
   )
 }
 
-outliersMD <- function(id, initData, outliers, dvs, ivs, wid = 'row.pos') {
+outliersMD <- function(id, initData, outliers, dvs, ivs = c(), wid = 'row.pos') {
   moduleServer(
     id,
     function(input, output, session) {
@@ -44,7 +47,13 @@ outliersMD <- function(id, initData, outliers, dvs, ivs, wid = 'row.pos') {
       })
       
       output$dataBoxPlotsTabset <- renderUI({
-        dat <- df2qqs(initData, ivs)
+        dat <- initData
+        if (length(ivs) > 0) {
+          dat <- df2qqs(dat, ivs)
+        } else {
+          dat[['iv']] <- rep('iv', nrow(dat))
+          ivs <- c('iv') 
+        }
         if (input$showOutliersBoxPlot) {
           do.call(tabsetPanel, c(
             list(type="pills"),
@@ -57,8 +66,11 @@ outliersMD <- function(id, initData, outliers, dvs, ivs, wid = 'row.pos') {
                     splitLayout(
                       renderPlotly({
                         p <- plot_ly(
-                          data=dat, type = "box", boxpoints = input$boxpoints, text=as.formula(paste0("~",wid)),
-                          x=as.formula(paste0("~",iv)), y=as.formula(paste0("~",dv)), color=as.formula(paste0("~",iv)))
+                          data=dat, type = "box", boxpoints = input$boxpoints,
+                          text=as.formula(paste0("~", '`', wid, '`')),
+                          x=as.formula(paste0("~",'`',iv,'`')),
+                          y=as.formula(paste0("~",'`',dv,'`')),
+                          color=as.formula(paste0("~",'`',iv,'`')))
                         p <- layout(p, title=paste("Com outliers"), showlegend = F)
                         p
                       }),
@@ -66,8 +78,11 @@ outliersMD <- function(id, initData, outliers, dvs, ivs, wid = 'row.pos') {
                         outliersIds <- subset(outliers, var == dv)[[wid]]
                         p <- plot_ly(
                           data=dat[which(!dat[[wid]] %in%  outliersIds),],
-                          type = "box", boxpoints = input$boxpoints, text=as.formula(paste0("~",wid)),
-                          x=as.formula(paste0("~",iv)), y=as.formula(paste0("~",dv)), color=as.formula(paste0("~",iv)))
+                          type = "box", boxpoints = input$boxpoints,
+                          text=as.formula(paste0("~",'`',wid,'`')),
+                          x=as.formula(paste0("~",'`',iv,'`')),
+                          y=as.formula(paste0("~",'`',dv,'`')),
+                          color=as.formula(paste0("~",'`',iv,'`')))
                         p <- layout(p, title=paste("Sem outliers"), showlegend = F)
                         p
                       })

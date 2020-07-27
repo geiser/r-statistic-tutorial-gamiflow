@@ -40,7 +40,7 @@ homogeneityMD <- function(id, data, dvs, group, dv.var = 'var') {
       
       levene.test <- do.call(rbind, lapply(dvs, FUN = function(dv) {
         dat <- as.data.frame(data[which(data[[dv.var]] == dv), unique(c(dvs, group))])
-        sformula <- paste(dv, "~", paste0(group, collapse = "*"))
+        sformula <- paste(paste0('`', dv, '`'), "~", paste0(paste0('`', group, '`'), collapse = "*"))
         cbind(var = dv, levene_test(dat, as.formula(sformula)))
       }))
       

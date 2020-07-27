@@ -26,39 +26,59 @@ qqPanelPlotsMD <- function(id, data, dv, between = c(), within = c(), wid = 'Use
       values <- reactiveValues()
       
       output$qqPlotResidual <- renderPlot({
-        dat <- data
+        dat <- as.data.frame(data)
         if (!is.null(dv.var)) dat <- dat[which(dat[[dv.var]] == dv),]
-        sformula <- paste(dv ,'~', paste0(between, collapse = "*"))
+        sformula <- paste(dv ,'~', paste0(paste0('`',between,'`'), collapse = "*"))
         rownames(dat) <- dat[[wid]]
-        mdl <- lm(as.formula(sformula), data = dat)
-        car::qqPlot(residuals(mdl))
+        if (length(between) > 0) {
+          mdl <- lm(as.formula(sformula), data = dat)
+          car::qqPlot(residuals(mdl))
+        } else {
+          car::qqPlot(as.formula(paste0('~', dv)), data = dat)
+        }
       }, width = width, height = height)
       
       output$qqPlotGroups <- renderUI({
         group <- between
-        dat <- data
-        if (!is.null(dv.var)) dat <- dat[which(dat[[dv.var]] == dv),]
-        
-        freq_df <- subset(freq_table(dat, vars = group), n >= 3)
-        do.call(verticalLayout, lapply(seq(1,nrow(freq_df)), FUN = function(i) {
-          tbl <- freq_df[i,c(group)]
-          df <- as.data.frame(subset_by_tbl(dat, tbl, group = group))
-          df <- group_by_at(df, vars(group))
+        if (length(group) > 0) {
+          dat <- data
+          if (!is.null(dv.var)) dat <- dat[which(dat[[dv.var]] == dv),]
           
-          ntitle <- paste(sapply(names(tbl), FUN = function(nc) paste0(nc,':', tbl[[nc]])), collapse = " - ")
+          freq_df <- subset(freq_table(dat, vars = group), n >= 3)
+          do.call(verticalLayout, lapply(seq(1,nrow(freq_df)), FUN = function(i) {
+            tbl <- freq_df[i,c(group)]
+            df <- as.data.frame(subset_by_tbl(dat, tbl, group = group))
+            df <- group_by_at(df, vars(group))
+            
+            ntitle <- paste(sapply(names(tbl), FUN = function(nc) paste0(nc,':', tbl[[nc]])), collapse = " - ")
+            verticalLayout(
+              br(), p(strong(paste("Gráfico Q-Q dos modelos por grupo, ", ntitle))),
+              splitLayout(
+                renderPlot({
+                  rownames(df) <- df[[wid]]
+                  car::qqPlot(as.formula(paste('~', paste0('`', dv, '`'))), data = df)
+                }, width = width, height = height),
+                renderPlotly({
+                  plotly::layout(qqPlotly(df[[wid]], df[[dv]], width = width, height = height), title = 'Interative Q-Q')
+                })
+              )
+            )
+          }))
+        } else {
           verticalLayout(
-            br(), p(strong(paste("Gráfico Q-Q dos modelos por grupo, ", ntitle))),
+            br(), p(strong("Gráfico Q-Q dos modelos por grupo")),
             splitLayout(
               renderPlot({
-                rownames(df) <- df[[wid]]
-                car::qqPlot(as.formula(paste('~', dv)), data = df)
+                dat <- as.data.frame(data)
+                rownames(dat) <- dat[[wid]]
+                car::qqPlot(as.formula(paste('~', paste0('`', dv, '`'))), data = dat)
               }, width = width, height = height),
               renderPlotly({
-                plotly::layout(qqPlotly(df[[wid]], df[[dv]], width = width, height = height), title = 'Interative Q-Q')
+                plotly::layout(qqPlotly(dat[[wid]], dat[[dv]], width = width, height = height), title = 'Interative Q-Q')
               })
             )
           )
-        }))
+        }
       })
     }
   )

@@ -75,7 +75,7 @@ hypothesisAnovaMD <- function(id, data, dvs, between = c(), within = c(), wid = 
           
           values$aov <- lapply(ldvs, FUN = function(dv) {
             dat <- as.data.frame(data[which(data[[dv.var]] == dv),])
-            sformula <- as.formula(paste(dv, "~", paste0(between, collapse = "*")))
+            sformula <- as.formula(paste(paste0('`',dv,'`'), "~", paste0(paste0('`',between,'`'), collapse = "*")))
             aov <- tryCatch(anova_test(dat, sformula, type = input$aovtype, effect.size = input$effsize, detailed = T)
                             , error = function(e) return(NULL))
             if (!is.null(aov)) {
@@ -92,8 +92,8 @@ hypothesisAnovaMD <- function(id, data, dvs, between = c(), within = c(), wid = 
             dat <- as.data.frame(data[which(data[[dv.var]] == dv),])
             lapply(livs, FUN = function(iv) {
               gdat <- group_by_at(as.data.frame(dat), vars(setdiff(names(livs), iv)))
-              emm <- tryCatch(emmeans_test(gdat, as.formula(paste(dv, "~", iv)), detailed=T,
-                                           p.adjust.method = input$pairwiseCompAdjustmethod),
+              emm <- tryCatch(emmeans_test(gdat, as.formula(paste(paste0('`',dv,'`'), "~", paste0('`',iv,'`'))),
+                                           detailed=T, p.adjust.method = input$pairwiseCompAdjustmethod),
                               error = function(e) NULL)
               if (!is.null(emm)) return(emm)
             })

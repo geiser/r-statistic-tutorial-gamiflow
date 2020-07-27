@@ -68,7 +68,7 @@ hypothesisScheirerMD <- function(id, data, dvs, between = c(), within = c(), wid
           
           values$srh <- lapply(ldvs, FUN = function(dv) {
             dat <- as.data.frame(data[which(data[[dv.var]] == dv),])
-            sformula <- paste(dv, "~", paste0(between, collapse = "*"))
+            sformula <- paste(paste0('`',dv,'`'), "~", paste0(paste0('`',between,'`'), collapse = "*"))
             srh <- tryCatch(scheirerRayHare(data = dat, formula = as.formula(sformula), verbose = F)
                             , error = function(e) return(NULL))
             if (!is.null(srh)) { return(srh) }
@@ -83,12 +83,12 @@ hypothesisScheirerMD <- function(id, data, dvs, between = c(), within = c(), wid
             dat <- as.data.frame(data[which(data[[dv.var]] == dv),])
             lapply(livs, FUN = function(iv) {
               if (input$pwc.method == "wilcoxon") {
-                pmd <- tryCatch(wilcox_test(dat, as.formula(paste(dv, "~", iv)), detailed=T,
-                                            p.adjust.method = input$pairwiseCompAdjustmethod)
+                pmd <- tryCatch(wilcox_test(dat, as.formula(paste(paste0('`',dv,'`'), "~", paste0('`',iv,'`'))),
+                                            detailed=T, p.adjust.method = input$pairwiseCompAdjustmethod)
                                 , error = function(e) NULL)
               } else {
-                pmd <- tryCatch(dunn_test(dat, as.formula(paste(dv, "~", iv)), detailed=T,
-                                          p.adjust.method = input$pairwiseCompAdjustmethod)
+                pmd <- tryCatch(dunn_test(dat, as.formula(paste(paste0('`',dv,'`'), "~", paste0('`',iv,'`'))),
+                                          detailed=T, p.adjust.method = input$pairwiseCompAdjustmethod)
                                 , error = function(e) NULL)
               }
               if (!is.null(pmd)) return(pmd)

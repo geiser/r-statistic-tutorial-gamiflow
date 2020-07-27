@@ -50,7 +50,7 @@ hypothesisWilcoxonMD <- function(id, data, dvs, group, dv.var = 'var') {
         values$w.test <- do.call(rbind, lapply(dvs, FUN = function(dv) {
           dat <- as.data.frame(data[which(data[[dv.var]] == dv),])
           
-          sformula <- as.formula(paste(dv, "~", paste0(group, collapse = "*")))
+          sformula <- as.formula(paste(paste0('`',dv,'`'), "~", paste0(paste0('`',group,'`'), collapse = "*")))
           wt <- wilcox_test(dat, sformula, alternative = input$alternative, paired = F, detailed = T)
           values$wt[[dv]] <- wt
           

@@ -23,18 +23,6 @@ factorialAnovaUI <- function(id, title=id) {
 
 factorialAnovaMD <- function(id, initData) {
   
-  get_choices <- function(df, type = "id", wid = c()) {
-    ids <- colnames(df)[sapply(colnames(df), function (x) { anyDuplicated(df[[x]]) == 0 })]
-    between <- setdiff(colnames(df), c(wid, "row.pos"))
-    
-    dvs <- setdiff(colnames(df), c(wid, "row.pos"))
-    dvs <- dvs[sapply(dvs, FUN = function(x) is.numeric(df[[x]]))]
-    
-    if (type == "id") return(ids)
-    else if (type == "between") return(between)
-    else if (type == "dv") return(dvs)
-  }
-  
   moduleServer(
     id,
     function(input, output, session) {

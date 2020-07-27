@@ -15,11 +15,15 @@ options(scipen = 999)
 options(stringsAsFactors=F)
 
 source('modules/twoSampleTTest.R')
+source('modules/pairedTTest.R')
 source('modules/df2Table.R')
 source('modules/factorialAnova.R')
 source('modules/twoSampleWilcoxon.R')
 source('modules/kruskalWallis.R')
 source('modules/scheirerRayHare.R')
+
+encoding <- c("UTF-8", "latin1","WINDOWS-1252","ASCII","BIG5","GB18030","GB2312",
+              "ISO-2022-JP","ISO-2022-KR","ISO-8859-1","ISO-8859-2","ISO-8859-7","SHIFT-JIS")
 
 ui <- navbarPage(
   "Statistic", id = "mainNavPage",
@@ -34,15 +38,18 @@ ui <- navbarPage(
                     accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
           # options
           radioButtons("sep", "Separator", c(Comma = ",", Semicolon = ";", Tab = "\t")),
-          radioButtons("quote", "Quote", c("Double Quote" = '"', "Single Quote" = "'", None = ""))
+          radioButtons("quote", "Quote", c("Double Quote" = '"', "Single Quote" = "'", None = "")),
+          selectInput("fileEncoding", "Encoding do arquivo", choices = c("", encoding), selected = "", multiple = F),
+          selectInput("encoding", "Encoding do texto", choices = c("unknown", encoding), selected = "unknown", multiple = F)
         ),
         mainPanel(width = 9, DT::DTOutput("dataDT"))
       )
     )
   ),
   navbarMenu(
-    "t-test",
-    tabPanel("Two-sample t-test", value="two-sample-t-test", twoSampleTTestUI("twoSampleTTestUI"))
+    "T-test",
+    tabPanel("Two-sample T-test", value="two-sample-t-test", twoSampleTTestUI("twoSampleTTestUI")),
+    tabPanel("Paired T-test", value="paired-t-test", pairedTTestUI("pairedTTestUI"))
   ),
   navbarMenu(
     "ANOVA",
@@ -66,7 +73,8 @@ server <- function(input, output, session) {
   output$dataDT <- DT::renderDataTable({
     req(input$fileCSV)
     tryCatch({
-      values$initData <- read.csv(input$fileCSV$datapath, sep = input$sep, quote = input$quote)
+      values$initData <- read.csv(input$fileCSV$datapath, sep = input$sep, quote = input$quote,
+                                  fileEncoding = input$fileEncoding, encoding = input$encoding)
     }, error = function(e) stop(safeError(e)))
     return(df2DT(values$initData))
   })
@@ -75,6 +83,8 @@ server <- function(input, output, session) {
     if (!is.null(values$initData)) {
       if (input$mainNavPage == "two-sample-t-test") {
         twoSampleTTestMD("twoSampleTTestUI", values$initData)
+      } else if (input$mainNavPage == "paired-t-test") {
+        pairedTTestMD("pairedTTestUI", values$initData)
       } else if (input$mainNavPage == "factorial-anova") {
         factorialAnovaMD("factorialAnovaUI", values$initData)
       } else if (input$mainNavPage == "two-sample-wilcoxon") {
