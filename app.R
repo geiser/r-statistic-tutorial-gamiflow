@@ -1,4 +1,4 @@
-wants <- c('ggpubr', 'stats', 'DT', 'shiny', 'rcompanion', 'emmeans', 'rstatix', 'plotly', 'readr', 'careless', 'car', 'dplyr')
+wants <- c('ggpubr', 'readxl', 'stats', 'DT', 'shiny', 'rcompanion', 'emmeans', 'rstatix', 'plotly', 'readr', 'careless', 'car', 'dplyr')
 has <- wants %in% rownames(installed.packages())
 if (any(!has)) install.packages(wants[!has])
 if (packageVersion("shiny") < "1.5.0") {
@@ -6,6 +6,7 @@ if (packageVersion("shiny") < "1.5.0") {
   remotes::install_github("rstudio/shiny")
 }
 
+library(readxl)
 library(readr)
 library(shiny)
 library(plotly)
@@ -30,17 +31,14 @@ ui <- navbarPage(
   tabPanel(
     "Load Data", value = "load",
     fluidPage(
-      titlePanel("Loading data from CSV-file"),
+      titlePanel("Loading data from file"),
       sidebarLayout(
         sidebarPanel(
           width = 3,
-          fileInput("fileCSV", "Choose CSV File", multiple = F,
-                    accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
-          # options
-          radioButtons("sep", "Separator", c(Comma = ",", Semicolon = ";", Tab = "\t")),
-          radioButtons("quote", "Quote", c("Double Quote" = '"', "Single Quote" = "'", None = "")),
-          selectInput("fileEncoding", "Encoding do arquivo", choices = c("", encoding), selected = "", multiple = F),
-          selectInput("encoding", "Encoding do texto", choices = c("unknown", encoding), selected = "unknown", multiple = F)
+          fileInput("file", "Choose CSV or Excel File", multiple = F,
+                    accept = c(".csv", "text/csv", "text/comma-separated-values,text/plain",
+                               ".xlsx", "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")),
+          uiOutput("fileOptions")
         ),
         mainPanel(width = 9, DT::DTOutput("dataDT"))
       )
@@ -68,31 +66,60 @@ ui <- navbarPage(
 
 server <- function(input, output, session) {
   
-  values <- reactiveValues(initData = NULL)
+  values <- reactiveValues(initData = NULL, data = NULL)
+  
+  output$fileOptions <- renderUI({
+    req(input$file)
+    formatFile <- format_from_signature(input$file$datapath)
+    if (!is.na(formatFile) && formatFile == "xlsx") {
+      choices = readxl::excel_sheets('IMMS.xlsx')
+      selectInput("sheet", "Folha", choices = choices, multiple = F)
+    } else {
+      selected = guess_encoding(input$file$datapath)$encoding[1]
+      verticalLayout(
+        radioButtons("sep", "Separator", c(Comma = ",", Semicolon = ";", Tab = "\t")),
+        radioButtons("quote", "Quote", c("Double Quote" = '"', "Single Quote" = "'", None = "")),
+        selectInput("fileEncoding", "Encoding do arquivo", choices = c("", encoding), selected = selected, multiple = F),
+        selectInput("encoding", "Encoding do texto", choices = c("unknown", encoding), selected = "unknown", multiple = F)
+      )
+    }
+  })
   
   output$dataDT <- DT::renderDataTable({
-    req(input$fileCSV)
+    req(input$file)
     tryCatch({
-      values$initData <- read.csv(input$fileCSV$datapath, sep = input$sep, quote = input$quote,
-                                  fileEncoding = input$fileEncoding, encoding = input$encoding)
+      formatFile <- format_from_signature(input$file$datapath)
+      if (!is.na(formatFile) && formatFile == "xlsx") {
+        values$initData <- read_excel(input$file$datapath, sheet = input$sheet)
+      } else {
+        values$initData <- read.csv(input$file$datapath, sep = input$sep, quote = input$quote,
+                                    fileEncoding = input$fileEncoding, encoding = input$encoding)  
+      }
+      values$data <- values$initData
     }, error = function(e) stop(safeError(e)))
-    return(df2DT(values$initData))
+    df2DT(values$initData, editable = T)
+  })
+  
+  observeEvent(input$dataDT_cell_edit, {
+    row <- input$dataDT_cell_edit[['row']]
+    col <- input$dataDT_cell_edit[['col']]
+    values$data[row, col] <- input$dataDT_cell_edit[['value']]
   })
   
   observeEvent(input$mainNavPage, {
-    if (!is.null(values$initData)) {
+    if (!is.null(values$data)) {
       if (input$mainNavPage == "two-sample-t-test") {
-        twoSampleTTestMD("twoSampleTTestUI", values$initData)
+        twoSampleTTestMD("twoSampleTTestUI", values$data)
       } else if (input$mainNavPage == "paired-t-test") {
-        pairedTTestMD("pairedTTestUI", values$initData)
+        pairedTTestMD("pairedTTestUI", values$data)
       } else if (input$mainNavPage == "factorial-anova") {
-        factorialAnovaMD("factorialAnovaUI", values$initData)
+        factorialAnovaMD("factorialAnovaUI", values$data)
       } else if (input$mainNavPage == "two-sample-wilcoxon") {
-        twoSampleWilcoxonMD("twoSampleWilcoxonUI", values$initData)
+        twoSampleWilcoxonMD("twoSampleWilcoxonUI", values$data)
       } else if (input$mainNavPage == "kruskal-wallis") {
-        kruskalWallisMD("kruskalWallisUI", values$initData)
+        kruskalWallisMD("kruskalWallisUI", values$data)
       } else if (input$mainNavPage == "scheirer-ray-hare") {
-        scheirerRayHareMD("scheirerRayHareUI", values$initData)
+        scheirerRayHareMD("scheirerRayHareUI", values$data)
       }
     }
   })
