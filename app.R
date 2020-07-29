@@ -72,7 +72,7 @@ server <- function(input, output, session) {
     req(input$file)
     formatFile <- format_from_signature(input$file$datapath)
     if (!is.na(formatFile) && formatFile == "xlsx") {
-      choices = readxl::excel_sheets('IMMS.xlsx')
+      choices = readxl::excel_sheets(input$file$datapath)
       selectInput("sheet", "Folha", choices = choices, multiple = F)
     } else {
       selected = guess_encoding(input$file$datapath)$encoding[1]
