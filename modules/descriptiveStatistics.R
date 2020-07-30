@@ -28,7 +28,9 @@ descriptiveStatisticsMD <- function(id, data, dvs, group=c(), dv.var = 'var') {
         if (nrow(df) > 0) return(as.data.frame(df))
       }))
       
-      df2TableMD("descrStatisticTable", df)
+      cnames <- c("n","mean","median","min","max","q1","q3","sd","se","ci","iqr","mad")
+      cnames <- c(colnames(df)[!colnames(df) %in% cnames], cnames)
+      df2TableMD("descrStatisticTable", df, cnames)
     }
   )
 }

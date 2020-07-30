@@ -123,7 +123,9 @@ hypothesisPairedTTestMD <- function(id, wdata, dvCondition1, dvCondition2, wid) 
                   dvCondition1, dvMetric1, "and", dvCondition2, dvMetric2,"conditions with",
                   paste0("t(",values$t.test$df,") ="), round(values$t.test$statistic, 2),", p",
                   ifelse(values$t.test$p < 0.0001, '< 0.0001', paste0('= ',round(values$t.test$p, 2))),
-                  ", and", names(values$t.test$effsize),'=', round(values$t.test$effsize, 2),
+                  ", and",
+                  ifelse(as.logical(input$hedgescorrection), "Hedge's g", "Cohen's d")
+                  ,'=', round(values$t.test$effsize, 2),
                   '(', as.character(values$t.test$magnitude), ')')
               } else {
                 signifText <- paste(

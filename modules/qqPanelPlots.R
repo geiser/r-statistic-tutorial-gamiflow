@@ -65,11 +65,11 @@ qqPanelPlotsMD <- function(id, data, dv, between = c(), within = c(), wid = 'Use
             )
           }))
         } else {
+          dat <- as.data.frame(data)
           verticalLayout(
             br(), p(strong("Gráfico Q-Q dos modelos por grupo")),
             splitLayout(
               renderPlot({
-                dat <- as.data.frame(data)
                 rownames(dat) <- dat[[wid]]
                 car::qqPlot(as.formula(paste('~', paste0('`', dv, '`'))), data = dat)
               }, width = width, height = height),

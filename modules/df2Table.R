@@ -30,7 +30,9 @@ df2TableMD <- function(id, df, columns = NULL) {
       
       output$colnamesInput <- renderUI({
         choices <- colnames(df)
-        if (is.null(columns)) columns <- choices
+        if (is.null(columns)) columns <- choices else {
+          choices <- c(columns,  setdiff(choices, columns))
+        } 
         selectInput(ns('colnames'), 'Colunas', choices = choices, selected = columns, multiple = T, width = '100%')
       }) 
       
