@@ -13,7 +13,7 @@ get_choices <- function(df, type = "id", wid = c()) {
   if (type == "id") return(ids)
   else if (type == "between") return(between)
   else if (type == "two-between" || type == "two-group") return(two_between)
-  else if (type == "dv") return(dvs)
+  else if (type == "dv" || type == "covar") return(dvs)
 }
 
 

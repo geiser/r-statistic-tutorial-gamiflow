@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     tty: true
     volumes:
-      - ./:/home/gcc 
+      - ./:/home/rstudio 
     ports:
       - "8787:8787"
   shiny:
@@ -20,3 +20,4 @@ services:
     volumes:
       - '.:/srv/shiny-server/r-statistic-tutorial-gamiflow'
       - './shiny_logs:/var/log/shiny-server'
+

@@ -4,7 +4,6 @@ scheirerPlots <- function(data, dv, ivs, srh, pwcs, addParam=c(), width = 800, h
   do.call(verticalLayout, lapply(ivs, FUN = function(iv) {
     pwc <- pwcs[[iv]]
     color <- setdiff(ivs, iv)
-    print(srh)
     verticalLayout(
       br(), p(strong(paste("Gráficos com base de:", iv, "- Color:", color)))
       , renderPlot({
@@ -28,17 +27,20 @@ scheirerPlots <- function(data, dv, ivs, srh, pwcs, addParam=c(), width = 800, h
   }))
 }
 
-kruskalPlots <- function(data, dv, ivs, kwm, pwcs, addParam=c(), width = 800, height = 800) {
+kruskal.plot <- function(dat, dv, iv, kwm, pwc, addParam = c(), step.increase = 0.005) {
+  pwc <- tryCatch(add_xy_position(pwc, x = iv, step.increase = step.increase), error = function(e) NULL)
+  bxp <- ggboxplot(dat, x = iv, y = dv, color = iv, palette = "jco", add=addParam)
+  bxp <- bxp + stat_pvalue_manual(pwc, linetype = c(), hide.ns = T, tip.length = 0)
+  bxp <- bxp + labs(subtitle = get_test_label(kwm, detailed = T), caption = get_pwc_label(pwc))
+  return(bxp)
+}
+
+kruskalPlots <- function(data, dv, ivs, kwm, pwcs, addParam=c(), width = 800, height = 800, step.increase = 0.005) {
   do.call(verticalLayout, lapply(ivs, FUN = function(iv) {
-    pwc <- pwcs[[iv]]
     verticalLayout(
       br(), p(strong(paste("Gráficos com base de:", iv))),
       renderPlot({
-        pwc <- tryCatch(add_xy_position(pwc, x = iv), error = function(e) NULL)
-        bxp <- ggboxplot(data, x = iv, y = dv, color = iv, palette = "jco", add=addParam)
-        bxp <- bxp + stat_pvalue_manual(pwc, linetype = c(), hide.ns = T, tip.length = 0, step.increase = 0.1)
-        bxp <- bxp + labs(subtitle = get_test_label(kwm, detailed = T), caption = get_pwc_label(pwc))
-        bxp
+        kruskal.plot(data, dv, iv, pwcs[[iv]], pwc, addParam, step.increase)
       },
       width = width, height = height)
     )

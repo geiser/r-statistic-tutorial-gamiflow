@@ -1,7 +1,12 @@
-library(rstatix)
-
-source(paste0(getwd(),'/common/df2qqs.R'))
 source(paste0(getwd(),'/common/dealing_with_groups.R'))
+source(paste0(getwd(),"/common/getQQline.R"))
+
+library(rstatix)
+library(stats)
+library(robcbi)
+
+
+
 
 identify_nonnormal_by_residuals <- function(data, dv, ivs, wid = "row.pos", to_remove = c()) {
   data <- df2qqs(data, ivs)
