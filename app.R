@@ -5,7 +5,7 @@ if (!"rshinystatistics" %in% rownames(installed.packages())) {
   remotes::install_github("geiser/rshinystatistics")
 }
 
-wants <- c('ggplot2','ggpubr','rshinystatistics','car','stats','rstatix','utils','dplyr','rmarkdown', 'shiny')
+wants <- c('ggplot2','ggpubr','rshinystatistics','car','emmeans','stats','rstatix','utils','dplyr','rmarkdown', 'shiny')
 has <- wants %in% rownames(installed.packages())
 if (any(!has)) install.packages(wants[!has])
 
@@ -13,6 +13,7 @@ library(utils)
 library(ggpubr)
 library(ggplot2)
 library(rstatix)
+library(emmeans)
 
 library(shiny)
 library(rshinystatistics)
@@ -20,7 +21,7 @@ library(rshinystatistics)
 ## ... Loading Application
 
 ui <- navbarPage(
-  "Shiny-Statistic", id = "mainNavPage", selected = 'none',
+  "R Shiny-Statistics", id = "mainNavPage", selected = 'none',
   tabPanel(
     "Home", value = "none",
     br(), 
