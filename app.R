@@ -33,19 +33,21 @@ ui <- navbarPage(
     #HTML(paste0('<iframe src="https://github.com/geiser/r-statistic-tutorial-gamiflow/wiki" width="100%" height="1000px"></iframe>'))
   ),
   navbarMenu(
-    "T-test",
-    tabPanel("Independent Two-Sample T-test", value="ttest", indSampleTTestUI("ttest"))
+    "T-test"
+    , tabPanel("Independent Two-Sample T-test", value="ttest", indSampleTTestUI("ttest"))
+    , tabPanel("Paired Two-Sample T-test", value="paired-ttest", pairedTTestUI("paired-ttest"))
   ),
   navbarMenu(
-    "ANOVA / ANCOVA",
-    tabPanel("Factorial ANOVA", value="anova", factorialAnovaUI("anova")),
-    tabPanel("ANCOVA", value="ancova", ancovaUI("ancova"))
+    "ANCOVA / ANOVA"
+    , tabPanel("ANCOVA", value="ancova", ancovaUI("ancova"))
+    , tabPanel("Factorial ANOVA", value="anova", factorialAnovaUI("anova"))
+    , tabPanel("Repeated Measures ANOVA", value="rep-anova", repMeasuresAnovaUI("rep-anova"))
   ),
   navbarMenu(
-    "não paramétricos",
-    tabPanel("Two-Sample Wilcoxon Test (alernativa t-test)", value="wilcoxon", wilcoxonTestUI("wilcoxon")),
-    tabPanel("Kruskal-Wallis Test (alternativa one-way ANOVA)", value="kruskal", kruskalWallisUI("kruskal")),
-    tabPanel("Scheirer–Ray–Hare Test (alternativa ao two-way e three-way ANOVA)", value="scheirer", scheirerRayHareUI("scheirer"))
+    "não paramétricos"
+    , tabPanel("Two-Sample Wilcoxon Test (alernativa t-test)", value="wilcoxon", wilcoxonTestUI("wilcoxon"))
+    , tabPanel("Kruskal-Wallis Test (alternativa one-way ANOVA)", value="kruskal", kruskalWallisUI("kruskal"))
+    , tabPanel("Scheirer–Ray–Hare Test (alternativa ao two-way e three-way ANOVA)", value="scheirer", scheirerRayHareUI("scheirer"))
   )
 )
 
@@ -56,8 +58,12 @@ server <- function(input, output, session) {
   observeEvent(input$mainNavPage, {
     if (input$mainNavPage == "ttest") {
       indSampleTTestMD("ttest")
+    } else if (input$mainNavPage == "paired-ttest") {
+      pairedTTestMD("paired-ttest")
     } else if (input$mainNavPage == "anova") {
       factorialAnovaMD("anova")
+    } else if (input$mainNavPage == "rep-anova") {
+      repMeasuresAnovaMD("rep-anova")
     } else if (input$mainNavPage == "ancova") {
       ancovaMD("ancova")
     } else if (input$mainNavPage == "wilcoxon") {
