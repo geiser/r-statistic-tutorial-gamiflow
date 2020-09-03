@@ -5,12 +5,14 @@ if (!"rshinystatistics" %in% rownames(installed.packages())) {
   remotes::install_github("geiser/rshinystatistics")
 }
 
-wants <- c('ggplot2','ggpubr','rshinystatistics','car','emmeans','stats','rstatix','utils','dplyr','rmarkdown', 'shiny')
+wants <- c('ggplot2','ggpubr','rshinystatistics','car','emmeans','careless','stats','rstatix','utils','dplyr','rmarkdown', 'shiny')
 has <- wants %in% rownames(installed.packages())
 if (any(!has)) install.packages(wants[!has])
 
 library(utils)
+library(ggplot2)
 library(ggpubr)
+library(careless)
 library(ggplot2)
 library(rstatix)
 library(emmeans)
@@ -45,9 +47,13 @@ ui <- navbarPage(
   ),
   navbarMenu(
     "não paramétricos"
-    , tabPanel("Two-Sample Wilcoxon Test (alernativa t-test)", value="wilcoxon", wilcoxonTestUI("wilcoxon"))
-    , tabPanel("Kruskal-Wallis Test (alternativa one-way ANOVA)", value="kruskal", kruskalWallisUI("kruskal"))
-    , tabPanel("Scheirer–Ray–Hare Test (alternativa ao two-way e three-way ANOVA)", value="scheirer", scheirerRayHareUI("scheirer"))
+    , tabPanel("Two-Sample Wilcoxon Test (alernative to t-test)", value="wilcoxon", wilcoxonTestUI("wilcoxon"))
+    , tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA)", value="kruskal", kruskalWallisUI("kruskal"))
+    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA)", value="scheirer", scheirerRayHareUI("scheirer"))
+  ),
+  navbarMenu(
+    "utilities"
+    , tabPanel("Identifying and removing careless responses", value="careless", removeCarelessUI("careless"))
   )
 )
 
@@ -72,6 +78,8 @@ server <- function(input, output, session) {
       kruskalWallisMD("kruskal")
     } else if (input$mainNavPage == "scheirer") {
       scheirerRayHareMD("scheirer")
+    } else if (input$mainNavPage == "careless") {
+      removeCarelessMD("careless")
     }
   })
   
