@@ -37,17 +37,26 @@ Prévio a seguir com o tutorial, recomendamos assistir o [material de apoio](htt
 
   [![Watch the video](https://img.youtube.com/vi/Joi_k_NmWvM/hqdefault.jpg)](https://www.youtube.com/embed/Joi_k_NmWvM)
 
-* Execução de teste t (independent two-sample t-test) de amostras independentes em rshiny-statistics
+* Execução de teste t de amostras independentes em rshiny-statistics  (independent two-sample t-test) 
 
   [![Watch the video](https://img.youtube.com/vi/zzGPqNTpu70/hqdefault.jpg)](https://www.youtube.com/embed/zzGPqNTpu70)
 
-* Execução de teste t (paired two-sample t-test) de amostras emparelhadas em rshiny-statistics
+* Execução de teste t de amostras emparelhadas em rshiny-statistics (paired two-sample t-test) 
 
-* Execução de teste ANOVA fatorial (factorial ANOVA) - one-way ANOVA, two-way ANOVA and three-way ANOVA 
+  [![Watch the video](https://img.youtube.com/vi/SlZIFdrQr9o/hqdefault.jpg)](https://www.youtube.com/embed/SlZIFdrQr9o)
+
+* Execução de teste ANCOVA em rshiny-statistics
+
+  [![Watch the video](https://img.youtube.com/vi/kSDY78TxsLc/hqdefault.jpg)](https://www.youtube.com/embed/kSDY78TxsLc)
+
+* Execução de teste ANOVA fatorial (factorial ANOVA) em rshiny-statistics (one-way ANOVA, two-way ANOVA and three-way ANOVA) 
+
+  [![Watch the video](https://img.youtube.com/vi/MRhdolkQWdM/hqdefault.jpg)](https://www.youtube.com/embed/MRhdolkQWdM)
 
 * Execução de teste ANOVA com medidas repetidas (repeated/mixed ANOVA) - one-way ANOVA, two-way ANOVA and three-way mixed ANOVA
 
-* Execução de teste ANCOVA
+  [![Watch the video](https://img.youtube.com/vi//hqdefault.jpg)](https://www.youtube.com/embed/)
+
 
 
 
