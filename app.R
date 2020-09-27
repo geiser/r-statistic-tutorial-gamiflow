@@ -1,7 +1,7 @@
 if (!'remotes' %in% rownames(installed.packages())) install.packages('remotes')
 if (!"rshinystatistics" %in% rownames(installed.packages())) {
   remotes::install_github("geiser/rshinystatistics")
-} else if (packageVersion("rshinystatistics") < "0.0.0.9029") {
+} else if (packageVersion("rshinystatistics") < "0.0.0.9030") {
   remotes::install_github("geiser/rshinystatistics")
 }
 
