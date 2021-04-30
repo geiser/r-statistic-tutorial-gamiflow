@@ -3,16 +3,16 @@ Description=%i service of r-statistic-tutorial-gamiflow with docker-compose
 
 [Service]
 Restart=always
-WorkingDirectory=/cygdrive/d/Users/gcc/Workspace/r-statistic-tutorial-gamiflow
+WorkingDirectory=/home/geiser/r-statistic-tutorial-gamiflow
 # Remove old containers, pull images and build containers
-ExecStartPre=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p r-statistic-tutorial-gamiflow down -v
-ExecStartPre=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p r-statistic-tutorial-gamiflow pull %i
-ExecStartPre=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p r-statistic-tutorial-gamiflow build --force-rm %i
+ExecStartPre=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow down -v
+ExecStartPre=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow pull %i
+ExecStartPre=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow build --force-rm %i
 # Compose up
-ExecStart=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p r-statistic-tutorial-gamiflow up --no-build %i
+ExecStart=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow up --no-build %i
 # Compose down and restart
-ExecStop=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p r-statistic-tutorial-gamiflow down -v
-ExecReload=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p r-statistic-tutorial-gamiflow restart %i
+ExecStop=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow down -v
+ExecReload=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow restart %i
 
 [Install]
 WantedBy=multi-user.target

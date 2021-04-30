@@ -16,7 +16,7 @@ services:
     image: geiser/r-statistic-tutorial-gamiflow_shiny
     container_name: r-statistic-tutorial-gamiflow_shiny
     ports:
-      - "3636:3838"
+      - "3838:3838"
     volumes:
       - '.:/srv/shiny-server/r-statistic-tutorial-gamiflow'
       - './shiny_logs:/var/log/shiny-server'
