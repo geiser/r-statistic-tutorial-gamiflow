@@ -5,6 +5,8 @@ https://github.com/geiser/r-statistic-tutorial-gamiflow/wiki
 
 Pode baixar o aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip 
 
+Versão demo da aplicação: https://weblab.nees.com.br/r-statistic-tutorial-gamiflow/
+
 # Análises Estatísca em R (Pesquisa com Gamiflow)
 
 Seja bem-vindo ao tutorial de **análises estatistica** em R para pesquisas de gamificação na educação com o framework **Gamiflow**.
