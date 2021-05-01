@@ -1,3 +1,42 @@
+# Intalar a aplicação usando Docker
+
+Prerequisitos:
+
+- Instalar docker (https://docs.docker.com/engine/install/)
+- Instalar docker-compose (https://docs.docker.com/compose/install/)
+
+
+No terminal, baixar o código fonte da aplicação executando:
+
+```
+git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
+```
+
+configurar o arquivo Makefile 
+
+```
+./configure
+```
+
+baixar imagem do docker
+
+```
+make pull service=shiny
+```
+
+executar aplicação
+
+```
+make up service=shiny
+```
+
+parar aplicação
+
+```
+make down service=shiny 
+```
+
+
 # Tutorial em português para análises de dados em R
 
 O tutorial de passo a apasso na wiki:
