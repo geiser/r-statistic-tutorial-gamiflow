@@ -26,7 +26,6 @@ Passos:
 ```
 git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
 ```
-
 2. configurar o arquivo Makefile 
 ```
 ./configure
