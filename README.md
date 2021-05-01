@@ -7,9 +7,12 @@ Prerequisitos:
 
 Passos:
 1. Baixar o código fonte: Pode baixar o aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
+   
    [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
+   
 2. Abrir o arquivo app.R 
 3. Executar o aplicativo do arquivo app.R 
+   
    [![Watch the video](https://img.youtube.com/vi/5qjEO99wZuE/hqdefault.jpg)](https://www.youtube.com/embed/5qjEO99wZuE)
 
 ### Instalar a aplicação usando Docker
@@ -23,6 +26,7 @@ Passos:
 ```
 git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
 ```
+
 2. configurar o arquivo Makefile 
 ```
 ./configure
