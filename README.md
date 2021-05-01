@@ -1,41 +1,44 @@
-# Intalar a aplicação usando Docker
+# Instalar a aplicação
+
+### Instalar a aplicação em r-studio
 
 Prerequisitos:
+- Instalar r-studio (https://www.rstudio.com/products/rstudio/)
 
+Passos:
+1. Baixar o código fonte: Pode baixar o aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
+   [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
+2. Abrir o arquivo app.R 
+3. Executar o aplicativo do arquivo app.R 
+   [![Watch the video](https://img.youtube.com/vi/5qjEO99wZuE/hqdefault.jpg)](https://www.youtube.com/embed/5qjEO99wZuE)
+
+### Instalar a aplicação usando Docker
+
+Prerequisitos:
 - Instalar docker (https://docs.docker.com/engine/install/)
 - Instalar docker-compose (https://docs.docker.com/compose/install/)
 
-
-No terminal, baixar o código fonte da aplicação executando:
-
+Passos:
+1. No terminal, baixar o código fonte da aplicação executando:
 ```
 git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
 ```
-
-configurar o arquivo Makefile 
-
+2. configurar o arquivo Makefile 
 ```
 ./configure
 ```
-
-baixar imagem do docker
-
+3. baixar imagem do docker
 ```
 make pull service=shiny
 ```
-
-executar aplicação
-
+4. executar aplicação
 ```
 make up service=shiny
 ```
-
-parar aplicação
-
+5. parar aplicação
 ```
 make down service=shiny 
 ```
-
 
 # Tutorial em português para análises de dados em R
 
@@ -59,14 +62,6 @@ Prévio a seguir com o tutorial, recomendamos assistir o [material de apoio](htt
   
 
 # Vídeos tutorial de apoio
-
-* Como baixar o código do projeto do rshiny-statistics statisticas para iniciar as análises estatíscas
-
-  [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
-
-* Como executar o rshiny-statistic usando o r-studio
-
-  [![Watch the video](https://img.youtube.com/vi/5qjEO99wZuE/hqdefault.jpg)](https://www.youtube.com/embed/5qjEO99wZuE)
 
 * Como subir seu projeto e iniciar as análises estatíscas no [https://rstudio.cloud/](https://rstudio.cloud/) <- alternativa ao rstudio desktop
 
