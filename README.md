@@ -4,6 +4,7 @@
 
 Prerequisitos:
 - Instalar r-studio (https://www.rstudio.com/products/rstudio/)
+- Em windows 10/8 ou outro ativar encoding UTF-8 (https://consignor.zendesk.com/hc/en-us/articles/360016886479-Errors-caused-by-Windows-10-Unicode-UTF-8-encoding#:~:text=Open%20Windows%20Control%20Panel%20%2D%3E%20Region,OK%20and%20restart%20your%20computer.)
 
 Passos:
 1. Baixar o código fonte: Pode baixar o aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
