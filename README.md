@@ -20,25 +20,33 @@ Passos:
    cd r-statistic-tutorial-gamiflow
    ```
 
-3. Baixar a imagem docker da aplicação
+3. Em linux ou mac os, você devera criar e atribuir permissões de leitura e escrita para todos usuários na pasta `report`
+   ```
+   mkdir report
+   sudo chmod a+rw report
+   ```
+
+4. Baixar a imagem docker da aplicação
    ```
    docker-compose pull shiny
    ```
 
-4. Inicializar a aplicação usando docker
+5. Inicializar a aplicação usando docker
    ```
    docker-compose up -d shiny
    ```
 
-5. Acessar à aplicação no browser no site: http://localhost:3838/r-statistic-tutorial-gamiflow/
+6. Acessar à aplicação no browser no site: http://localhost:3838/r-statistic-tutorial-gamiflow/
 
 
-6. Parar a aplicação usando docker
+7. Parar a aplicação usando docker
    ```
    docker-compose down
    ```
 
-   [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
+*Video de instalação em windows* 
+
+   [![Watch the video](https://img.youtube.com/vi/aPuLWGwQYHU/hqdefault.jpg)](https://www.youtube.com/embed/aPuLWGwQYHU)
 
 
 
@@ -58,33 +66,6 @@ Passos:
    
    [![Watch the video](https://img.youtube.com/vi/5qjEO99wZuE/hqdefault.jpg)](https://www.youtube.com/embed/5qjEO99wZuE)
 
-### Instalar a aplicação usando Docker
-
-Prerequisitos:
-- Instalar docker (https://docs.docker.com/engine/install/)
-- Instalar docker-compose (https://docs.docker.com/compose/install/)
-
-Passos:
-1. No terminal, baixar o código fonte da aplicação executando:
-```
-git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
-```
-2. configurar o arquivo Makefile 
-```
-./configure
-```
-3. baixar imagem do docker
-```
-make pull service=shiny
-```
-4. executar aplicação
-```
-make up service=shiny
-```
-5. parar aplicação
-```
-make down service=shiny 
-```
 
 # Tutorial em português para análises de dados em R
 
