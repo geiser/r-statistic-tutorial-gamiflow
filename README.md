@@ -44,7 +44,7 @@ Passos:
    docker-compose down
    ```
 
-*Video de instalação em windows* 
+*Video de instalação da aplicação usando Docker em windows* 
 
    [![Watch the video](https://img.youtube.com/vi/aPuLWGwQYHU/hqdefault.jpg)](https://www.youtube.com/embed/aPuLWGwQYHU)
 
@@ -54,17 +54,28 @@ Passos:
 
 Prerequisitos:
 - Instalar r-studio (https://www.rstudio.com/products/rstudio/)
-- Ativar encoding UTF-8 para windows 10/8 (https://consignor.zendesk.com/hc/en-us/articles/360016886479-Errors-caused-by-Windows-10-Unicode-UTF-8-encoding#:~:text=Open%20Windows%20Control%20Panel%20%2D%3E%20Region,OK%20and%20restart%20your%20computer.)
+- Ativar encoding UTF-8 para windows 10/8 (https://tinyurl.com/v3rpa992)
+- Instalar github para baixar o código usando github (https://git-scm.com/downloads)
+
+> **OBSERVAÇÃO IMPORTANTE**
+>  Quando o aplicativo é executado em Windows r-studio, o arquivo de dados (dataset) a ser utilizado na análise de dados necesáriamente deve evitar o uso de
+>  cedilhas, acentuação e outros caracteres especiais (remova todos esses caracteres no seu arquivo de dados)
 
 Passos:
-1. Baixar o código fonte: Pode baixar o aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
+1. Baixar o código fonte da aplicação usando alguma das duas alternativas
+   - Pode baixar o código do aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
+   - Pode baixar o código do aplicativo usando git
+   ```
+   git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
+   ```
    
+2. Abrir o arquivo app.R e executar o aplicativo do arquivo app.R 
+   
+*Video de instalação da aplicação usando r-studio * 
+
    [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
-   
-2. Abrir o arquivo app.R 
-3. Executar o aplicativo do arquivo app.R 
-   
    [![Watch the video](https://img.youtube.com/vi/5qjEO99wZuE/hqdefault.jpg)](https://www.youtube.com/embed/5qjEO99wZuE)
+
 
 
 # Tutorial em português para análises de dados em R
