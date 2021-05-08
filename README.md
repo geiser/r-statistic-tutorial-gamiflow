@@ -58,8 +58,8 @@ Prerequisitos:
 - Instalar github para baixar o código usando github (https://git-scm.com/downloads)
 
 > **OBSERVAÇÃO IMPORTANTE**
->  Quando o aplicativo é executado em Windows r-studio, o arquivo de dados (dataset) a ser utilizado na análise de dados necesáriamente deve evitar o uso de
->  cedilhas, acentuação e outros caracteres especiais (remova todos esses caracteres no seu arquivo de dados)
+>  Quando o aplicativo é executado em Windows usando o r-studio, o arquivo de dados (dataset) a ser utilizado na análise de dados
+>  necesáriamente deve evitar o uso de cedilhas, acentuação e outros caracteres especiais (remova todos esses caracteres no seu arquivo de dados)
 
 Passos:
 1. Baixar o código fonte da aplicação usando alguma das duas alternativas
