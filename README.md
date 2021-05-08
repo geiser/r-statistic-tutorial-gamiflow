@@ -1,10 +1,52 @@
 # Instalar a aplicação
 
+### Instalar a aplicação usando Docker (recomendado)
+
+Prerequisitos:
+- Instalar Docker (https://docs.docker.com/get-docker/) - após instalação precisa reiniciar o sistema operativo
+- Instalar WLS2 se usar Windows 10/8 (https://aka.ms/wsl2kernel)
+- Instalar github para baixar o código usando github (https://git-scm.com/downloads)
+
+Passos:
+1. Baixar o código fonte da aplicação usando alguma das duas alternativas
+   - Pode baixar o código do aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
+   - Pode baixar o código do aplicativo usando git
+   ```
+   git clone https://github.com/geiser/r-statistic-tutorial-gamiflow.git
+   ```
+
+2. No terminal, acessar na pasta do código fonte
+   ```
+   cd r-statistic-tutorial-gamiflow
+   ```
+
+3. Baixar a imagem docker da aplicação
+   ```
+   docker-compose pull shiny
+   ```
+
+4. Inicializar a aplicação usando docker
+   ```
+   docker-compose up -d shiny
+   ```
+
+5. Acessar à aplicação no browser no site: http://localhost:3838/r-statistic-tutorial-gamiflow/
+
+
+6. Parar a aplicação usando docker
+   ```
+   docker-compose down
+   ```
+
+   [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
+
+
+
 ### Instalar a aplicação em r-studio
 
 Prerequisitos:
 - Instalar r-studio (https://www.rstudio.com/products/rstudio/)
-- Em windows 10/8 ou outro ativar encoding UTF-8 (https://consignor.zendesk.com/hc/en-us/articles/360016886479-Errors-caused-by-Windows-10-Unicode-UTF-8-encoding#:~:text=Open%20Windows%20Control%20Panel%20%2D%3E%20Region,OK%20and%20restart%20your%20computer.)
+- Ativar encoding UTF-8 para windows 10/8 (https://consignor.zendesk.com/hc/en-us/articles/360016886479-Errors-caused-by-Windows-10-Unicode-UTF-8-encoding#:~:text=Open%20Windows%20Control%20Panel%20%2D%3E%20Region,OK%20and%20restart%20your%20computer.)
 
 Passos:
 1. Baixar o código fonte: Pode baixar o aplicativo fazendo click no botão (code) ou diretamente no link: https://github.com/geiser/r-statistic-tutorial-gamiflow/archive/master.zip
