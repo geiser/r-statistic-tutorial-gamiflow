@@ -50,7 +50,7 @@ Passos:
 
 
 
-### Instalar a aplicação em r-studio
+### Alternativamente pode instalar a aplicação em r-studio
 
 Prerequisitos:
 - Instalar r-studio (https://www.rstudio.com/products/rstudio/)
