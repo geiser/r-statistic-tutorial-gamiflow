@@ -1,6 +1,6 @@
 # Instalar a Aplicação
 
-### Instalar a aplicação usando Docker (recomendado)
+### Instalar a aplicação usando Docker (método recomendado)
 
 Prerequisitos:
 - Instalar Docker (https://docs.docker.com/get-docker/) - após instalação precisa reiniciar o sistema operativo
@@ -50,7 +50,7 @@ Passos:
 
 
 
-### Alternativamente pode instalar a aplicação em r-studio
+### Instalar a aplicação em r-studio (método alternativo)
 
 Prerequisitos:
 - Instalar r-studio (https://www.rstudio.com/products/rstudio/)
