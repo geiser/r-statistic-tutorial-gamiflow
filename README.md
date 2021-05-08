@@ -71,7 +71,7 @@ Passos:
    
 2. Abrir o arquivo app.R e executar o aplicativo do arquivo app.R 
    
-*Video de instalação da aplicação usando r-studio * 
+*Video de instalação da aplicação usando r-studio* 
 
    [![Watch the video](https://img.youtube.com/vi/Dcpdo4MW2g4/hqdefault.jpg)](https://www.youtube.com/embed/Dcpdo4MW2g4)
    [![Watch the video](https://img.youtube.com/vi/5qjEO99wZuE/hqdefault.jpg)](https://www.youtube.com/embed/5qjEO99wZuE)
