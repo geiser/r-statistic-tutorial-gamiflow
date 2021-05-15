@@ -53,6 +53,7 @@ Passos:
 ### Instalar a aplicação em r-studio (método alternativo)
 
 Prerequisitos:
+- Instalar R 4.0.5 (https://vps.fmvz.usp.br/CRAN/)
 - Instalar r-studio (https://www.rstudio.com/products/rstudio/)
 - Ativar encoding UTF-8 para windows 10/8 (https://tinyurl.com/v3rpa992)
 - Instalar github para baixar o código usando github (https://git-scm.com/downloads)
