@@ -3,7 +3,7 @@ Description=%i service of r-statistic-tutorial-gamiflow with docker-compose
 
 [Service]
 Restart=always
-WorkingDirectory=/home/geiser/r-statistic-tutorial-gamiflow
+WorkingDirectory=/Users/gcc/r-statistic-tutorial-gamiflow
 # Remove old containers, pull images and build containers
 ExecStartPre=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow down -v
 ExecStartPre=/usr/local/bin/docker-compose -p r-statistic-tutorial-gamiflow pull %i

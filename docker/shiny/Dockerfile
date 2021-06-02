@@ -16,7 +16,6 @@ RUN chown -R shiny:shiny /opt/texlive \
 RUN chown -R shiny:shiny /usr/local/texlive \
     && chmod -R 777 /usr/local/texlive
 
-RUN R -e 'remotes::install_github("geiser/rshinystatistics")'
 RUN install2.r -s robcbi \
     && install2.r -s remotes \
     && install2.r -s rmarkdown \
@@ -32,5 +31,7 @@ RUN install2.r -s moments \
 RUN install2.r -s shinyBS
 RUN install2.r -s plotly
 RUN install2.r -s nortest
+
+RUN R -e 'if (packageVersion("rshinystatistics") < "0.0.0.9100") { remove.packages("rshinystatistics"); remotes::install_github("geiser/rshinystatistics") }'
 
 RUN rm -rf /var/lib/apt/lists/*
