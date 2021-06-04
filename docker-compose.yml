@@ -1,14 +1,5 @@
 version: '3.7'
 services:
-  dev:
-    image: geiser/r-studio:latest
-    container_name: r-statistic-tutorial-gamiflow
-    restart: unless-stopped
-    tty: true
-    volumes:
-      - ./:/home/rstudio 
-    ports:
-      - "8787:8787"
   shiny:
     build:
       context: ./docker/shiny
