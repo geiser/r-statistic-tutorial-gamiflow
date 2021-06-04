@@ -49,7 +49,7 @@ ui <- navbarPage(
     "não paramétricos"
     #, tabPanel("Two-Sample Wilcoxon Test (alernative to t-test) (temp disabled)", value="wilcoxon", wilcoxonTestUI("wilcoxon"))
     #, tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA) (temp disabled)", value="kruskal", kruskalWallisUI("kruskal"))
-    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA) (temp disabled)", value="scheirer", scheirerRayHareUI("scheirer"))
+    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA)", value="scheirer", scheirerRayHareUI("scheirer"))
   ),
   navbarMenu(
     "utilities"
