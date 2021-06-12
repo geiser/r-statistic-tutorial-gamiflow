@@ -13,7 +13,7 @@ services:
     build:
       context: ./docker/shiny
       target: v0.01
-    image: geiser/r-statistic-tutorial-gamiflow_shiny
+    image: geiser/r-statistic-tutorial-gamiflow_shiny:latest
     container_name: r-statistic-tutorial-gamiflow_shiny
     ports:
       - "3838:3838"
