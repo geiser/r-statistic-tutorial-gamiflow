@@ -10,15 +10,6 @@ LABEL org.label-schema.license="GPL-3.0" \
 RUN apt-get update -qq \
     && apt-get -y --no-install-recommends install
 
-<<<<<<< HEAD
-=======
-#RUN /rocker_scripts/install_texlive.sh
-#RUN chown -R shiny:shiny /opt/texlive \
-#    && chmod -R 777 /opt/texlive
-#RUN chown -R shiny:shiny /usr/local/texlive \
-#    && chmod -R 777 /usr/local/texlive
-
->>>>>>> 7844d8ae06ef2382d2a059c61a32de6608275435
 RUN install2.r -s robcbi \
     && install2.r -s remotes \
     && install2.r -s rmarkdown \
@@ -35,12 +26,8 @@ RUN install2.r -s shinyBS
 RUN install2.r -s plotly
 RUN install2.r -s nortest
 
-<<<<<<< HEAD
 RUN R -e 'if (!"rshinystatistics" %in% rownames(installed.packages())) remotes::install_github("geiser/rshinystatistics")'
-RUN R -e 'if (packageVersion("rshinystatistics") < "0.0.0.9100") { remove.packages("rshinystatistics"); remotes::install_github("geiser/rshinystatistics") }'
-=======
-RUN R -e 'remotes::install_github("geiser/rshinystatistics")'
->>>>>>> 7844d8ae06ef2382d2a059c61a32de6608275435
+RUN R -e 'if (packageVersion("rshinystatistics") < "0.0.0.9185") { remove.packages("rshinystatistics"); remotes::install_github("geiser/rshinystatistics") }'
 
 RUN rm -rf /var/lib/apt/lists/*
 
