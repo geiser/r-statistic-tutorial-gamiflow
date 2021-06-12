@@ -1,7 +1,8 @@
 if (!'remotes' %in% rownames(installed.packages())) install.packages('remotes')
 if (!"rshinystatistics" %in% rownames(installed.packages())) {
   remotes::install_github("geiser/rshinystatistics")
-} else if (packageVersion("rshinystatistics") < "0.0.0.9100") {
+} else if (packageVersion("rshinystatistics") < "0.0.0.9185") {
+  remove.packages("rshinystatistics")
   remotes::install_github("geiser/rshinystatistics")
 }
 
@@ -37,19 +38,19 @@ ui <- navbarPage(
   navbarMenu(
     "T-test"
     , tabPanel("Independent Two-Sample T-test  (temp disabled)", value="ttest", indSampleTTestUI("ttest"))
-    , tabPanel("Paired Two-Sample T-test  (temp disabled)", value="paired-ttest", pairedTTestUI("paired-ttest"))
+    #, tabPanel("Paired Two-Sample T-test  (temp disabled)", value="paired-ttest", pairedTTestUI("paired-ttest"))
   ),
   navbarMenu(
     "ANCOVA / ANOVA"
     , tabPanel("ANCOVA", value="ancova", ancovaUI("ancova"))
     , tabPanel("Factorial ANOVA (temp disabled)", value="anova", factorialAnovaUI("anova"))
-    , tabPanel("Repeated Measures ANOVA (temp disabled)", value="rep-anova", repMeasuresAnovaUI("rep-anova"))
+    #, tabPanel("Repeated Measures ANOVA (temp disabled)", value="rep-anova", repMeasuresAnovaUI("rep-anova"))
   ),
   navbarMenu(
     "não paramétricos"
-    , tabPanel("Two-Sample Wilcoxon Test (alernative to t-test) (temp disabled)", value="wilcoxon", wilcoxonTestUI("wilcoxon"))
-    , tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA) (temp disabled)", value="kruskal", kruskalWallisUI("kruskal"))
-    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA) (temp disabled)", value="scheirer", scheirerRayHareUI("scheirer"))
+    , tabPanel("Two-Sample Wilcoxon Test (alernative to two independent t-test)", value="wilcoxon", nonParamTestUI("wilcoxon"))
+    , tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA)", value="kruskal", nonParamTestUI("kruskal"))
+    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA)", value="srh", nonParamTestUI("srh"))
   ),
   navbarMenu(
     "utilities"
@@ -73,11 +74,11 @@ server <- function(input, output, session) {
     } else if (input$mainNavPage == "ancova") {
       ancovaMD("ancova")
     } else if (input$mainNavPage == "wilcoxon") {
-      #wilcoxonTestMD("wilcoxon")
+      nonParamTestMD("wilcoxon")
     }  else if (input$mainNavPage == "kruskal") {
-      #kruskalWallisMD("kruskal")
-    } else if (input$mainNavPage == "scheirer") {
-      #scheirerRayHareMD("scheirer")
+      nonParamTestMD("kruskal")
+    } else if (input$mainNavPage == "srh") {
+      nonParamTestMD("srh")
     } else if (input$mainNavPage == "careless") {
       removeCarelessMD("careless")
     }
