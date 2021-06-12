@@ -37,13 +37,13 @@ ui <- navbarPage(
   ),
   navbarMenu(
     "T-test"
-    , tabPanel("Independent Two-Sample T-test  (temp disabled)", value="ttest", indSampleTTestUI("ttest"))
+    , tabPanel("Independent Two-Sample T-test", value="ttest", indSampleTTestUI("ttest"))
     #, tabPanel("Paired Two-Sample T-test  (temp disabled)", value="paired-ttest", pairedTTestUI("paired-ttest"))
   ),
   navbarMenu(
     "ANCOVA / ANOVA"
     , tabPanel("ANCOVA", value="ancova", ancovaUI("ancova"))
-    , tabPanel("Factorial ANOVA (temp disabled)", value="anova", factorialAnovaUI("anova"))
+    , tabPanel("Factorial ANOVA", value="anova", factorialAnovaUI("anova"))
     #, tabPanel("Repeated Measures ANOVA (temp disabled)", value="rep-anova", repMeasuresAnovaUI("rep-anova"))
   ),
   navbarMenu(
@@ -64,11 +64,11 @@ server <- function(input, output, session) {
   
   observeEvent(input$mainNavPage, {
     if (input$mainNavPage == "ttest") {
-      #indSampleTTestMD("ttest")
+      indSampleTTestMD("ttest")
     } else if (input$mainNavPage == "paired-ttest") {
       #pairedTTestMD("paired-ttest")
     } else if (input$mainNavPage == "anova") {
-      #factorialAnovaMD("anova")
+      factorialAnovaMD("anova")
     } else if (input$mainNavPage == "rep-anova") {
       #repMeasuresAnovaMD("rep-anova")
     } else if (input$mainNavPage == "ancova") {
