@@ -1,7 +1,7 @@
 if (!'remotes' %in% rownames(installed.packages())) install.packages('remotes')
 if (!"rshinystatistics" %in% rownames(installed.packages())) {
   remotes::install_github("geiser/rshinystatistics")
-} else if (packageVersion("rshinystatistics") < "0.0.0.9185") {
+} else if (packageVersion("rshinystatistics") < "0.0.0.9300") {
   remove.packages("rshinystatistics")
   remotes::install_github("geiser/rshinystatistics")
 }
@@ -37,20 +37,20 @@ ui <- navbarPage(
   ),
   navbarMenu(
     "T-test"
-    , tabPanel("Independent Two-Sample T-test", value="ttest", indSampleTTestUI("ttest"))
+    , tabPanel("Independent Two-Sample T-test", value="ttest", shinyHypothesisUI("ttest"))
     #, tabPanel("Paired Two-Sample T-test  (temp disabled)", value="paired-ttest", pairedTTestUI("paired-ttest"))
   ),
   navbarMenu(
     "ANCOVA / ANOVA"
-    , tabPanel("ANCOVA", value="ancova", ancovaUI("ancova"))
-    , tabPanel("Factorial ANOVA", value="anova", factorialAnovaUI("anova"))
+    , tabPanel("ANCOVA", value="ancova", shinyHypothesisUI("ancova"))
+    , tabPanel("Factorial ANOVA", value="anova", shinyHypothesisUI("anova"))
     #, tabPanel("Repeated Measures ANOVA (temp disabled)", value="rep-anova", repMeasuresAnovaUI("rep-anova"))
   ),
   navbarMenu(
     "não paramétricos"
-    , tabPanel("Two-Sample Wilcoxon Test (alernative to two independent t-test)", value="wilcoxon", nonParamTestUI("wilcoxon"))
-    , tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA)", value="kruskal", nonParamTestUI("kruskal"))
-    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA)", value="srh", nonParamTestUI("srh"))
+    , tabPanel("Two-Sample Wilcoxon Test (alernative to two independent t-test)", value="wilcoxon", shinyHypothesisUI("wilcoxon"))
+    , tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA)", value="kruskal", shinyHypothesisUI("kruskal"))
+    , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA)", value="srh", shinyHypothesisUI("srh"))
   ),
   navbarMenu(
     "utilities"
@@ -64,21 +64,21 @@ server <- function(input, output, session) {
   
   observeEvent(input$mainNavPage, {
     if (input$mainNavPage == "ttest") {
-      indSampleTTestMD("ttest")
+      shinyHypothesisMD("ttest")
     } else if (input$mainNavPage == "paired-ttest") {
       #pairedTTestMD("paired-ttest")
     } else if (input$mainNavPage == "anova") {
-      factorialAnovaMD("anova")
+      shinyHypothesisMD("anova")
     } else if (input$mainNavPage == "rep-anova") {
       #repMeasuresAnovaMD("rep-anova")
     } else if (input$mainNavPage == "ancova") {
-      ancovaMD("ancova")
+      shinyHypothesisMD("ancova")
     } else if (input$mainNavPage == "wilcoxon") {
-      nonParamTestMD("wilcoxon")
+      shinyHypothesisMD("wilcoxon")
     }  else if (input$mainNavPage == "kruskal") {
-      nonParamTestMD("kruskal")
+      shinyHypothesisMD("kruskal")
     } else if (input$mainNavPage == "srh") {
-      nonParamTestMD("srh")
+      shinyHypothesisMD("srh")
     } else if (input$mainNavPage == "careless") {
       removeCarelessMD("careless")
     }
@@ -88,3 +88,4 @@ server <- function(input, output, session) {
 
 ### RUN APPLICATIONS ###
 shinyApp(ui = ui, server = server)
+
