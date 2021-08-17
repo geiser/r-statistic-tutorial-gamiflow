@@ -27,7 +27,7 @@ RUN install2.r -s plotly
 RUN install2.r -s nortest
 
 RUN R -e 'if (!"rshinystatistics" %in% rownames(installed.packages())) remotes::install_github("geiser/rshinystatistics")'
-RUN R -e 'if (packageVersion("rshinystatistics") < "0.0.0.9185") { remove.packages("rshinystatistics"); remotes::install_github("geiser/rshinystatistics") }'
+RUN R -e 'if (packageVersion("rshinystatistics") < "0.0.0.9300") { remove.packages("rshinystatistics"); remotes::install_github("geiser/rshinystatistics") }'
 
 RUN rm -rf /var/lib/apt/lists/*
 
