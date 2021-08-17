@@ -56,7 +56,7 @@ ui <- navbarPage(
 #  navbarMenu(
 #    "utilities"
 #    , tabPanel("Identifying and removing careless responses", value="careless", removeCarelessUI("careless"))
-  )
+#  )
 )
 
 ### SERVER LOGIC ###
