@@ -51,10 +51,11 @@ ui <- navbarPage(
     , tabPanel("Two-Sample Wilcoxon Test (alernative to two independent t-test)", value="wilcoxon", shinyHypothesisUI("wilcoxon"))
     , tabPanel("Kruskal-Wallis Test (alternative to one-way ANOVA)", value="kruskal", shinyHypothesisUI("kruskal"))
     , tabPanel("Scheirer–Ray–Hare Test (alternative to two-way and three-way ANOVA)", value="srh", shinyHypothesisUI("srh"))
-  ),
-  navbarMenu(
-    "utilities"
-    , tabPanel("Identifying and removing careless responses", value="careless", removeCarelessUI("careless"))
+  )
+#  ,
+#  navbarMenu(
+#    "utilities"
+#    , tabPanel("Identifying and removing careless responses", value="careless", removeCarelessUI("careless"))
   )
 )
 
@@ -80,7 +81,7 @@ server <- function(input, output, session) {
     } else if (input$mainNavPage == "srh") {
       shinyHypothesisMD("srh")
     } else if (input$mainNavPage == "careless") {
-      removeCarelessMD("careless")
+#      removeCarelessMD("careless")
     }
   })
   
