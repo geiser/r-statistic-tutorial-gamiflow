@@ -55,11 +55,6 @@ stop: ## Stop the project services running as container
 down: stop ## Stop and remove the project services running as containers
 	$(DC) -p $(APP_NAME) down -v
 
-# Docker release - build, tag and push the container
-release: build publish ## Make a release by building and publishing the `{version}` as `latest` tagged containers to the docker.io
-
-release-nc: build-nc publish ## Make a release by building the container without caching the image, and publishing the `{version}` as `latest` tagged containers in the docker.io
-
 # Docker publish
 publish: publish-latest publish-version ## Publish the `{version}` as `latest` tagged containers to docker.io
 
@@ -98,26 +93,7 @@ else
 	$(DD) tag $(services_$(service)_image) $(services_$(service)_image):$(services_$(service)_build_target)
 endif
 
-# Docker installing as systemd
-install: all  ## Install a service of the project as systemd
-	@mkdir -p $(PREFIX)
-ifneq ($(shell pwd),$(PREFIX))
-	@cp -v *.R $(PREFIX)/
-	@cp -v *.yml $(PREFIX)/
-	@cp -vR docker $(PREFIX)/
-	@mkdir -p $(PREFIX)/shiny_logs
-endif
-	@cp -v docker-compose.service /etc/systemd/system/$(APP_NAME)@.service
-
-# Development environment
-dev: ## Start r-server in http://127.0.0.0.1:8787/ to continue with the development
-	@$(DD) pull geiser/r-studio:latest
-	$(DC) -p "$(APP_NAME)_dev" up --no-build -d dev
-	
 # HELPERS
-prune: ## clean all that is not actively used
-	$(DD) system prune -af
-
 version: ## output to version
 ifndef service
 	$(error service variable is not set. Use 'make version service={service}')
